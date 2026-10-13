@@ -577,47 +577,80 @@
             body {
                 height: 100vh;
                 height: 100dvh;
+                display: flex;
+                flex-direction: column;
                 overflow: hidden;
-                padding-bottom: 56px;
+                padding-bottom: calc(56px + env(safe-area-inset-bottom, 0px)) !important;
+                margin: 0;
             }
 
             header {
-                padding: 8px 12px;
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 6px;
-                height: auto;
+                height: 48px !important;
+                min-height: 48px !important;
+                max-height: 48px !important;
+                padding: 0 12px !important;
+                display: flex !important;
+                flex-direction: row !important;
+                justify-content: space-between !important;
+                align-items: center !important;
+                gap: 8px !important;
+                flex-shrink: 0 !important;
+                border-bottom: 1px solid var(--border);
+                background: var(--bg-surface) !important;
+                z-index: 1100;
             }
 
-            header .logo-area h1 {
-                font-size: 13px;
-                line-height: 1.25;
+            header .logo-area {
+                display: flex !important;
+                align-items: center !important;
+                gap: 8px !important;
+                min-width: 0 !important;
+                flex: 1 !important;
+                overflow: hidden !important;
+            }
+
+            header .badge-live {
+                font-size: 9px !important;
+                padding: 2px 6px !important;
+                flex-shrink: 0 !important;
+                letter-spacing: 0.3px !important;
+            }
+
+            header h1 {
+                font-size: 13px !important;
+                font-weight: 800 !important;
+                white-space: nowrap !important;
+                overflow: hidden !important;
+                text-overflow: ellipsis !important;
             }
 
             .header-controls {
-                width: 100%;
-                overflow-x: auto;
-                -webkit-overflow-scrolling: touch;
-                scrollbar-width: none;
-            }
-            .header-controls::-webkit-scrollbar {
-                display: none;
+                display: none !important;
             }
 
-            .stats-strip {
-                gap: 8px;
-                flex-wrap: nowrap;
+            .mobile-header-badge {
+                display: inline-flex !important;
+                align-items: center;
+                gap: 4px;
+                font-size: 11px;
+                font-weight: 700;
+                color: var(--accent-blue);
+                background: rgba(56, 189, 248, 0.12);
+                border: 1px solid rgba(56, 189, 248, 0.3);
+                padding: 3px 8px;
+                border-radius: 6px;
                 white-space: nowrap;
-            }
-
-            .stat-item {
-                padding: 2px 8px;
+                flex-shrink: 0;
             }
 
             #main-container {
-                flex-direction: column;
-                height: calc(100% - 78px);
-                position: relative;
+                flex: 1 1 auto !important;
+                height: auto !important;
+                min-height: 0 !important;
+                width: 100% !important;
+                position: relative !important;
+                overflow: hidden !important;
+                flex-direction: column !important;
             }
 
             #resizer-gutter {
@@ -626,10 +659,17 @@
 
             /* Dedicated Full-Screen Tab Views */
             body.tab-map #map-pane {
-                display: block !important;
+                display: flex !important;
+                flex-direction: column !important;
                 width: 100% !important;
                 height: 100% !important;
-                flex: 1 !important;
+                flex: 1 1 auto !important;
+                min-height: 0 !important;
+            }
+            body.tab-map #map {
+                width: 100% !important;
+                height: 100% !important;
+                flex: 1 1 auto !important;
             }
             body.tab-map #data-pane {
                 display: none !important;
@@ -649,9 +689,9 @@
                 width: 100% !important;
                 height: 100% !important;
                 max-width: 100% !important;
-                flex: 1 !important;
-                padding: 12px;
-                padding-bottom: calc(68px + env(safe-area-inset-bottom, 0px)) !important;
+                flex: 1 1 auto !important;
+                min-height: 0 !important;
+                padding: 0 12px 24px 12px !important;
                 overflow-y: auto !important;
                 -webkit-overflow-scrolling: touch !important;
             }
@@ -665,6 +705,7 @@
 
             /* Tab Timeline rules */
             body.tab-timeline .mobile-day-jumper,
+            body.tab-timeline .mobile-stats-card,
             body.tab-timeline .downloads-bar,
             body.tab-timeline .towrig-box,
             body.tab-timeline .basecamp-box,
@@ -678,11 +719,15 @@
             }
             body.tab-timeline #sec-gantt {
                 display: block !important;
-                margin-top: 0 !important;
+                margin-top: 12px !important;
+            }
+            body.tab-timeline #sec-gantt > div {
+                padding: 14px 10px !important;
             }
 
             /* Tab Budget rules */
             body.tab-budget .mobile-day-jumper,
+            body.tab-budget .mobile-stats-card,
             body.tab-budget .towrig-box,
             body.tab-budget .basecamp-box,
             body.tab-budget .section-title-fleet,
@@ -694,71 +739,158 @@
             }
             body.tab-budget .section-title-budget {
                 display: flex !important;
-                margin-top: 4px !important;
+                margin-top: 12px !important;
             }
             body.tab-budget .budget-box {
                 display: block !important;
+                padding: 14px !important;
+            }
+            body.tab-budget .budget-grid-cols {
+                grid-template-columns: 1fr !important;
             }
 
-            /* Map Category Filter Bar - Horizontal Swipeable Chips */
+            /* Map Category Filter Bar - Horizontal Touch-Optimized Chips */
             .filter-toolbar {
-                top: 8px;
-                left: 8px;
-                right: 8px;
+                top: 8px !important;
+                left: 8px !important;
+                right: 8px !important;
                 flex-wrap: nowrap !important;
                 overflow-x: auto !important;
                 -webkit-overflow-scrolling: touch !important;
                 padding: 6px 8px !important;
                 gap: 6px !important;
-                scrollbar-width: none;
+                scrollbar-width: none !important;
+                touch-action: pan-x !important;
+                z-index: 1000 !important;
             }
             .filter-toolbar::-webkit-scrollbar {
-                display: none;
+                display: none !important;
             }
             .filter-btn {
                 flex-shrink: 0 !important;
                 font-size: 11px !important;
-                padding: 5px 10px !important;
+                padding: 6px 12px !important;
                 white-space: nowrap !important;
+                touch-action: manipulation !important;
+                -webkit-tap-highlight-color: transparent !important;
+            }
+
+            /* Relocate Leaflet Zoom Controls so they never collide with the filter bar */
+            .leaflet-top.leaflet-left {
+                top: 54px !important;
+                left: 8px !important;
             }
 
             /* Sticky Quick-Day Jumper */
             .mobile-day-jumper {
                 display: flex !important;
-                position: sticky;
-                top: 0;
-                z-index: 100;
-                background: rgba(15, 23, 42, 0.95);
-                backdrop-filter: blur(10px);
-                border-bottom: 1px solid var(--border);
-                padding: 8px 10px;
-                gap: 6px;
+                position: sticky !important;
+                top: 0 !important;
+                z-index: 100 !important;
+                background: rgba(15, 23, 42, 0.97) !important;
+                backdrop-filter: blur(12px) !important;
+                -webkit-backdrop-filter: blur(12px) !important;
+                border-bottom: 1px solid var(--border) !important;
+                padding: 8px 10px !important;
+                gap: 6px !important;
+                overflow-x: auto !important;
+                -webkit-overflow-scrolling: touch !important;
+                scrollbar-width: none !important;
+                margin: 0 -12px 14px -12px !important;
+                touch-action: pan-x !important;
+            }
+            .mobile-day-jumper::-webkit-scrollbar {
+                display: none !important;
+            }
+            .day-jump-btn {
+                flex-shrink: 0 !important;
+                background: #1e293b !important;
+                border: 1px solid #334155 !important;
+                color: #94a3b8 !important;
+                font-size: 11px !important;
+                font-weight: 700 !important;
+                padding: 6px 12px !important;
+                border-radius: 6px !important;
+                cursor: pointer !important;
+                text-decoration: none !important;
+                white-space: nowrap !important;
+                transition: all 0.15s ease !important;
+                touch-action: manipulation !important;
+                -webkit-tap-highlight-color: transparent !important;
+            }
+            .day-jump-btn:active, .day-jump-btn.active {
+                background: #2563eb !important;
+                color: #fff !important;
+                border-color: #38bdf8 !important;
+            }
+
+            /* Mobile Stats Summary Card in Itinerary */
+            .mobile-stats-card {
+                display: flex !important;
+                background: #111827;
+                border: 1px solid var(--border);
+                border-radius: 8px;
+                padding: 8px 12px;
+                margin-bottom: 14px;
+                gap: 8px;
                 overflow-x: auto;
                 -webkit-overflow-scrolling: touch;
                 scrollbar-width: none;
-                margin: -12px -12px 14px -12px;
             }
-            .mobile-day-jumper::-webkit-scrollbar {
+            .mobile-stats-card::-webkit-scrollbar {
                 display: none;
             }
-            .day-jump-btn {
+            .mobile-stats-card .stat-item {
                 flex-shrink: 0;
-                background: #1e293b;
-                border: 1px solid #334155;
-                color: #94a3b8;
-                font-size: 11px;
-                font-weight: 700;
-                padding: 5px 10px;
-                border-radius: 6px;
-                cursor: pointer;
-                text-decoration: none;
-                white-space: nowrap;
-                transition: all 0.15s ease;
             }
-            .day-jump-btn:active, .day-jump-btn.active {
-                background: #2563eb;
-                color: #fff;
-                border-color: #3b82f6;
+
+            /* Responsive 2x2 Grid for Navigation Download Buttons */
+            .downloads-bar {
+                display: grid !important;
+                grid-template-columns: 1fr 1fr !important;
+                gap: 8px !important;
+                margin-bottom: 16px !important;
+            }
+            .dl-btn {
+                justify-content: center !important;
+                padding: 8px 10px !important;
+                font-size: 11px !important;
+                white-space: nowrap !important;
+                text-overflow: ellipsis !important;
+                overflow: hidden !important;
+            }
+
+            /* Day Cards & Scroll Margin */
+            .day-card {
+                scroll-margin-top: 56px !important;
+                padding: 14px 12px !important;
+            }
+
+            .btn-zoom {
+                background: rgba(56, 189, 248, 0.12) !important;
+                border: 1px solid #0284c7 !important;
+                color: #38bdf8 !important;
+                font-weight: 700 !important;
+                font-size: 12px !important;
+                padding: 10px !important;
+                border-radius: 8px !important;
+                box-shadow: 0 2px 8px rgba(2, 132, 199, 0.25) !important;
+                touch-action: manipulation !important;
+                -webkit-tap-highlight-color: transparent !important;
+            }
+            .btn-zoom:active {
+                background: #0284c7 !important;
+                color: #fff !important;
+            }
+
+            /* Gantt Chart Stage Column Freeze-Pane */
+            .gantt-col-stage {
+                position: sticky !important;
+                left: 0 !important;
+                background: #0f172a !important;
+                z-index: 10 !important;
+                box-shadow: 3px 0 8px rgba(0, 0, 0, 0.6) !important;
+                width: 130px !important;
             }
 
             /* Floating Toast for Cross-View Focus */
@@ -767,15 +899,16 @@
                 bottom: 24px;
                 left: 50%;
                 transform: translateX(-50%) translateY(20px);
-                background: rgba(15, 23, 42, 0.94);
+                background: rgba(15, 23, 42, 0.95);
                 backdrop-filter: blur(8px);
-                border: 1px solid #3b82f6;
-                color: #60a5fa;
+                -webkit-backdrop-filter: blur(8px);
+                border: 1px solid #38bdf8;
+                color: #38bdf8;
                 padding: 8px 16px;
                 border-radius: 20px;
                 font-size: 12px;
                 font-weight: 700;
-                box-shadow: 0 4px 16px rgba(0,0,0,0.6);
+                box-shadow: 0 6px 20px rgba(0,0,0,0.7);
                 z-index: 1500;
                 pointer-events: none;
                 opacity: 0;
@@ -790,48 +923,55 @@
             /* Persistent Bottom Navigation */
             #mobile-bottom-nav {
                 display: flex !important;
-                position: fixed;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                height: 56px;
-                background: rgba(15, 23, 42, 0.98);
-                backdrop-filter: blur(12px);
-                border-top: 1px solid #334155;
-                z-index: 2000;
-                justify-content: space-around;
-                align-items: center;
-                padding: 0 6px;
-                padding-bottom: env(safe-area-inset-bottom, 0px);
+                position: fixed !important;
+                bottom: 0 !important;
+                left: 0 !important;
+                right: 0 !important;
+                height: 56px !important;
+                height: calc(56px + env(safe-area-inset-bottom, 0px)) !important;
+                padding-bottom: env(safe-area-inset-bottom, 0px) !important;
+                background: rgba(15, 23, 42, 0.98) !important;
+                backdrop-filter: blur(16px) !important;
+                -webkit-backdrop-filter: blur(16px) !important;
+                border-top: 1px solid #334155 !important;
+                z-index: 2000 !important;
+                justify-content: space-around !important;
+                align-items: flex-start !important;
+                padding-top: 6px !important;
+                box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.6) !important;
             }
             .mobile-nav-btn {
-                flex: 1;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                background: transparent;
-                border: none;
-                color: #94a3b8;
-                padding: 6px 0;
-                cursor: pointer;
-                transition: all 0.15s ease;
-                gap: 2px;
+                flex: 1 !important;
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: center !important;
+                justify-content: center !important;
+                background: transparent !important;
+                border: none !important;
+                color: #94a3b8 !important;
+                cursor: pointer !important;
+                transition: all 0.15s ease !important;
+                gap: 2px !important;
+                -webkit-tap-highlight-color: transparent !important;
+                touch-action: manipulation !important;
+                user-select: none !important;
+                -webkit-user-select: none !important;
             }
             .mobile-nav-btn .nav-icon {
-                font-size: 17px;
-                line-height: 1;
+                font-size: 19px !important;
+                line-height: 1 !important;
+                transition: transform 0.15s ease !important;
             }
             .mobile-nav-btn .nav-label {
-                font-size: 10px;
-                font-weight: 600;
-                letter-spacing: 0.2px;
+                font-size: 10.5px !important;
+                font-weight: 700 !important;
+                letter-spacing: 0.2px !important;
             }
             .mobile-nav-btn.active {
-                color: #38bdf8;
+                color: #38bdf8 !important;
             }
             .mobile-nav-btn.active .nav-icon {
-                transform: scale(1.12);
+                transform: translateY(-2px) scale(1.15) !important;
             }
         }
 
@@ -839,6 +979,8 @@
         @media (min-width: 851px) {
             #mobile-bottom-nav,
             .mobile-day-jumper,
+            .mobile-stats-card,
+            .mobile-header-badge,
             #map-focus-toast {
                 display: none !important;
             }
@@ -851,6 +993,7 @@
             <span class="badge-live">Grand Expedition</span>
             <h1>🚛 2025 RAM 2500 Cummins Haul &amp; 🏍️ Blue Ridge Parkway Loop</h1>
         </div>
+        <div class="mobile-header-badge">2,790 mi • 7 Days</div>
         <div class="header-controls">
             <div class="stats-strip">
                 <div class="stat-item">
@@ -901,15 +1044,39 @@
             <!-- Mobile Sticky Quick-Day Jumper -->
             <div class="mobile-day-jumper">
                 <span style="font-size: 10px; color: #64748b; font-weight: 800; text-transform: uppercase; align-self: center; margin-right: 2px;">Day:</span>
-                <button type="button" class="day-jump-btn" onclick="jumpToDay(0)">0 (Haul)</button>
-                <button type="button" class="day-jump-btn" onclick="jumpToDay(1)">1 (Skyline)</button>
-                <button type="button" class="day-jump-btn" onclick="jumpToDay(2)">2 (Roanoke)</button>
-                <button type="button" class="day-jump-btn" onclick="jumpToDay(3)">3 (Boone)</button>
-                <button type="button" class="day-jump-btn" onclick="jumpToDay(4)">4 (Cherokee)</button>
-                <button type="button" class="day-jump-btn" onclick="jumpToDay(5)">5 (Dragon)</button>
-                <button type="button" class="day-jump-btn" onclick="jumpToDay(6)">6 (Nat Bridge)</button>
-                <button type="button" class="day-jump-btn" onclick="jumpToDay(7)">7 (Front Royal)</button>
-                <button type="button" class="day-jump-btn" onclick="jumpToDay(8)">8 (Return)</button>
+                <button type="button" class="day-jump-btn" id="jump-btn-0" onclick="jumpToDay(0)">0 (Haul)</button>
+                <button type="button" class="day-jump-btn" id="jump-btn-1" onclick="jumpToDay(1)">1 (Skyline)</button>
+                <button type="button" class="day-jump-btn" id="jump-btn-2" onclick="jumpToDay(2)">2 (Roanoke)</button>
+                <button type="button" class="day-jump-btn" id="jump-btn-3" onclick="jumpToDay(3)">3 (Boone)</button>
+                <button type="button" class="day-jump-btn" id="jump-btn-4" onclick="jumpToDay(4)">4 (Cherokee)</button>
+                <button type="button" class="day-jump-btn" id="jump-btn-5" onclick="jumpToDay(5)">5 (Dragon)</button>
+                <button type="button" class="day-jump-btn" id="jump-btn-6" onclick="jumpToDay(6)">6 (Nat Bridge)</button>
+                <button type="button" class="day-jump-btn" id="jump-btn-7" onclick="jumpToDay(7)">7 (Front Royal)</button>
+                <button type="button" class="day-jump-btn" id="jump-btn-8" onclick="jumpToDay(8)">8 (Return)</button>
+            </div>
+
+            <!-- Mobile Quick Stats Bar -->
+            <div class="mobile-stats-card">
+                <div class="stat-item">
+                    <span class="stat-val">2,790.3 mi</span>
+                    <span class="stat-lbl">Total Dist</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-val">1,349.7 mi</span>
+                    <span class="stat-lbl">Moto Loop</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-val">7 Days</span>
+                    <span class="stat-lbl">Saddle</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-val">27</span>
+                    <span class="stat-lbl">Tunnels</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-val">137</span>
+                    <span class="stat-lbl">POIs</span>
+                </div>
             </div>
 
             <!-- Navigation Downloads -->
@@ -1364,7 +1531,7 @@
                 
                 <!-- Time Scale Header -->
                 <div style="display: flex; align-items: center; margin-bottom: 8px; font-family: monospace; font-size: 0.75rem; color: #94a3b8;">
-                    <div style="width: 160px; flex-shrink: 0; font-weight: 700; color: #cbd5e1; text-transform: uppercase; letter-spacing: 0.5px;">Stage &amp; Date</div>
+                    <div class="gantt-col-stage" style="width: 160px; flex-shrink: 0; font-weight: 700; color: #cbd5e1; text-transform: uppercase; letter-spacing: 0.5px;">Stage &amp; Date</div>
                     <div style="flex: 1; position: relative; height: 24px; border-bottom: 1px solid #475569;">
                         <span style="position: absolute; left: 0.00%; transform: translateX(0); top: 2px;">06:00</span>
                         <span style="position: absolute; left: 11.11%; transform: translateX(-50%); top: 2px;">08:00</span>
@@ -1387,7 +1554,7 @@
                      onclick="if(typeof focusDay==='function') focusDay(1); const el=document.getElementById('day-card-1'); if(el) el.scrollIntoView({behavior: 'smooth', block: 'center'});">
                     
                     <!-- Day Label (Clickable) -->
-                    <div style="width: 160px; flex-shrink: 0; display: flex; flex-direction: column; justify-content: center; padding-right: 12px;">
+                    <div class="gantt-col-stage" style="width: 160px; flex-shrink: 0; display: flex; flex-direction: column; justify-content: center; padding-right: 12px;">
                         <div style="display: flex; align-items: center; justify-content: space-between;">
                             <span style="font-weight: 700; font-size: 0.82rem; color: #f8fafc;">Day 1</span>
                             <span style="font-size: 0.75rem; color: #38bdf8; font-family: monospace;">112.8 mi (181.5 km)</span>
@@ -1482,7 +1649,7 @@
                      onclick="if(typeof focusDay==='function') focusDay(2); const el=document.getElementById('day-card-2'); if(el) el.scrollIntoView({behavior: 'smooth', block: 'center'});">
                     
                     <!-- Day Label (Clickable) -->
-                    <div style="width: 160px; flex-shrink: 0; display: flex; flex-direction: column; justify-content: center; padding-right: 12px;">
+                    <div class="gantt-col-stage" style="width: 160px; flex-shrink: 0; display: flex; flex-direction: column; justify-content: center; padding-right: 12px;">
                         <div style="display: flex; align-items: center; justify-content: space-between;">
                             <span style="font-weight: 700; font-size: 0.82rem; color: #f8fafc;">Day 2</span>
                             <span style="font-size: 0.75rem; color: #38bdf8; font-family: monospace;">136.2 mi (219.2 km)</span>
@@ -1589,7 +1756,7 @@
                      onclick="if(typeof focusDay==='function') focusDay(3); const el=document.getElementById('day-card-3'); if(el) el.scrollIntoView({behavior: 'smooth', block: 'center'});">
                     
                     <!-- Day Label (Clickable) -->
-                    <div style="width: 160px; flex-shrink: 0; display: flex; flex-direction: column; justify-content: center; padding-right: 12px;">
+                    <div class="gantt-col-stage" style="width: 160px; flex-shrink: 0; display: flex; flex-direction: column; justify-content: center; padding-right: 12px;">
                         <div style="display: flex; align-items: center; justify-content: space-between;">
                             <span style="font-weight: 700; font-size: 0.82rem; color: #f8fafc;">Day 3</span>
                             <span style="font-size: 0.75rem; color: #38bdf8; font-family: monospace;">178.1 mi (286.6 km)</span>
@@ -1708,7 +1875,7 @@
                      onclick="if(typeof focusDay==='function') focusDay(4); const el=document.getElementById('day-card-4'); if(el) el.scrollIntoView({behavior: 'smooth', block: 'center'});">
                     
                     <!-- Day Label (Clickable) -->
-                    <div style="width: 160px; flex-shrink: 0; display: flex; flex-direction: column; justify-content: center; padding-right: 12px;">
+                    <div class="gantt-col-stage" style="width: 160px; flex-shrink: 0; display: flex; flex-direction: column; justify-content: center; padding-right: 12px;">
                         <div style="display: flex; align-items: center; justify-content: space-between;">
                             <span style="font-weight: 700; font-size: 0.82rem; color: #f8fafc;">Day 4</span>
                             <span style="font-size: 0.75rem; color: #38bdf8; font-family: monospace;">187.6 mi (301.9 km)</span>
@@ -1839,7 +2006,7 @@
                      onclick="if(typeof focusDay==='function') focusDay(5); const el=document.getElementById('day-card-5'); if(el) el.scrollIntoView({behavior: 'smooth', block: 'center'});">
                     
                     <!-- Day Label (Clickable) -->
-                    <div style="width: 160px; flex-shrink: 0; display: flex; flex-direction: column; justify-content: center; padding-right: 12px;">
+                    <div class="gantt-col-stage" style="width: 160px; flex-shrink: 0; display: flex; flex-direction: column; justify-content: center; padding-right: 12px;">
                         <div style="display: flex; align-items: center; justify-content: space-between;">
                             <span style="font-weight: 700; font-size: 0.82rem; color: #f8fafc;">Day 5</span>
                             <span style="font-size: 0.75rem; color: #38bdf8; font-family: monospace;">319.3 mi (513.8 km)</span>
@@ -1946,7 +2113,7 @@
                      onclick="if(typeof focusDay==='function') focusDay(6); const el=document.getElementById('day-card-6'); if(el) el.scrollIntoView({behavior: 'smooth', block: 'center'});">
                     
                     <!-- Day Label (Clickable) -->
-                    <div style="width: 160px; flex-shrink: 0; display: flex; flex-direction: column; justify-content: center; padding-right: 12px;">
+                    <div class="gantt-col-stage" style="width: 160px; flex-shrink: 0; display: flex; flex-direction: column; justify-content: center; padding-right: 12px;">
                         <div style="display: flex; align-items: center; justify-content: space-between;">
                             <span style="font-weight: 700; font-size: 0.82rem; color: #f8fafc;">Day 6</span>
                             <span style="font-size: 0.75rem; color: #38bdf8; font-family: monospace;">229.7 mi (369.7 km)</span>
@@ -2065,7 +2232,7 @@
                      onclick="if(typeof focusDay==='function') focusDay(7); const el=document.getElementById('day-card-7'); if(el) el.scrollIntoView({behavior: 'smooth', block: 'center'});">
                     
                     <!-- Day Label (Clickable) -->
-                    <div style="width: 160px; flex-shrink: 0; display: flex; flex-direction: column; justify-content: center; padding-right: 12px;">
+                    <div class="gantt-col-stage" style="width: 160px; flex-shrink: 0; display: flex; flex-direction: column; justify-content: center; padding-right: 12px;">
                         <div style="display: flex; align-items: center; justify-content: space-between;">
                             <span style="font-weight: 700; font-size: 0.82rem; color: #f8fafc;">Day 7</span>
                             <span style="font-size: 0.75rem; color: #38bdf8; font-family: monospace;">182.1 mi (293.0 km)</span>
@@ -2172,6 +2339,16 @@
         <div style="margin-top: 16px; padding: 12px 16px; background: #0f172a; border-left: 4px solid #3b82f6; border-radius: 4px; font-size: 0.80rem; color: #94a3b8; line-height: 1.45;">
             <strong style="color: #f8fafc;">💡 Interactive Tip:</strong> Click any day row to zoom to that stage's road track on the map and scroll to its detailed day card above. Hover over any block (or tap on mobile) for exact departure/arrival times, saddle minutes, fuel stop coordinates, and meal recommendations.
         </div>
+
+        <!-- Mobile Touch Inspection Card -->
+        <div id="gantt-block-inspect-card" style="display: none; margin-top: 12px; background: #0f172a; border: 1px solid #38bdf8; border-radius: 8px; padding: 12px 14px; font-size: 0.78rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                <span id="inspect-time" style="font-weight: 700; color: #38bdf8; font-family: monospace;"></span>
+                <button type="button" onclick="document.getElementById('gantt-block-inspect-card').style.display='none'" style="background: none; border: none; color: #64748b; font-size: 16px; cursor: pointer; padding: 0 4px;">✕</button>
+            </div>
+            <div id="inspect-title" style="font-weight: 800; color: #f8fafc; font-size: 0.88rem; margin-bottom: 4px;"></div>
+            <div id="inspect-desc" style="color: #cbd5e1; line-height: 1.4;"></div>
+        </div>
     </div>
 </div>
 
@@ -2198,9 +2375,9 @@
                 </div>
 
                 <!-- 3-Tier Budget Comparison Table -->
-                <div style="margin-bottom: 18px; overflow-x: auto;">
+                <div style="margin-bottom: 18px; overflow-x: auto; -webkit-overflow-scrolling: touch;">
                     <div style="font-size: 11px; font-weight: 700; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px;">📊 3-Tier Expense Comparison (Per Rider • 9 Full Days)</div>
-                    <table style="width: 100%; border-collapse: collapse; font-size: 12px; text-align: left; background: #0f172a; border-radius: 8px; overflow: hidden; border: 1px solid #334155;">
+                    <table style="width: 100%; min-width: 520px; border-collapse: collapse; font-size: 12px; text-align: left; background: #0f172a; border-radius: 8px; overflow: hidden; border: 1px solid #334155;">
                         <thead>
                             <tr style="background: #1e293b; color: #cbd5e1; border-bottom: 1px solid #334155;">
                                 <th style="padding: 8px 12px;">Tier</th>
@@ -2237,7 +2414,7 @@
                 </div>
 
                 <!-- Detailed Breakdown Columns: Shared Fixed vs Individual Variable -->
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 14px; margin-bottom: 16px;">
+                <div class="budget-grid-cols" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 14px; margin-bottom: 16px;">
                     <!-- Left Column: Shared Fixed Costs -->
                     <div style="background: #0f172a; border: 1px solid #334155; border-radius: 8px; padding: 14px;">
                         <div style="font-size: 12.5px; font-weight: 700; color: #38bdf8; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #1e293b; padding-bottom: 8px; margin-bottom: 10px;">
@@ -2541,6 +2718,13 @@
                 card.classList.add('active');
                 card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
             }
+            // Sync mobile day jumper active state
+            document.querySelectorAll('.day-jump-btn').forEach(b => b.classList.remove('active'));
+            const jumpBtn = document.getElementById('jump-btn-' + idx);
+            if (jumpBtn) {
+                jumpBtn.classList.add('active');
+                jumpBtn.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+            }
         }
 
         function focusDay(idx) {
@@ -2556,19 +2740,57 @@
             const btn = document.getElementById('btn-tab-' + tab);
             if (btn) btn.classList.add('active');
             
+            const pane = document.getElementById('data-pane');
             if (tab === 'map') {
-                setTimeout(() => { map.invalidateSize(); }, 60);
+                setTimeout(() => { map.invalidateSize(); }, 80);
+            } else if (pane && (tab === 'timeline' || tab === 'budget')) {
+                pane.scrollTop = 0;
             }
         }
 
         // Jump to Day Card in Feed
         function jumpToDay(dayNum) {
             document.querySelectorAll('.day-jump-btn').forEach(b => b.classList.remove('active'));
-            if (window.event && window.event.target) window.event.target.classList.add('active');
+            const jumpBtn = document.getElementById('jump-btn-' + dayNum);
+            if (jumpBtn) {
+                jumpBtn.classList.add('active');
+                jumpBtn.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+            } else if (window.event && window.event.target) {
+                window.event.target.classList.add('active');
+            }
             const el = document.getElementById('day-card-' + dayNum);
             if (el) {
                 el.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
+        }
+
+        // Gantt Chart Touch Inspection & Interaction Handling
+        const ganttContainer = document.getElementById('sec-gantt');
+        if (ganttContainer) {
+            ganttContainer.addEventListener('click', (e) => {
+                const block = e.target.closest('[title]');
+                if (!block) return;
+                
+                const titleAttr = block.getAttribute('title');
+                if (!titleAttr) return;
+                
+                // Prevent bubbling to day row click if clicking an activity block
+                e.stopPropagation();
+                
+                const inspectCard = document.getElementById('gantt-block-inspect-card');
+                const timeEl = document.getElementById('inspect-time');
+                const titleEl = document.getElementById('inspect-title');
+                const descEl = document.getElementById('inspect-desc');
+                
+                if (inspectCard && timeEl && titleEl && descEl) {
+                    const lines = titleAttr.split('\n');
+                    timeEl.textContent = lines[0] || '';
+                    titleEl.textContent = lines[1] || '';
+                    descEl.textContent = lines.slice(2).join(' • ') || '';
+                    inspectCard.style.display = 'block';
+                    inspectCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }
+            });
         }
 
         // Toggle Transit vs Motorcycle View
