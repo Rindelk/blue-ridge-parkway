@@ -1,18 +1,35 @@
 {
   "title": "Blue Ridge Parkway & Appalachian Twisties Master Loop",
-  "version": "1.0",
-  "season": "September",
-  "total_distance_km": 2160,
-  "total_distance_mi": 1342,
+  "version": "2.0",
+  "season": "Mid-September",
+  "total_distance_km": 4489.4,
+  "total_distance_mi": 2789.6,
+  "motorcycle_distance_km": 2165.8,
+  "motorcycle_distance_mi": 1345.8,
+  "tow_transit_distance_km": 2323.5,
+  "tow_transit_distance_mi": 1443.8,
+  "tow_rig": {
+    "vehicle": "2025 RAM 2500 Heavy Duty Crew Cab 4x4",
+    "engine": "6.7L Cummins High-Output Turbo Diesel Inline-6 (420 hp / 1,075 lb-ft)",
+    "transmission": "6-Speed Automatic with Tow/Haul Mode & Exhaust Brake",
+    "fuel_tank_gallons": 31.0,
+    "def_tank_gallons": 5.7,
+    "fuel_economy_mpg": 12.5,
+    "safe_range_miles": 350,
+    "safe_range_km": 563,
+    "trailer": "16-Foot Tandem-Axle Enclosed Cargo Trailer (~40 ft combined rig)",
+    "payload": "4 Honda Motorcycles + Gear (60/40 front weight bias, ~600 lb tongue weight)"
+  },
   "basecamp": {
     "name": "Eagle's Nest RV, Boat & Vehicle Storage",
     "address": "3434 Guard Hill Rd, Front Royal, VA 22630",
     "phone": "+1 540-636-6161",
+    "website": "https://frontroyalvehiclestorage.com/",
     "coordinates": [
       38.9612,
       -78.2045
     ],
-    "notes": "Electronic keypad security gate, wide-aisle enclosed trailer access, 24/7 camera surveillance."
+    "notes": "Electronic keypad security gate, wide-aisle enclosed trailer access, 24/7 digital surveillance. 4.5 mi (8 mins) to Skyline Drive North Entrance."
   },
   "fleet": [
     {
@@ -61,221 +78,74 @@
       "min_octane_aki": 87,
       "safe_range_miles": 125,
       "safe_range_km": 201,
-      "role": "Cruiser / Fuel Range Governor (Max 100 mi / 161 km legs)"
+      "role": "Cruiser / Fuel Range Governor (Mandatory stops \u2264 100 mi / 161 km)"
     }
   ],
   "stages": [
     {
+      "day": 0,
+      "date": "Day 0 (Pre-Rollout)",
+      "name": "Outbound Transit: Hanmer, ON to Front Royal, VA",
+      "distance_km": 1159.2,
+      "distance_mi": 720.3,
+      "riding_time": "16h 25m",
+      "mode": "RAM 2500 Cummins Haul",
+      "weather_norm": "15\u00b0C - 26\u00b0C (59\u00b0F - 79\u00b0F)",
+      "pavement": "100% Paved (Hwy 69, Hwy 400, I-90, US-219, I-99)",
+      "lodging": "Eagle's Nest RV Storage (Trailer Staged) / Mountain View RV Park",
+      "description": "Tow vehicle transit haul from Hanmer, ON to Front Royal, VA. Cross border at Queenston-Lewiston Bridge (CBP entry). Stage and padlock truck and 16ft cargo trailer at Eagle's Nest RV Storage."
+    },
+    {
       "day": 1,
       "date": "Day 1 (Mid-September)",
       "name": "Front Royal Basecamp to Skyline Drive & Waynesboro",
-      "distance_km": 182.0,
-      "distance_mi": 113.1,
+      "distance_km": 181.5,
+      "distance_mi": 112.8,
       "riding_time": "3h 45m",
-      "weather": "Sunny, 72°F / 22°C (Valley) to 58°F / 14°C (Ridge)",
-      "description": "Roll out from Eagle's Nest Storage onto Skyline Drive through Shenandoah National Park. Sweep past Mary's Rock Tunnel, Skyland, and Big Meadows down to Rockfish Gap.",
-      "waypoints": [
-        [
-          38.9612,
-          -78.2045
-        ],
-        [
-          38.9056,
-          -78.1989
-        ],
-        [
-          38.6575,
-          -78.3182
-        ],
-        [
-          38.5192,
-          -78.4352
-        ],
-        [
-          38.2435,
-          -78.6657
-        ],
-        [
-          38.0315,
-          -78.8576
-        ]
-      ],
-      "primary_hotel": {
-        "name": "Charlottesville KOA Holiday",
-        "location": "3825 Red Hill Rd, Charlottesville, VA (Near Rockfish Gap)",
-        "cost": "$95 - $165 USD/night (Cabin)",
-        "phone": "+1 434-296-9881",
-        "url": "https://koa.com/campgrounds/charlottesville/"
-      },
-      "secondary_hotel": {
-        "name": "The Blackburn Inn & Conference Center",
-        "location": "Staunton / Waynesboro, VA",
-        "cost": "$165 USD/night",
-        "phone": "+1 540-712-0501",
-        "url": "https://www.blackburn-inn.com/"
-      }
+      "mode": "4 Hondas On-Road",
+      "weather_norm": "13\u00b0C - 24\u00b0C (55\u00b0F - 75\u00b0F)",
+      "pavement": "100% Paved (Skyline Drive National Park Byway \u2022 35 mph limit)",
+      "lodging": "Charlottesville KOA Holiday (Fallback: The Blackburn Inn)",
+      "description": "Roll out from Eagle's Nest Storage onto Skyline Drive through Shenandoah National Park. Sweep past Mary's Rock Tunnel, Skyland, and Big Meadows down to Rockfish Gap."
     },
     {
       "day": 2,
       "date": "Day 2 (Mid-September)",
       "name": "Waynesboro to Peaks of Otter & Roanoke",
-      "distance_km": 204.3,
-      "distance_mi": 126.9,
+      "distance_km": 219.2,
+      "distance_mi": 136.2,
       "riding_time": "3h 30m",
-      "weather": "Partly Cloudy, 74°F / 23°C (Valley) to 60°F / 16°C (Peaks)",
-      "description": "Enter the Blue Ridge Parkway at Milepost 0.0. Climb past Humpback Rocks, drop to the James River Gorge (lowest elevation on Parkway at 649 ft), and summit Peaks of Otter before arriving in Roanoke.",
-      "waypoints": [
-        [
-          38.0315,
-          -78.8576
-        ],
-        [
-          37.9691,
-          -78.9026
-        ],
-        [
-          37.5627,
-          -79.3789
-        ],
-        [
-          37.4452,
-          -79.6083
-        ],
-        [
-          37.2415,
-          -79.9324
-        ]
-      ],
-      "primary_hotel": {
-        "name": "Lynchburg / Blue Ridge Parkway KOA Holiday",
-        "location": "6252 Elon Rd, Monroe, VA (1.0 mi off BRP MP 61.4)",
-        "cost": "$85 - $155 USD/night (Cabin)",
-        "phone": "+1 434-384-3323",
-        "url": "https://koa.com/campgrounds/lynchburg/"
-      },
-      "secondary_hotel": {
-        "name": "Peaks of Otter Lodge",
-        "location": "Bedford / BRP MP 86, VA",
-        "cost": "$195 USD/night",
-        "phone": "+1 866-387-9905",
-        "url": "https://www.peaksofotter.com/"
-      }
+      "mode": "4 Hondas On-Road",
+      "weather_norm": "14\u00b0C - 25\u00b0C (57\u00b0F - 77\u00b0F)",
+      "pavement": "100% Paved (Blue Ridge Parkway North Section \u2022 MP 0 to 120)",
+      "lodging": "Lynchburg / Blue Ridge Parkway KOA Holiday (Fallback: The Hotel Roanoke)",
+      "description": "Enter the Blue Ridge Parkway at Milepost 0.0. Climb past Humpback Rocks, drop to the James River Gorge (lowest elevation on Parkway at 649 ft / 198 m), and summit Peaks of Otter before arriving in Roanoke."
     },
     {
       "day": 3,
       "date": "Day 3 (Mid-September)",
       "name": "Roanoke to Mabry Mill & Blowing Rock, NC",
-      "distance_km": 294.5,
-      "distance_mi": 183.0,
-      "riding_time": "4h 30m",
-      "weather": "Sunny & Crisp, 70°F / 21°C (Valley) to 58°F / 14°C (Ridge)",
-      "description": "Ride past the historic Mabry Mill waterwheel for lunch, traverse the gentle rolling meadows of Doughton Park, cross the North Carolina state line, and overnight in the mountain village of Blowing Rock.",
-      "waypoints": [
-        [
-          37.2415,
-          -79.9324
-        ],
-        [
-          36.7501,
-          -80.4042
-        ],
-        [
-          36.6346,
-          -80.5369
-        ],
-        [
-          36.5647,
-          -80.8522
-        ],
-        [
-          36.4172,
-          -81.1691
-        ],
-        [
-          36.1492,
-          -81.6888
-        ]
-      ],
-      "primary_hotel": {
-        "name": "Boone KOA Holiday",
-        "location": "123 Harmony Mountain Ln, Boone, NC (8 mi to Blowing Rock)",
-        "cost": "$95 - $175 USD/night (Cabin)",
-        "phone": "+1 828-264-7250",
-        "url": "https://koa.com/campgrounds/boone/"
-      },
-      "secondary_hotel": {
-        "name": "Meadowbrook Inn",
-        "location": "Blowing Rock, NC",
-        "cost": "$180 USD/night",
-        "phone": "+1 828-295-4300",
-        "url": "https://www.meadowbrook-inn.com/"
-      }
+      "distance_km": 286.6,
+      "distance_mi": 178.1,
+      "riding_time": "4h 45m",
+      "mode": "4 Hondas On-Road",
+      "weather_norm": "12\u00b0C - 22\u00b0C (54\u00b0F - 72\u00b0F)",
+      "pavement": "100% Paved (Blue Ridge Parkway Central \u2022 MP 120 to 291)",
+      "lodging": "Boone KOA Holiday (Fallback: Meadowbrook Inn)",
+      "description": "Ride past the historic Mabry Mill waterwheel for lunch, cross the Virginia/North Carolina border into the High Country, listen to mountain bluegrass at the Blue Ridge Music Center, and ascend to Blowing Rock."
     },
     {
       "day": 4,
       "date": "Day 4 (Mid-September)",
       "name": "Blowing Rock to Mount Mitchell & Cherokee Southern Terminus",
-      "distance_km": 303.4,
-      "distance_mi": 188.5,
-      "riding_time": "4h 45m",
-      "weather": "Cool Alpine, 65°F / 18°C (Cherokee) to 48°F / 9°C (Mt Mitchell)",
-      "description": "The crown jewel mountain pass: sweep across Linn Cove Viaduct clinging to Grandfather Mountain, ascend to Mount Mitchell Summit (6,684 ft highest point east of the Mississippi), past Craggy Gardens and Richland Balsam to Cherokee.",
-      "waypoints": [
-        [
-          36.1492,
-          -81.6888
-        ],
-        [
-          36.0967,
-          -81.8269
-        ],
-        [
-          35.9547,
-          -81.9325
-        ],
-        [
-          35.8504,
-          -82.0911
-        ],
-        [
-          35.7649,
-          -82.2652
-        ],
-        [
-          35.7011,
-          -82.3789
-        ],
-        [
-          35.4194,
-          -82.7561
-        ],
-        [
-          35.3675,
-          -82.9936
-        ],
-        [
-          35.4628,
-          -83.1386
-        ],
-        [
-          35.5133,
-          -83.3056
-        ]
-      ],
-      "primary_hotel": {
-        "name": "Cherokee / Great Smokies KOA Holiday",
-        "location": "92 KOA Campground Rd, Cherokee, NC (BRP MP 469 Southern Terminus)",
-        "cost": "$110 - $195 USD/night (Cabin)",
-        "phone": "+1 828-497-9711",
-        "url": "https://koa.com/campgrounds/cherokee/"
-      },
-      "secondary_hotel": {
-        "name": "Harrah's Cherokee Casino Resort",
-        "location": "Cherokee, NC",
-        "cost": "$189 USD/night",
-        "phone": "+1 828-497-7777",
-        "url": "https://www.caesars.com/harrahs-cherokee"
-      }
+      "distance_km": 301.9,
+      "distance_mi": 187.6,
+      "riding_time": "5h 15m",
+      "mode": "4 Hondas On-Road",
+      "weather_norm": "10\u00b0C - 21\u00b0C (50\u00b0F - 70\u00b0F)",
+      "pavement": "100% Paved (Blue Ridge Parkway South \u2022 Linn Cove Viaduct & Peaks)",
+      "lodging": "Cherokee / Great Smokies KOA Holiday (Fallback: Harrah's Cherokee Resort)",
+      "description": "The crown jewel mountain pass: sweep across Linn Cove Viaduct clinging to Grandfather Mountain, summit Mount Mitchell (highest peak east of Mississippi at 6,684 ft / 2,037 m), carve past Craggy Gardens to the southern terminus at Cherokee."
     },
     {
       "day": 5,
@@ -284,114 +154,24 @@
       "distance_km": 513.8,
       "distance_mi": 319.3,
       "riding_time": "7h 30m",
-      "weather": "Clear, 75°F / 24°C (Valleys) to 62°F / 17°C (Skyway Crest)",
-      "description": "Morning assault on the Tail of the Dragon (US-129: 318 curves in 11 miles), climb the mile-high Cherohala Skyway, drop into Tellico Plains, and cruise northeast past Great Smoky foothills into Bristol.",
-      "waypoints": [
-        [
-          35.5133,
-          -83.3056
-        ],
-        [
-          35.4497,
-          -83.8052
-        ],
-        [
-          35.4678,
-          -83.9203
-        ],
-        [
-          35.3236,
-          -83.8075
-        ],
-        [
-          35.3639,
-          -84.0267
-        ],
-        [
-          35.3636,
-          -84.3047
-        ],
-        [
-          35.6028,
-          -84.4628
-        ],
-        [
-          36.6347,
-          -82.0722
-        ]
-      ],
-      "primary_hotel": {
-        "name": "Bristol / Kingsport KOA Holiday",
-        "location": "425 Locust Grove Rd, Blountville, TN (I-81 Tri-Cities)",
-        "cost": "$85 - $155 USD/night (Cabin)",
-        "phone": "+1 423-323-7790",
-        "url": "https://koa.com/campgrounds/bristol/"
-      },
-      "secondary_hotel": {
-        "name": "The Martha Washington Inn & Spa",
-        "location": "Abingdon / Bristol, VA",
-        "cost": "$210 USD/night",
-        "phone": "+1 276-628-3161",
-        "url": "https://www.themartha.com/"
-      }
+      "mode": "4 Hondas On-Road",
+      "weather_norm": "14\u00b0C - 26\u00b0C (57\u00b0F - 79\u00b0F)",
+      "pavement": "100% Paved (US-129 Tail of the Dragon \u2022 Cherohala Skyway \u2022 I-81/US-421)",
+      "lodging": "Bristol / Kingsport KOA Holiday (Fallback: The Sessions Hotel)",
+      "description": "Morning assault on the Tail of the Dragon (US-129: 318 curves in 11 miles), explore Deals Gap Motorcycle Resort, carve the sweeping 5,390 ft high Cherohala Skyway ridge, then transit northeast into Bristol."
     },
     {
       "day": 6,
       "date": "Day 6 (Mid-September)",
       "name": "Bristol through Back of the Dragon (VA-16) to Warm Springs",
-      "distance_km": 369.6,
+      "distance_km": 369.7,
       "distance_mi": 229.7,
       "riding_time": "5h 45m",
-      "weather": "Sunny & Crisp, 72°F / 22°C (Valley) to 58°F / 14°C (Mountains)",
-      "description": "Tackle Virginia Route 16 'Back of the Dragon' (32 miles, 300+ hairpins climbing Walker, Brushy, and Clinch Mountains). Stop at the Tazewell Welcome Center, then carve east across George Washington Forest to Warm Springs.",
-      "waypoints": [
-        [
-          36.6347,
-          -82.0722
-        ],
-        [
-          36.8344,
-          -81.5147
-        ],
-        [
-          36.9189,
-          -81.5233
-        ],
-        [
-          37.0378,
-          -81.5075
-        ],
-        [
-          37.1264,
-          -81.5161
-        ],
-        [
-          37.3789,
-          -80.8242
-        ],
-        [
-          37.8189,
-          -79.8242
-        ],
-        [
-          38.0494,
-          -79.7911
-        ]
-      ],
-      "primary_hotel": {
-        "name": "Natural Bridge / Lexington KOA Holiday",
-        "location": "214 Killdeer Ln, Natural Bridge, VA (Shenandoah Valley)",
-        "cost": "$85 - $160 USD/night (Cabin)",
-        "phone": "+1 540-291-2770",
-        "url": "https://koa.com/campgrounds/natural-bridge/"
-      },
-      "secondary_hotel": {
-        "name": "The Inn at Gristmill Square",
-        "location": "Warm Springs, VA",
-        "cost": "$185 USD/night",
-        "phone": "+1 540-839-2231",
-        "url": "https://www.gristmillsquare.com/"
-      }
+      "mode": "4 Hondas On-Road",
+      "weather_norm": "13\u00b0C - 24\u00b0C (55\u00b0F - 75\u00b0F)",
+      "pavement": "100% Paved (VA Route 16 'Back of the Dragon' \u2022 Route 220 \u2022 Route 39)",
+      "lodging": "Natural Bridge / Lexington KOA Holiday (Fallback: The Inn at Gristmill Square)",
+      "description": "Tackle Virginia Route 16 'Back of the Dragon' (32 mi [51.5 km], 300+ hairpins climbing Walker, Brushy, and Clinch Mountains). Stop at the Tazewell Welcome Center, then carve east across George Washington Forest to Warm Springs."
     },
     {
       "day": 7,
@@ -399,72 +179,25 @@
       "name": "Warm Springs through Highland County to Front Royal Basecamp",
       "distance_km": 293.0,
       "distance_mi": 182.1,
-      "riding_time": "3h 45m",
-      "weather": "Clear, 75°F / 24°C",
-      "description": "Climb north through Highland County ('Virginia's Switzerland') into Monterey, sweep east over Shenandoah Mountain, and ride the scenic Shenandoah Valley back to Eagle's Nest Storage to recover the truck and trailer.",
-      "waypoints": [
-        [
-          38.0494,
-          -79.7911
-        ],
-        [
-          38.4117,
-          -79.5811
-        ],
-        [
-          38.3183,
-          -79.2247
-        ],
-        [
-          38.2311,
-          -79.1556
-        ],
-        [
-          38.3842,
-          -78.9772
-        ],
-        [
-          38.6475,
-          -78.6722
-        ],
-        [
-          38.9612,
-          -78.2045
-        ]
-      ],
-      "primary_hotel": {
-        "name": "Eagle's Nest RV, Boat & Vehicle Storage (Finish & Rig Recovery)",
-        "location": "3434 Guard Hill Rd, Front Royal, VA",
-        "cost": "Tow Rig Staged",
-        "phone": "+1 540-636-6161",
-        "url": "https://frontroyalvehiclestorage.com/"
-      }
+      "riding_time": "4h 30m",
+      "mode": "4 Hondas On-Road",
+      "weather_norm": "14\u00b0C - 25\u00b0C (57\u00b0F - 77\u00b0F)",
+      "pavement": "100% Paved (US-220 \u2022 US-250 Highland County \u2022 Shenandoah Valley)",
+      "lodging": "Eagle's Nest RV Storage (Trailer Staged / Rig Retrieved)",
+      "description": "Climb north through Highland County ('Virginia's Switzerland') into Monterey, sweep east over Shenandoah Mountain, and ride the scenic Shenandoah Valley back to Eagle's Nest Storage to recover the truck and trailer."
+    },
+    {
+      "day": 8,
+      "date": "Day 8 (Post-Expedition)",
+      "name": "Return Transit: Front Royal, VA to Hanmer, ON",
+      "distance_km": 1164.3,
+      "distance_mi": 723.5,
+      "riding_time": "16h 40m",
+      "mode": "RAM 2500 Cummins Haul",
+      "weather_norm": "10\u00b0C - 20\u00b0C (50\u00b0F - 68\u00b0F)",
+      "pavement": "100% Paved (I-99, US-219, I-90, QEW, Hwy 400, Hwy 69 \u2022 RAM 2500 Tow)",
+      "lodging": "Hanmer Home Base (Mission Accomplished)",
+      "description": "Return transit haul from Front Royal, VA to Hanmer, ON. Cross border at Queenston-Lewiston Bridge (CBSA entry). Grand expedition complete! 2,789.6 mi (4,489.4 km) door-to-door."
     }
-  ],
-  "tow_rig": {
-    "vehicle": "2025 RAM 2500 Heavy Duty Crew Cab",
-    "engine": "6.7L Cummins High-Output Turbo Diesel",
-    "power_torque": "420 hp / 1,075 lb-ft torque",
-    "trailer": "16-foot Tandem-Axle Enclosed Cargo Trailer",
-    "combined_length_ft": 39.5,
-    "fuel_capacity_gallons": 31.0,
-    "def_capacity_gallons": 5.7,
-    "towing_mpg": 12.5,
-    "safe_diesel_range_miles": 350,
-    "payload": "4 Honda Motorcycles + Gear + Tie-Downs"
-  },
-  "transit_outbound": {
-    "name": "Hanmer, ON to Front Royal, VA",
-    "distance_mi": 720.3,
-    "distance_km": 1159.2,
-    "driving_time": "11h 30m - 12h 30m wheel time",
-    "border_crossing": "Queenston-Lewiston Bridge (CBP US Entry)"
-  },
-  "transit_inbound": {
-    "name": "Front Royal, VA to Hanmer, ON",
-    "distance_mi": 723.5,
-    "distance_km": 1164.3,
-    "driving_time": "11h 30m - 12h 30m wheel time",
-    "border_crossing": "Queenston-Lewiston Bridge (CBSA Canada Entry)"
-  }
+  ]
 }

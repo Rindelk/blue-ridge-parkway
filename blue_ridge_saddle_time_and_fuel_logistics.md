@@ -30,7 +30,25 @@ flowchart TD
 
 ---
 
-## 2. The Rebel 1100 Fuel Range Governor Rule
+
+---
+
+## 2. Master 9-Stage Expedition Schedule & Fuel Pacing Table
+
+| Stage | Mode | Route Corridor | Distance | Saddle / Haul Time | Daily Fuel Stops | Lodging / Basecamp |
+| :---: | :---: | :--- | :---: | :---: | :---: | :--- |
+| **Stage 0** | 🚛 RAM 2500 | Hanmer, ON to Front Royal, VA | **720.3 mi (1,159.2 km)** | ~16h 25m | 3 Diesel Stops (Barrie, Buffalo, Milesburg) | Eagle's Nest RV Storage |
+| **Stage 1** | 🏍️ 4 Hondas | Skyline Drive to Waynesboro | **112.8 mi (181.5 km)** | ~3h 45m | Sheetz Front Royal, Big Meadows (MP 51) | Charlottesville KOA Holiday |
+| **Stage 2** | 🏍️ 4 Hondas | Waynesboro to Peaks of Otter & Roanoke | **136.2 mi (219.2 km)** | ~3h 30m | Rockfish Gap Exxon, Buchanan BP (MP 90) | Lynchburg / BRP KOA Holiday |
+| **Stage 3** | 🏍️ 4 Hondas | Roanoke to Mabry Mill & Blowing Rock | **178.1 mi (286.6 km)** | ~4h 45m | Meadows of Dan (MP 177.7), Fancy Gap Pilot | Boone KOA Holiday |
+| **Stage 4** | 🏍️ 4 Hondas | Blowing Rock to Mt. Mitchell & Cherokee | **187.6 mi (301.9 km)** | ~5h 15m | Little Switzerland, Asheville East, Balsam Gap | Cherokee / Smokies KOA Holiday |
+| **Stage 5** | 🏍️ 4 Hondas | Cherokee to Dragon, Cherohala & Bristol | **319.3 mi (513.8 km)** | ~7h 30m | Robbinsville Shell, Tellico Plains, Greeneville | Bristol / Kingsport KOA Holiday |
+| **Stage 6** | 🏍️ 4 Hondas | Bristol to Back of Dragon & Warm Springs | **229.7 mi (369.7 km)** | ~5h 45m | Marion BP, Tazewell Exxon, Clifton Forge | Natural Bridge / Lexington KOA |
+| **Stage 7** | 🏍️ 4 Hondas | Warm Springs to Front Royal Basecamp | **182.1 mi (293.0 km)** | ~4h 30m | Monterey Exxon, Harrisonburg Sheetz | Eagle's Nest Storage (Retrieve Rig) |
+| **Stage 8** | 🚛 RAM 2500 | Front Royal, VA to Hanmer, ON | **723.5 mi (1,164.3 km)** | ~16h 40m | 3 Diesel Stops (Clearfield, Niagara, Barrie) | Hanmer Home Base |
+| **TOTAL** | **Truck + Bikes** | **Grand Expedition Circuit** | **2,789.6 mi (4,489.4 km)** | **~67h 45m** | **Rebel 1100 ≤ 100 mi (161 km) Cadence** | **6 KOAs • 27 Tunnels • Staging** |
+
+## 3. The Rebel 1100 Fuel Range Governor Rule
 
 > [!IMPORTANT]
 > **The 100-Mile (161 km) Mountain Safety Threshold**:
@@ -43,7 +61,7 @@ flowchart TD
 
 ---
 
-## 3. Directory of 15 Strategic Gap Fuel Stations (87 AKI Regular)
+## 4. Directory of 15 Strategic Gap Fuel Stations (87 AKI Regular)
 
 Because commercial gas stations are **prohibited on the Blue Ridge Parkway motor road itself**, fuel must be accessed by descending 1 to 4 miles down state highway gaps. The following 15 vetted stations provide immediate ramp access and 87 AKI Regular fuel:
 
@@ -75,7 +93,7 @@ Because commercial gas stations are **prohibited on the Blue Ridge Parkway motor
 
 ---
 
-## 4. Daily Operational Cadence Standards
+## 5. Daily Operational Cadence Standards
 
 Our daily schedule follows a time-tested adventure touring cadence designed to maximize daylight riding, prevent physical fatigue, and ensure leisurely dining:
 
