@@ -3730,11 +3730,16 @@
 
         L.control.zoom({ position: 'bottomright' }).addTo(map);
 
-        // Watermark-free Esri Basemaps
+        // Basemaps (Default: OpenStreetMap)
+        const osmLayer = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
         const esriTopo = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', {
             maxZoom: 19,
             attribution: 'Tiles &copy; Esri'
-        }).addTo(map);
+        });
 
         const esriSat = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
             maxZoom: 19,
@@ -3742,6 +3747,7 @@
         });
 
         L.control.layers({
+            "OpenStreetMap": osmLayer,
             "Esri Topo": esriTopo,
             "Satellite": esriSat
         }, null, { position: 'bottomright' }).addTo(map);
