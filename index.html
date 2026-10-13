@@ -43,16 +43,26 @@
             overflow: hidden;
         }
 
+        body.is-resizing {
+            cursor: col-resize !important;
+            user-select: none !important;
+        }
+
+        body.is-resizing #map {
+            pointer-events: none !important;
+        }
+
         header {
             background: rgba(17, 24, 39, 0.96);
             backdrop-filter: blur(10px);
             border-bottom: 1px solid var(--border);
-            padding: 12px 24px;
+            padding: 10px 20px;
             display: flex;
             align-items: center;
             justify-content: space-between;
             z-index: 1000;
             flex-shrink: 0;
+            gap: 16px;
         }
 
         .logo-area {
@@ -74,15 +84,22 @@
         }
 
         h1 {
-            font-size: 17px;
+            font-size: 16px;
             font-weight: 800;
             letter-spacing: -0.5px;
             color: #fff;
+            white-space: nowrap;
+        }
+
+        .header-controls {
+            display: flex;
+            align-items: center;
+            gap: 20px;
         }
 
         .stats-strip {
             display: flex;
-            gap: 18px;
+            gap: 16px;
         }
 
         .stat-item {
@@ -91,28 +108,68 @@
         }
 
         .stat-val {
-            font-size: 14px;
+            font-size: 13.5px;
             font-weight: 700;
             color: var(--accent-blue);
             font-family: 'JetBrains Mono', monospace;
         }
 
         .stat-lbl {
-            font-size: 10px;
+            font-size: 9.5px;
             color: var(--text-muted);
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
 
+        /* Split View Presets */
+        .split-presets {
+            display: flex;
+            gap: 3px;
+            background: #0f172a;
+            padding: 3px;
+            border-radius: 8px;
+            border: 1px solid #334155;
+            align-items: center;
+        }
+
+        .split-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            white-space: nowrap;
+        }
+
+        .split-btn:hover {
+            color: #fff;
+            background: #1e293b;
+        }
+
+        .split-btn.active {
+            background: #334155;
+            color: var(--accent-blue);
+            font-weight: 700;
+        }
+
         #main-container {
             display: flex;
             flex: 1;
-            height: calc(100vh - 65px);
+            height: calc(100vh - 59px);
             position: relative;
+            overflow: hidden;
         }
 
         #map-pane {
-            flex: 1;
+            flex: 1 1 auto;
+            min-width: 280px;
             height: 100%;
             position: relative;
         }
@@ -123,10 +180,49 @@
             background: #0d1117;
         }
 
+        /* Drag-to-Resize Divider */
+        #resizer-gutter {
+            width: 10px;
+            background: #1e293b;
+            border-left: 1px solid var(--border);
+            border-right: 1px solid var(--border);
+            cursor: col-resize;
+            position: relative;
+            z-index: 600;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            user-select: none;
+            touch-action: none;
+            transition: background 0.15s ease;
+        }
+
+        #resizer-gutter::after {
+            content: "";
+            width: 4px;
+            height: 44px;
+            background: #64748b;
+            border-radius: 2px;
+            transition: all 0.15s ease;
+        }
+
+        #resizer-gutter:hover,
+        #resizer-gutter.dragging {
+            background: #38bdf8;
+        }
+
+        #resizer-gutter:hover::after,
+        #resizer-gutter.dragging::after {
+            background: #0b1120;
+            height: 58px;
+        }
+
         #data-pane {
             width: 550px;
+            min-width: 320px;
+            max-width: 80vw;
             background: var(--bg-surface);
-            border-left: 1px solid var(--border);
             height: 100%;
             display: flex;
             flex-direction: column;
@@ -355,7 +451,6 @@
             color: #0b1120;
         }
 
-        /* Tow Rig Banner */
         .towrig-box {
             background: rgba(30, 41, 59, 0.7);
             border: 1px solid #475569;
@@ -476,26 +571,33 @@
             <span class="badge-live">Grand Expedition</span>
             <h1>🚛 2025 RAM 2500 Cummins Haul &amp; 🏍️ Blue Ridge Parkway Loop</h1>
         </div>
-        <div class="stats-strip">
-            <div class="stat-item">
-                <span class="stat-val">2789.6 mi</span>
-                <span class="stat-lbl">Grand Loop (4489 km)</span>
+        <div class="header-controls">
+            <div class="split-presets" title="Preset Split Ratios or Drag Center Divider">
+                <button class="split-btn" id="btn-split-map-wide" onclick="setSplitRatio('map-wide')" title="Expand Map (65% Map / 35% Feed)">🗺️ 65% Map</button>
+                <button class="split-btn" id="btn-split-50-50" onclick="setSplitRatio('50-50')" title="Balanced Split (50% Map / 50% Feed)">⚖️ 50/50</button>
+                <button class="split-btn" id="btn-split-feed-wide" onclick="setSplitRatio('feed-wide')" title="Expand Feed (35% Map / 65% Feed)">📋 65% Feed</button>
             </div>
-            <div class="stat-item">
-                <span class="stat-val">1345.8 mi</span>
-                <span class="stat-lbl">Motorcycle Loop</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-val">7 Days</span>
-                <span class="stat-lbl">Saddle Tour</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-val">27</span>
-                <span class="stat-lbl">Parkway Tunnels</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-val">135</span>
-                <span class="stat-lbl">Curated POIs</span>
+            <div class="stats-strip">
+                <div class="stat-item">
+                    <span class="stat-val">2789.6 mi</span>
+                    <span class="stat-lbl">Grand Loop (4489 km)</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-val">1345.8 mi</span>
+                    <span class="stat-lbl">Motorcycle Loop</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-val">7 Days</span>
+                    <span class="stat-lbl">Saddle Tour</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-val">27</span>
+                    <span class="stat-lbl">Tunnels</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-val">135</span>
+                    <span class="stat-lbl">Curated POIs</span>
+                </div>
             </div>
         </div>
     </header>
@@ -515,6 +617,8 @@
             </div>
             <div id="map"></div>
         </div>
+
+        <div id="resizer-gutter" title="Drag left/right to resize map and feed. Double-click to reset 50/50."></div>
 
         <div id="data-pane">
             <!-- Navigation Downloads -->
@@ -1761,7 +1865,7 @@
         const poisData = [{"name": "Hanmer Home Base (Expedition Origin & Return)", "category": "Home Base", "day": "Stage 0 (Transit Out)", "lat": 46.6473, "lon": -80.9754, "type": "home", "color": "#3b82f6", "icon": "🏠", "is_curated": true, "desc": "Expedition home base in Hanmer, Ontario. Stage 2025 RAM 2500 Cummins and hitch 16ft enclosed cargo trailer with 4 Hondas.", "octane": "N/A", "url": "", "cost": "Home", "phone": ""}, {"name": "ONroute Innisfil (Hwy 400 Southbound)", "category": "Gas Station", "day": "Stage 0 (Transit Out)", "lat": 44.3125, "lon": -79.6739, "type": "fuel", "color": "#ef4444", "icon": "⛽", "is_curated": false, "desc": "Ontario 400-series travel plaza. Ultra-Low Sulfur Diesel, DEF jugs, Tim Hortons, and dedicated trailer pull-through parking.", "octane": "ULSD Diesel", "url": "https://www.onroute.ca/", "cost": "", "phone": "+1 705-436-1200"}, {"name": "Queenston-Lewiston Bridge (US Customs & Border Protection)", "category": "Border Crossing", "day": "Stage 0 (Transit Out)", "lat": 43.1558, "lon": -79.0439, "type": "border", "color": "#06b6d4", "icon": "🛂", "is_curated": true, "desc": "International border crossing into Lewiston, NY. Wide commercial truck/trailer inspection booths. Present passports, vehicle/trailer green slips, and motorcycle ownerships.", "octane": "N/A", "url": "https://www.niagarafallsbridges.com/", "cost": "$5.00 USD Toll", "phone": "+1 716-285-6332"}, {"name": "Sunoco / Kwik Fill Springville (US-219)", "category": "Gas Station", "day": "Stage 0 (Transit Out)", "lat": 42.5056, "lon": -78.6789, "type": "fuel", "color": "#ef4444", "icon": "⛽", "is_curated": false, "desc": "Easy high-clearance diesel fuel stop along US-219 expressway south of Buffalo. ULSD diesel & snacks.", "octane": "ULSD Diesel", "url": "", "cost": "", "phone": "+1 716-592-2000"}, {"name": "Pilot Travel Center Milesburg (I-80 / I-99 Exit 158)", "category": "Gas Station", "day": "Stage 0 (Transit Out)", "lat": 40.9456, "lon": -77.7789, "type": "fuel", "color": "#ef4444", "icon": "⛽", "is_curated": false, "desc": "Major commercial truck stop midway across Pennsylvania. High-flow satellite diesel pumps, bulk DEF at the pump, clean restrooms, and truck/trailer parking.", "octane": "ULSD Diesel + DEF", "url": "https://pilotflyingj.com/", "cost": "", "phone": "+1 814-355-1234"}, {"name": "Pilot Travel Center Cumberland (I-68 Exit 44)", "category": "Gas Station", "day": "Stage 0 (Transit Out)", "lat": 39.6789, "lon": -78.7056, "type": "fuel", "color": "#ef4444", "icon": "⛽", "is_curated": false, "desc": "Maryland I-68 mountain corridor diesel fueling with wide turning apron for 40-ft truck/trailer rig.", "octane": "ULSD Diesel + DEF", "url": "", "cost": "", "phone": "+1 301-729-1200"}, {"name": "Pilot Travel Center Winchester (I-81 Exit 323)", "category": "Gas Station", "day": "Stage 0 (Transit Out)", "lat": 39.2456, "lon": -78.1342, "type": "fuel", "color": "#ef4444", "icon": "⛽", "is_curated": false, "desc": "Final diesel top-up before arriving in Front Royal. Bulk DEF, truck wash, and staging plaza.", "octane": "ULSD Diesel + DEF", "url": "", "cost": "", "phone": "+1 540-667-1234"}, {"name": "Eagle's Nest RV, Boat & Vehicle Storage", "category": "Basecamp", "day": "Day 1", "lat": 38.9612, "lon": -78.2045, "type": "basecamp", "color": "#10b981", "icon": "🏕️", "is_curated": true, "desc": "Basecamp tow vehicle & cargo trailer storage. Gated keypad access, 24/7 video recording, wide pull-through lanes.", "octane": "N/A", "url": "https://frontroyalvehiclestorage.com/", "cost": "Staged Rig", "phone": "+1 540-636-6161"}, {"name": "Front Royal North Entrance Station", "category": "Attraction", "day": "Day 1", "lat": 38.9056, "lon": -78.1989, "type": "attraction", "color": "#9333ea", "icon": "🏛️", "is_curated": true, "desc": "Mile 0.0 northern terminus of Skyline Drive in Shenandoah National Park.", "octane": "N/A", "url": "https://www.nps.gov/shen", "cost": "$30/bike pass", "phone": "+1 540-999-3500"}, {"name": "Shenandoah Valley Overlook (MP 2.8)", "category": "Scenic Sight", "day": "Day 1", "lat": 38.8778, "lon": -78.2056, "type": "sight", "color": "#f97316", "icon": "🌄", "is_curated": false, "desc": "Sweeping panoramic vista across the Shenandoah Valley and Massanutten Mountain.", "octane": "N/A", "url": "", "cost": "", "phone": ""}, {"name": "Dickey Ridge Visitor Center (MP 4.6)", "category": "Scenic Sight", "day": "Day 1", "lat": 38.8592, "lon": -78.2025, "type": "sight", "color": "#f97316", "icon": "🌄", "is_curated": false, "desc": "First visitor center on Skyline Drive with park exhibits, maps, and restrooms.", "octane": "N/A", "url": "https://www.nps.gov/shen", "cost": "Free", "phone": "+1 540-999-3500"}, {"name": "Hogback Overlook (MP 21.0)", "category": "Scenic Sight", "day": "Day 1", "lat": 38.7561, "lon": -78.2758, "type": "sight", "color": "#f97316", "icon": "🌄", "is_curated": false, "desc": "Longest continuous overlook on Skyline Drive with views of 11 bends of Shenandoah River.", "octane": "N/A", "url": "", "cost": "", "phone": ""}, {"name": "Mary's Rock Tunnel (Skyline MP 32.2)", "category": "Tunnel", "day": "Day 1", "lat": 38.6575, "lon": -78.3182, "type": "tunnel", "color": "#64748b", "icon": "🚇", "is_curated": true, "desc": "Historic 670-ft granite tunnel bored through solid rock in 1932. Clearance: 12 ft 8 in.", "octane": "N/A", "url": "", "cost": "", "phone": ""}, {"name": "Skyland Resort (MP 41.7)", "category": "Attraction", "day": "Day 1", "lat": 38.5919, "lon": -78.3814, "type": "attraction", "color": "#9333ea", "icon": "🏛️", "is_curated": true, "desc": "Historic high-elevation resort built in 1888 with dining room and blackberry ice cream pie.", "octane": "N/A", "url": "https://www.goshenandoah.com/lodging/skyland", "cost": "", "phone": "+1 877-847-1919"}, {"name": "Big Meadows Wayside & Center (MP 51.0)", "category": "Attraction", "day": "Day 1", "lat": 38.5192, "lon": -78.4352, "type": "attraction", "color": "#9333ea", "icon": "🏛️", "is_curated": true, "desc": "Natural high-elevation meadow with gas station, camp store, and Byrd Visitor Center.", "octane": "87 Regular", "url": "https://www.goshenandoah.com/", "cost": "", "phone": "+1 540-999-3286"}, {"name": "Big Meadows Wayside Gas (MP 51.0)", "category": "Gas Station", "day": "Day 1", "lat": 38.5178, "lon": -78.4361, "type": "fuel", "color": "#ef4444", "icon": "⛽", "is_curated": false, "desc": "Mid-Skyline Drive fuel stop. 87 Regular available. Rebel 1100 safety top-up at 53 miles.", "octane": "Available", "url": "", "cost": "", "phone": "+1 540-999-3286"}, {"name": "Dark Hollow Falls Trailhead (MP 50.7)", "category": "Short Hike", "day": "Day 1", "lat": 38.5195, "lon": -78.4289, "type": "hike", "color": "#14b8a6", "icon": "🥾", "is_curated": true, "desc": "Popular 1.4-mile roundtrip hike descending 440 ft to a cascading 70-foot waterfall.", "octane": "N/A", "url": "", "cost": "", "phone": ""}, {"name": "South River Overlook (MP 62.8)", "category": "Scenic Sight", "day": "Day 1", "lat": 38.3842, "lon": -78.5369, "type": "sight", "color": "#f97316", "icon": "🌄", "is_curated": false, "desc": "Scenic gap overlook with views deep into the South River gorge.", "octane": "N/A", "url": "", "cost": "", "phone": ""}, {"name": "Loft Mountain Wayside (MP 79.5)", "category": "Scenic Sight", "day": "Day 1", "lat": 38.2435, "lon": -78.6657, "type": "sight", "color": "#f97316", "icon": "🌄", "is_curated": false, "desc": "Southern district hub on Skyline Drive with wayside dining and gift shop.", "octane": "N/A", "url": "", "cost": "", "phone": ""}, {"name": "Rockfish Gap Information Station (MP 105)", "category": "Attraction", "day": "Day 1", "lat": 38.0315, "lon": -78.8576, "type": "attraction", "color": "#9333ea", "icon": "🏛️", "is_curated": true, "desc": "Skyline Drive Mile 105 southern terminus seamlessly connecting into Blue Ridge Parkway MP 0.0.", "octane": "N/A", "url": "", "cost": "", "phone": ""}, {"name": "Exxon / Sheetz Waynesboro (I-64 / US-250)", "category": "Gas Station", "day": "Day 1", "lat": 38.0461, "lon": -78.8892, "type": "fuel", "color": "#ef4444", "icon": "⛽", "is_curated": false, "desc": "Gap exit fuel hub at Rockfish Gap base. Full 87 Regular pumps and food mart.", "octane": "Available", "url": "", "cost": "", "phone": "+1 540-942-1200"}, {"name": "The Blackburn Inn & Conference Center", "category": "Primary Hotel", "day": "Day 1", "lat": 38.1456, "lon": -79.0689, "type": "hotel-primary", "color": "#2563eb", "icon": "🏨", "is_curated": false, "desc": "Historic boutique hotel with upscale rooms, spa, and secure courtyard bike parking.", "octane": "N/A", "url": "https://www.blackburn-inn.com/", "cost": "$165 USD/night", "phone": "+1 540-712-0501"}, {"name": "Hampton Inn Waynesboro-Stuarts Draft", "category": "Secondary Hotel", "day": "Day 1", "lat": 38.0583, "lon": -78.9347, "type": "hotel-secondary", "color": "#f59e0b", "icon": "🏨", "is_curated": false, "desc": "Modern hotel located 5 minutes from Rockfish Gap with hot breakfast and pool.", "octane": "N/A", "url": "https://www.hilton.com/en/hotels/shdwdhx-hampton-waynesboro-stuarts-draft/", "cost": "$140 USD/night", "phone": "+1 540-213-9500"}, {"name": "Blue Ridge Parkway Milepost 0.0", "category": "Attraction", "day": "Day 2", "lat": 38.0315, "lon": -78.8576, "type": "attraction", "color": "#9333ea", "icon": "🏛️", "is_curated": true, "desc": "Northern terminus of the Blue Ridge Parkway at Rockfish Gap / Afton Mountain.", "octane": "N/A", "url": "https://www.nps.gov/blri", "cost": "Free", "phone": "+1 828-298-0398"}, {"name": "Humpback Rocks Visitor Center (MP 5.8)", "category": "Short Hike", "day": "Day 2", "lat": 37.9691, "lon": -78.9026, "type": "hike", "color": "#14b8a6", "icon": "🥾", "is_curated": true, "desc": "Outdoor mountain farm museum and trailhead to the dramatic Humpback Rocks jagged outcrop.", "octane": "N/A", "url": "", "cost": "", "phone": "+1 540-943-4716"}, {"name": "Ravens Roost Overlook (MP 10.7)", "category": "Scenic Sight", "day": "Day 2", "lat": 37.9308, "lon": -78.9508, "type": "sight", "color": "#f97316", "icon": "🌄", "is_curated": false, "desc": "Iconic cliffside overlook offering sunset views over Torry Ridge and Shenandoah Valley.", "octane": "N/A", "url": "", "cost": "", "phone": ""}, {"name": "Twenty-Minute Cliff Overlook (MP 19.0)", "category": "Scenic Sight", "day": "Day 2", "lat": 37.8931, "lon": -79.0308, "type": "sight", "color": "#f97316", "icon": "🌄", "is_curated": false, "desc": "Legendary cliff where locals told time by the shadow creeping across the face.", "octane": "N/A", "url": "", "cost": "", "phone": ""}, {"name": "Yankee Horse Ridge & Railroad (MP 34.4)", "category": "Scenic Sight", "day": "Day 2", "lat": 37.7656, "lon": -79.1869, "type": "sight", "color": "#f97316", "icon": "🌄", "is_curated": false, "desc": "Reconstructed logging railroad spur and scenic waterfall footbridge.", "octane": "N/A", "url": "", "cost": "", "phone": ""}, {"name": "Bluff Mountain Tunnel (BRP MP 53.1)", "category": "Tunnel", "day": "Day 2", "lat": 37.6681, "lon": -79.3242, "type": "tunnel", "color": "#64748b", "icon": "🚇", "is_curated": true, "desc": "Historic 630-ft tunnel. The ONLY tunnel on the entire Virginia section of the Parkway! Clearance: 13'7\".", "octane": "N/A", "url": "", "cost": "", "phone": ""}, {"name": "Otter Creek Overlook & Restaurant (MP 60.8)", "category": "Scenic Sight", "day": "Day 2", "lat": 37.5819, "lon": -79.3561, "type": "sight", "color": "#f97316", "icon": "🌄", "is_curated": false, "desc": "Tranquil creek valley with historic wayside dining and easy walking trails.", "octane": "N/A", "url": "", "cost": "", "phone": ""}, {"name": "James River Visitor Center (MP 63.7)", "category": "Attraction", "day": "Day 2", "lat": 37.5627, "lon": -79.3789, "type": "attraction", "color": "#9333ea", "icon": "🏛️", "is_curated": true, "desc": "Lowest elevation on the entire 469-mile Blue Ridge Parkway at 649 ft (198 m). Footbridge over lock canal.", "octane": "N/A", "url": "", "cost": "Free", "phone": "+1 434-299-5496"}, {"name": "Thunder Ridge Overlook (MP 74.7)", "category": "Scenic Sight", "day": "Day 2", "lat": 37.5258, "lon": -79.5019, "type": "sight", "color": "#f97316", "icon": "🌄", "is_curated": false, "desc": "Short loop trail to stone observation deck overlooking Arnold's Valley.", "octane": "N/A", "url": "", "cost": "", "phone": ""}, {"name": "Peaks of Otter & Abbott Lake (MP 86.0)", "category": "Attraction", "day": "Day 2", "lat": 37.4452, "lon": -79.6083, "type": "attraction", "color": "#9333ea", "icon": "🏛️", "is_curated": true, "desc": "Famous mountain lake nestled between Sharp Top and Flat Top peaks.", "octane": "N/A", "url": "https://www.peaksofotter.com/", "cost": "", "phone": "+1 866-387-9905"}, {"name": "Peaks of Otter Lodge (MP 86.0)", "category": "Primary Hotel", "day": "Day 2", "lat": 37.4452, "lon": -79.6083, "type": "hotel-primary", "color": "#2563eb", "icon": "🏨", "is_curated": false, "desc": "Iconic lodge situated directly on Abbott Lake with lakefront dining and Sharp Top shuttle.", "octane": "N/A", "url": "https://www.peaksofotter.com/", "cost": "$195 USD/night", "phone": "+1 866-387-9905"}, {"name": "BP / Exxon Buchanan Gap (MP 90 / VA-43)", "category": "Gas Station", "day": "Day 2", "lat": 37.5231, "lon": -79.6789, "type": "fuel", "color": "#ef4444", "icon": "⛽", "is_curated": false, "desc": "Safe gap exit fuel stop (4 mi north on VA-43). 87 Regular available. Rebel 1100 fuel check.", "octane": "Available", "url": "", "cost": "", "phone": "+1 540-254-2000"}, {"name": "Great Valley Overlook (MP 99.6)", "category": "Scenic Sight", "day": "Day 2", "lat": 37.3889, "lon": -79.7911, "type": "sight", "color": "#f97316", "icon": "🌄", "is_curated": false, "desc": "Spectacular vista of the Roanoke Valley and Blue Ridge foothills.", "octane": "N/A", "url": "", "cost": "", "phone": ""}, {"name": "Roanoke Mountain Spur (MP 120.3)", "category": "Attraction", "day": "Day 2", "lat": 37.2415, "lon": -79.9324, "type": "attraction", "color": "#9333ea", "icon": "🏛️", "is_curated": true, "desc": "Paved one-way loop ascending to Roanoke Mountain summit with sweeping city views.", "octane": "N/A", "url": "", "cost": "", "phone": ""}, {"name": "Mill Mountain Star & Overlook", "category": "Attraction", "day": "Day 2", "lat": 37.2514, "lon": -79.9333, "type": "attraction", "color": "#9333ea", "icon": "🏛️", "is_curated": true, "desc": "The world's largest man-made illuminated star (88.5 ft tall) overlooking Roanoke skyline.", "octane": "N/A", "url": "", "cost": "Free", "phone": ""}, {"name": "Sheetz / Sunoco Roanoke Gap (MP 121 / US-220)", "category": "Gas Station", "day": "Day 2", "lat": 37.2289, "lon": -79.9575, "type": "fuel", "color": "#ef4444", "icon": "⛽", "is_curated": false, "desc": "Major service hub at US-220 gap exit. 87 Regular pumps, 24/7 food, and convenience store.", "octane": "Available", "url": "", "cost": "", "phone": "+1 540-774-1234"}, {"name": "The Hotel Roanoke & Conference Center", "category": "Secondary Hotel", "day": "Day 2", "lat": 37.2742, "lon": -79.9408, "type": "hotel-secondary", "color": "#f59e0b", "icon": "🏨", "is_curated": false, "desc": "Historic 1882 Tudor-style luxury hotel in downtown Roanoke with covered motorcycle parking.", "octane": "N/A", "url": "https://www.hotelroanoke.com/", "cost": "$175 USD/night", "phone": "+1 540-985-5900"}, {"name": "Slacks Overlook (MP 140.0)", "category": "Scenic Sight", "day": "Day 3", "lat": 37.1356, "lon": -80.0522, "type": "sight", "color": "#f97316", "icon": "🌄", "is_curated": false, "desc": "Peaceful roadside pull-off viewing the forested Virginia Piedmont ridges.", "octane": "N/A", "url": "", "cost": "", "phone": ""}, {"name": "Smart View Recreation Area (MP 154.5)", "category": "Scenic Sight", "day": "Day 3", "lat": 36.9208, "lon": -80.2589, "type": "sight", "color": "#f97316", "icon": "🌄", "is_curated": false, "desc": "Historic 1890 Trail Cabin and famous dogwood-lined meadow overlook.", "octane": "N/A", "url": "", "cost": "", "phone": ""}, {"name": "Mabry Mill & Gristmill (MP 176.1)", "category": "Attraction", "day": "Day 3", "lat": 36.7501, "lon": -80.4042, "type": "attraction", "color": "#9333ea", "icon": "🏛️", "is_curated": true, "desc": "The most photographed historic site on the Parkway! Working gristmill, blacksmith shop, and pancake restaurant.", "octane": "N/A", "url": "https://www.mabrymillrestaurant.com/", "cost": "Free", "phone": "+1 276-952-2947"}, {"name": "Exxon Meadows of Dan (MP 177.7 / US-58)", "category": "Gas Station", "day": "Day 3", "lat": 36.7356, "lon": -80.4128, "type": "fuel", "color": "#ef4444", "icon": "⛽", "is_curated": false, "desc": "Convenient fuel stop 0.5 miles from Mabry Mill. 87 Regular, country deli, and cider.", "octane": "Available", "url": "", "cost": "", "phone": "+1 276-952-2250"}, {"name": "Groundhog Mountain Overlook (MP 188.8)", "category": "Scenic Sight", "day": "Day 3", "lat": 36.6346, "lon": -80.5369, "type": "sight", "color": "#f97316", "icon": "🌄", "is_curated": false, "desc": "Rustic wooden observation tower with split-rail snake fences and 360-degree vistas.", "octane": "N/A", "url": "", "cost": "", "phone": ""}, {"name": "Puckett Cabin (MP 189.9)", "category": "Attraction", "day": "Day 3", "lat": 36.6278, "lon": -80.5475, "type": "attraction", "color": "#9333ea", "icon": "🏛️", "is_curated": true, "desc": "Historic cabin of Orlean Hawks Puckett, famous Appalachian midwife who delivered over 1,000 babies.", "octane": "N/A", "url": "", "cost": "Free", "phone": ""}, {"name": "Pilot / Shell Fancy Gap (MP 215 / US-52 / I-77)", "category": "Gas Station", "day": "Day 3", "lat": 36.6667, "lon": -80.6978, "type": "fuel", "color": "#ef4444", "icon": "⛽", "is_curated": false, "desc": "Major highway junction fuel stop. 87 Regular, restaurants, and tire pressure station.", "octane": "Available", "url": "", "cost": "", "phone": "+1 276-728-2000"}, {"name": "Blue Ridge Music Center (MP 213.0)", "category": "Attraction", "day": "Day 3", "lat": 36.5647, "lon": -80.8522, "type": "attraction", "color": "#9333ea", "icon": "🏛️", "is_curated": true, "desc": "Celebrates traditional old-time Appalachian fiddle and banjo music with live mid-day performances.", "octane": "N/A", "url": "https://www.blueridgemusiccenter.org/", "cost": "Free", "phone": "+1 276-236-5309"}, {"name": "Cumberland Knob (MP 217.5)", "category": "Scenic Sight", "day": "Day 3", "lat": 36.5389, "lon": -80.9083, "type": "sight", "color": "#f97316", "icon": "🌄", "is_curated": false, "desc": "Where construction of the Blue Ridge Parkway officially began in 1935!", "octane": "N/A", "url": "", "cost": "Free", "phone": ""}, {"name": "Fox Hunters Paradise Overlook (MP 218.6)", "category": "Scenic Sight", "day": "Day 3", "lat": 36.5308, "lon": -80.9167, "type": "sight", "color": "#f97316", "icon": "🌄", "is_curated": false, "desc": "High bluffs where mountain hunters gathered to listen to hounds run foxes in the gorge.", "octane": "N/A", "url": "", "cost": "", "phone": ""}, {"name": "Doughton Park & The Bluffs (MP 241.0)", "category": "Attraction", "day": "Day 3", "lat": 36.4172, "lon": -81.1691, "type": "attraction", "color": "#9333ea", "icon": "🏛️", "is_curated": true, "desc": "Largest parkway recreation area with historic Bluffs Restaurant and rolling alpine meadows.", "octane": "N/A", "url": "https://www.bluffsrestaurant.org/", "cost": "", "phone": "+1 336-372-8888"}, {"name": "Exxon Glendale Springs (MP 261 / NC-16)", "category": "Gas Station", "day": "Day 3", "lat": 36.3456, "lon": -81.3889, "type": "fuel", "color": "#ef4444", "icon": "⛽", "is_curated": false, "desc": "Fuel top-up at NC-16 gap exit. 87 Regular available. Rebel 1100 safety margin.", "octane": "Available", "url": "", "cost": "", "phone": "+1 336-982-2000"}, {"name": "Moses H. Cone Memorial Park (MP 294.0)", "category": "Attraction", "day": "Day 3", "lat": 36.1492, "lon": -81.6888, "type": "attraction", "color": "#9333ea", "icon": "🏛️", "is_curated": true, "desc": "Magnificent 3,500-acre estate with 1901 Flat Top Manor, craft center, and bass lake.", "octane": "N/A", "url": "https://www.nps.gov/blri", "cost": "Free", "phone": "+1 828-295-7938"}, {"name": "Exxon / Speedway Blowing Rock (MP 291.8 / US-321)", "category": "Gas Station", "day": "Day 3", "lat": 36.1342, "lon": -81.6778, "type": "fuel", "color": "#ef4444", "icon": "⛽", "is_curated": false, "desc": "Blowing Rock gap exit fuel station. 87 Regular available.", "octane": "Available", "url": "", "cost": "", "phone": "+1 828-295-3100"}, {"name": "Meadowbrook Inn", "category": "Primary Hotel", "day": "Day 3", "lat": 36.1325, "lon": -81.6756, "type": "hotel-primary", "color": "#2563eb", "icon": "🏨", "is_curated": false, "desc": "Charming mountain resort hotel in heart of Blowing Rock village with indoor pool and terrace.", "octane": "N/A", "url": "https://www.meadowbrook-inn.com/", "cost": "$180 USD/night", "phone": "+1 828-295-4300"}, {"name": "The Green Park Hotel", "category": "Secondary Hotel", "day": "Day 3", "lat": 36.1219, "lon": -81.6667, "type": "hotel-secondary", "color": "#f59e0b", "icon": "🏨", "is_curated": false, "desc": "Historic 1891 Victorian hotel operating continuously for over 130 years on the Eastern Continental Divide.", "octane": "N/A", "url": "https://greenparkinn.net/", "cost": "$165 USD/night", "phone": "+1 828-414-9230"}, {"name": "Julian Price Memorial Park (MP 297.0)", "category": "Scenic Sight", "day": "Day 4", "lat": 36.1389, "lon": -81.7389, "type": "sight", "color": "#f97316", "icon": "🌄", "is_curated": false, "desc": "Scenic mountain lake surrounded by dense rhododendron and canoe launch.", "octane": "N/A", "url": "", "cost": "", "phone": ""}, {"name": "Linn Cove Viaduct (MP 304.4)", "category": "Attraction", "day": "Day 4", "lat": 36.0967, "lon": -81.8269, "type": "attraction", "color": "#9333ea", "icon": "🏛️", "is_curated": true, "desc": "World-famous $10M S-curve bridge hugging Grandfather Mountain. Marvel of civil engineering.", "octane": "N/A", "url": "https://www.nps.gov/blri", "cost": "Free", "phone": "+1 828-298-0398"}, {"name": "Linville Falls & Gorge (MP 316.4)", "category": "Short Hike", "day": "Day 4", "lat": 35.9547, "lon": -81.9325, "type": "hike", "color": "#14b8a6", "icon": "🥾", "is_curated": true, "desc": "Deepest gorge in the eastern US (the 'Grand Canyon of the Blue Ridge') and cascading waterfall.", "octane": "N/A", "url": "https://www.nps.gov/blri", "cost": "Free", "phone": "+1 828-765-1045"}, {"name": "Little Switzerland Tunnel (BRP MP 333.4)", "category": "Tunnel", "day": "Day 4", "lat": 35.8508, "lon": -82.0903, "type": "tunnel", "color": "#64748b", "icon": "🚇", "is_curated": true, "desc": "Historic 547-ft tunnel immediately preceding the Switzerland Inn. Clearance: 13'8\".", "octane": "N/A", "url": "", "cost": "", "phone": ""}, {"name": "Little Switzerland & The Diamondback (MP 334.0)", "category": "Attraction", "day": "Day 4", "lat": 35.8504, "lon": -82.0911, "type": "attraction", "color": "#9333ea", "icon": "🏛️", "is_curated": true, "desc": "Famous motorcycle alpine village! Switzerland Cafe, chalets, and access to NC-226A Diamondback twisties.", "octane": "N/A", "url": "https://switzerlandinn.com/", "cost": "", "phone": "+1 828-765-2153"}, {"name": "BP Little Switzerland (MP 334 / NC-226A)", "category": "Gas Station", "day": "Day 4", "lat": 35.8456, "lon": -82.0975, "type": "fuel", "color": "#ef4444", "icon": "⛽", "is_curated": false, "desc": "Gas stop at Little Switzerland gap exit. 87 Regular available. Rebel 1100 fuel check at 42 miles.", "octane": "Available", "url": "", "cost": "", "phone": "+1 828-765-4000"}, {"name": "Wildacres Tunnel (BRP MP 336.4)", "category": "Tunnel", "day": "Day 4", "lat": 35.8398, "lon": -82.1287, "type": "tunnel", "color": "#64748b", "icon": "🚇", "is_curated": true, "desc": "Historic 249-ft curved stone tunnel. Clearance: 13'7\".", "octane": "N/A", "url": "", "cost": "", "phone": ""}, {"name": "Twin Tunnels #1 & #2 (BRP MP 344.5 & 344.7)", "category": "Tunnel", "day": "Day 4", "lat": 35.8116, "lon": -82.1706, "type": "tunnel", "color": "#64748b", "icon": "🚇", "is_curated": true, "desc": "Unique dual tunnels carved through mountain spur. Lengths: 230 ft & 401 ft.", "octane": "N/A", "url": "", "cost": "", "phone": ""}, {"name": "Rough Ridge Tunnel (BRP MP 349.0)", "category": "Tunnel", "day": "Day 4", "lat": 35.7892, "lon": -82.2031, "type": "tunnel", "color": "#64748b", "icon": "🚇", "is_curated": true, "desc": "150-ft stone-faced parkway tunnel.", "octane": "N/A", "url": "", "cost": "", "phone": ""}, {"name": "Buck Creek Gap Tunnel (BRP MP 350.0)", "category": "Tunnel", "day": "Day 4", "lat": 35.7661, "lon": -82.2356, "type": "tunnel", "color": "#64748b", "icon": "🚇", "is_curated": true, "desc": "170-ft curved rock tunnel at NC-80 crossing.", "octane": "N/A", "url": "", "cost": "", "phone": ""}, {"name": "Black Mountain Tunnel (BRP MP 351.0)", "category": "Tunnel", "day": "Day 4", "lat": 35.762, "lon": -82.242, "type": "tunnel", "color": "#64748b", "icon": "🚇", "is_curated": true, "desc": "230-ft mountain tunnel near Deep Gap.", "octane": "N/A", "url": "", "cost": "", "phone": ""}, {"name": "Mount Mitchell State Park Summit (MP 355.4)", "category": "Attraction", "day": "Day 4", "lat": 35.7649, "lon": -82.2652, "type": "attraction", "color": "#9333ea", "icon": "🏛️", "is_curated": true, "desc": "Highest peak east of the Mississippi River at 6,684 ft (2,037 m)! Observation deck and weather station.", "octane": "N/A", "url": "https://www.ncparks.gov/state-parks/mount-mitchell-state-park", "cost": "Free", "phone": "+1 828-675-4611"}, {"name": "Craggy Pinnacle Tunnel (BRP MP 364.4)", "category": "Tunnel", "day": "Day 4", "lat": 35.7011, "lon": -82.3789, "type": "tunnel", "color": "#64748b", "icon": "🚇", "is_curated": true, "desc": "245-ft mountain tunnel approaching Craggy Gardens. Clearance: 13'8\".", "octane": "N/A", "url": "", "cost": "", "phone": ""}, {"name": "Craggy Flats Tunnel (BRP MP 365.5)", "category": "Tunnel", "day": "Day 4", "lat": 35.6989, "lon": -82.3856, "type": "tunnel", "color": "#64748b", "icon": "🚇", "is_curated": true, "desc": "335-ft rock tunnel through rhododendron balds.", "octane": "N/A", "url": "", "cost": "", "phone": ""}, {"name": "Craggy Gardens Visitor Center (MP 364.1)", "category": "Attraction", "day": "Day 4", "lat": 35.7011, "lon": -82.3789, "type": "attraction", "color": "#9333ea", "icon": "🏛️", "is_curated": true, "desc": "Cool high-elevation alpine heath balds with sweeping panoramic overlook.", "octane": "N/A", "url": "https://www.nps.gov/blri", "cost": "Free", "phone": "+1 828-298-0398"}, {"name": "Tanbark Ridge Tunnel (BRP MP 374.4)", "category": "Tunnel", "day": "Day 4", "lat": 35.6542, "lon": -82.4419, "type": "tunnel", "color": "#64748b", "icon": "🚇", "is_curated": true, "desc": "Longest single tunnel in this section at 730 ft (223 m). Clearance: 13'10\".", "octane": "N/A", "url": "", "cost": "", "phone": ""}, {"name": "Folk Art Center (MP 382.0)", "category": "Attraction", "day": "Day 4", "lat": 35.5989, "lon": -82.4931, "type": "attraction", "color": "#9333ea", "icon": "🏛️", "is_curated": true, "desc": "Premier center for Southern Appalachian craft and guild heritage in Asheville.", "octane": "N/A", "url": "https://www.southernhighlandguild.org/", "cost": "Free", "phone": "+1 828-298-7928"}, {"name": "Ingles / BP Asheville East (MP 382 / US-70)", "category": "Gas Station", "day": "Day 4", "lat": 35.5892, "lon": -82.4856, "type": "fuel", "color": "#ef4444", "icon": "⛽", "is_curated": false, "desc": "Major Asheville gap exit fuel stop. 87 Regular available. Rebel 1100 fuel top-up at 48 miles.", "octane": "Available", "url": "", "cost": "", "phone": "+1 828-298-5000"}, {"name": "Ferrin Knob Tunnels #1, #2, #3 (MP 400.9 - 401.5)", "category": "Tunnel", "day": "Day 4", "lat": 35.4528, "lon": -82.6892, "type": "tunnel", "color": "#64748b", "icon": "🚇", "is_curated": true, "desc": "Triple succession of mountain tunnels carved through the Pisgah ridge. Lengths: 180 ft, 250 ft, 210 ft.", "octane": "N/A", "url": "", "cost": "", "phone": ""}, {"name": "Young Pisgah Ridge Tunnel (BRP MP 403.0)", "category": "Tunnel", "day": "Day 4", "lat": 35.4389, "lon": -82.7056, "type": "tunnel", "color": "#64748b", "icon": "🚇", "is_curated": true, "desc": "400-ft mountain tunnel. Clearance: 13'9\".", "octane": "N/A", "url": "", "cost": "", "phone": ""}, {"name": "Fork Mountain Tunnel (BRP MP 407.3)", "category": "Tunnel", "day": "Day 4", "lat": 35.4256, "lon": -82.7411, "type": "tunnel", "color": "#64748b", "icon": "🚇", "is_curated": true, "desc": "350-ft stone tunnel approaching Mount Pisgah.", "octane": "N/A", "url": "", "cost": "", "phone": ""}, {"name": "Pisgah Inn & Overlook (MP 408.6)", "category": "Attraction", "day": "Day 4", "lat": 35.4194, "lon": -82.7561, "type": "attraction", "color": "#9333ea", "icon": "🏛️", "is_curated": true, "desc": "The 'Peak of the Parkway' at 5,000 ft elevation. World-famous clifftop dining room.", "octane": "N/A", "url": "https://www.pisgahinn.com/", "cost": "", "phone": "+1 828-235-8228"}, {"name": "Looking Glass Rock Overlook (MP 417.0)", "category": "Scenic Sight", "day": "Day 4", "lat": 35.3956, "lon": -82.8089, "type": "sight", "color": "#f97316", "icon": "🌄", "is_curated": false, "desc": "Dramatic view of massive granite pluton monolith shining like a mirror when wet.", "octane": "N/A", "url": "", "cost": "", "phone": ""}, {"name": "Graveyard Fields Waterfall (MP 418.8)", "category": "Short Hike", "day": "Day 4", "lat": 35.3789, "lon": -82.8475, "type": "hike", "color": "#14b8a6", "icon": "🥾", "is_curated": true, "desc": "High-altitude heath bald with wooden boardwalk loop to Second Falls waterfall.", "octane": "N/A", "url": "", "cost": "Free", "phone": ""}, {"name": "Devil's Courthouse Tunnel (BRP MP 422.1)", "category": "Tunnel", "day": "Day 4", "lat": 35.3589, "lon": -82.8856, "type": "tunnel", "color": "#64748b", "icon": "🚇", "is_curated": true, "desc": "650-ft curved rock tunnel beneath the sheer stone face of Devil's Courthouse.", "octane": "N/A", "url": "", "cost": "", "phone": ""}, {"name": "Richland Balsam Overlook (MP 431.4)", "category": "Attraction", "day": "Day 4", "lat": 35.3675, "lon": -82.9936, "type": "attraction", "color": "#9333ea", "icon": "🏛️", "is_curated": true, "desc": "HIGHEST POINT ON THE ENTIRE BLUE RIDGE PARKWAY MOTOR ROAD! Elevation 6,053 ft (1,845 m).", "octane": "N/A", "url": "", "cost": "Free", "phone": ""}, {"name": "Enmarket / Shell Balsam Gap (MP 443 / US-23 / US-74)", "category": "Gas Station", "day": "Day 4", "lat": 35.4128, "lon": -83.0875, "type": "fuel", "color": "#ef4444", "icon": "⛽", "is_curated": false, "desc": "Balsam Gap exit fuel hub. 87 Regular available. Rebel 1100 safety margin check at 61 miles.", "octane": "Available", "url": "", "cost": "", "phone": "+1 828-456-2000"}, {"name": "Waterrock Knob Visitor Center (MP 451.2)", "category": "Attraction", "day": "Day 4", "lat": 35.4628, "lon": -83.1386, "type": "attraction", "color": "#9333ea", "icon": "🏛️", "is_curated": true, "desc": "Elevation 5,820 ft. Panoramic 360-degree vista over the Great Smokies and Plott Balsams.", "octane": "N/A", "url": "https://www.nps.gov/blri", "cost": "Free", "phone": "+1 828-298-0398"}, {"name": "Red Creek & Lickstone Tunnels (MP 458.8 & 459.3)", "category": "Tunnel", "day": "Day 4", "lat": 35.4856, "lon": -83.2189, "type": "tunnel", "color": "#64748b", "icon": "🚇", "is_curated": true, "desc": "Twin mountain tunnels through the Cherokee ridge. Lengths: 180 ft & 220 ft.", "octane": "N/A", "url": "", "cost": "", "phone": ""}, {"name": "Bunches Bald & Big Witch Tunnels (MP 459.9 & 461.2)", "category": "Tunnel", "day": "Day 4", "lat": 35.4956, "lon": -83.2389, "type": "tunnel", "color": "#64748b", "icon": "🚇", "is_curated": true, "desc": "Two stone-lined tunnels near the Soco Gap crossing. Lengths: 250 ft & 300 ft.", "octane": "N/A", "url": "", "cost": "", "phone": ""}, {"name": "Rattlesnake Mountain Tunnel (MP 465.6)", "category": "Tunnel", "day": "Day 4", "lat": 35.5089, "lon": -83.2842, "type": "tunnel", "color": "#64748b", "icon": "🚇", "is_curated": true, "desc": "Historic 410-ft rock tunnel descending into Cherokee valley.", "octane": "N/A", "url": "", "cost": "", "phone": ""}, {"name": "Sherrill Cove Tunnel (MP 466.3)", "category": "Tunnel", "day": "Day 4", "lat": 35.5111, "lon": -83.2925, "type": "tunnel", "color": "#64748b", "icon": "🚇", "is_curated": true, "desc": "Final tunnel on the Blue Ridge Parkway! Length: 550 ft. Clearance: 13'7\".", "octane": "N/A", "url": "", "cost": "", "phone": ""}, {"name": "Blue Ridge Parkway Southern Terminus (MP 469.0)", "category": "Attraction", "day": "Day 4", "lat": 35.5133, "lon": -83.3056, "type": "attraction", "color": "#9333ea", "icon": "🏛️", "is_curated": true, "desc": "Southern terminus marker at the boundary of Great Smoky Mountains National Park.", "octane": "N/A", "url": "https://www.nps.gov/grsm", "cost": "Free", "phone": "+1 828-497-1900"}, {"name": "Oconaluftee Visitor Center & Elk Farm (MP 469.0)", "category": "Attraction", "day": "Day 4", "lat": 35.5133, "lon": -83.3056, "type": "attraction", "color": "#9333ea", "icon": "🏛️", "is_curated": true, "desc": "Watch herds of wild reintroduced Appalachian elk grazing in the river meadows at dusk!", "octane": "N/A", "url": "https://www.nps.gov/grsm", "cost": "Free", "phone": "+1 828-497-1900"}, {"name": "Cherokee Exxon / Harrah's Fuel (US-441)", "category": "Gas Station", "day": "Day 4", "lat": 35.4789, "lon": -83.3156, "type": "fuel", "color": "#ef4444", "icon": "⛽", "is_curated": false, "desc": "Full service fueling in Cherokee. 87 Regular available.", "octane": "Available", "url": "", "cost": "", "phone": "+1 828-497-3000"}, {"name": "Harrah's Cherokee Casino Resort", "category": "Primary Hotel", "day": "Day 4", "lat": 35.4756, "lon": -83.3111, "type": "hotel-primary", "color": "#2563eb", "icon": "🏨", "is_curated": false, "desc": "Luxury mountain casino resort with multiple restaurants, covered motorcycle parking, and pools.", "octane": "N/A", "url": "https://www.caesars.com/harrahs-cherokee", "cost": "$189 USD/night", "phone": "+1 828-497-7777"}, {"name": "Great Smokies Inn - Cherokee", "category": "Secondary Hotel", "day": "Day 4", "lat": 35.4912, "lon": -83.3089, "type": "hotel-secondary", "color": "#f59e0b", "icon": "🏨", "is_curated": false, "desc": "Motorcycle-friendly mountain lodge near the Oconaluftee river with porch rocking chairs.", "octane": "N/A", "url": "https://greatsmokiesinn.com/", "cost": "$125 USD/night", "phone": "+1 828-497-2020"}, {"name": "Moonshiner 28 Highway (NC-28)", "category": "Scenic Sight", "day": "Day 5", "lat": 35.4497, "lon": -83.8052, "type": "sight", "color": "#f97316", "icon": "🌄", "is_curated": false, "desc": "Legendary motorcycle route winding along Cheoah Lake past Fontana Dam.", "octane": "N/A", "url": "", "cost": "", "phone": ""}, {"name": "Fontana Dam (NC-28)", "category": "Attraction", "day": "Day 5", "lat": 35.4528, "lon": -83.8047, "type": "attraction", "color": "#9333ea", "icon": "🏛️", "is_curated": true, "desc": "Tallest concrete dam in the eastern US at 480 ft (146 m). Spectacular lake gorge overlook.", "octane": "N/A", "url": "https://www.tva.com/energy/our-power-system/hydroelectric/fontana-dam", "cost": "Free", "phone": "+1 865-632-2101"}, {"name": "Deals Gap Motorcycle Resort & Tree of Shame", "category": "Attraction", "day": "Day 5", "lat": 35.4678, "lon": -83.9203, "type": "attraction", "color": "#9333ea", "icon": "🏛️", "is_curated": true, "desc": "World epicenter of motorcycle twisties! Souvenir shop, burger bar, and Tree of Shame with crash parts.", "octane": "N/A", "url": "https://tailofthedragon.com/", "cost": "", "phone": "+1 800-889-5550"}, {"name": "Tail of the Dragon (US-129)", "category": "Attraction", "day": "Day 5", "lat": 35.4856, "lon": -83.9356, "type": "attraction", "color": "#9333ea", "icon": "🏛️", "is_curated": true, "desc": "THE LEGEND: 318 curves in 11 miles of unbroken asphalt switchbacks with no intersections or driveways!", "octane": "N/A", "url": "https://tailofthedragon.com/", "cost": "Free", "phone": ""}, {"name": "Exxon / Shell Robbinsville (US-129)", "category": "Gas Station", "day": "Day 5", "lat": 35.3236, "lon": -83.8075, "type": "fuel", "color": "#ef4444", "icon": "⛽", "is_curated": false, "desc": "Fuel stop at base of Cherohala Skyway. 87 Regular available. Rebel 1100 fuel top-up.", "octane": "Available", "url": "", "cost": "", "phone": "+1 828-479-3000"}, {"name": "Cherohala Skyway NC Entrance (NC-143)", "category": "Attraction", "day": "Day 5", "lat": 35.3456, "lon": -83.8567, "type": "attraction", "color": "#9333ea", "icon": "🏛️", "is_curated": true, "desc": "Mile-high national scenic byway crossing the Unicoi Crest between North Carolina and Tennessee.", "octane": "N/A", "url": "https://cherohala.org/", "cost": "Free", "phone": ""}, {"name": "Santeetlah Gap & Overlook", "category": "Scenic Sight", "day": "Day 5", "lat": 35.3639, "lon": -84.0267, "type": "sight", "color": "#f97316", "icon": "🌄", "is_curated": false, "desc": "Elevation 5,390 ft. Highest point on the Cherohala Skyway with sweeping mountain vistas.", "octane": "N/A", "url": "", "cost": "", "phone": ""}, {"name": "Huckleberry Knob Trailhead (Cherohala)", "category": "Scenic Sight", "day": "Day 5", "lat": 35.3528, "lon": -84.0042, "type": "sight", "color": "#f97316", "icon": "🌄", "is_curated": false, "desc": "Trailhead to 5,560 ft bald with panoramic 360-degree views across Cherokee National Forest.", "octane": "N/A", "url": "", "cost": "", "phone": ""}, {"name": "Shell Tellico Plains (TN-165)", "category": "Gas Station", "day": "Day 5", "lat": 35.3636, "lon": -84.3047, "type": "fuel", "color": "#ef4444", "icon": "⛽", "is_curated": false, "desc": "Western gateway fuel station on Cherohala Skyway. 87 Regular available. Rebel 1100 top-up at 56 miles.", "octane": "Available", "url": "", "cost": "", "phone": "+1 423-253-2000"}, {"name": "Cherohala Skyway Visitor Center", "category": "Attraction", "day": "Day 5", "lat": 35.3636, "lon": -84.3047, "type": "attraction", "color": "#9333ea", "icon": "🏛️", "is_curated": true, "desc": "Interactive visitor center with regional maps, motorcycle guides, and picnic tables.", "octane": "N/A", "url": "https://cherohala.org/", "cost": "Free", "phone": "+1 423-253-8010"}, {"name": "Pilot / Marathon Sweetwater (I-75 / US-11)", "category": "Gas Station", "day": "Day 5", "lat": 35.6028, "lon": -84.4628, "type": "fuel", "color": "#ef4444", "icon": "⛽", "is_curated": false, "desc": "Highway hub fuel stop. 87 Regular available. Fast transition onto northbound valley corridor.", "octane": "Available", "url": "", "cost": "", "phone": "+1 423-337-1234"}, {"name": "Exxon / Sheetz Greeneville (US-11E)", "category": "Gas Station", "day": "Day 5", "lat": 36.1628, "lon": -82.8311, "type": "fuel", "color": "#ef4444", "icon": "⛽", "is_curated": false, "desc": "Midway fuel stop between Knoxville and Bristol. 87 Regular available.", "octane": "Available", "url": "", "cost": "", "phone": "+1 423-638-1200"}, {"name": "Historic Downtown Bristol State Street", "category": "Attraction", "day": "Day 5", "lat": 36.5956, "lon": -82.1811, "type": "attraction", "color": "#9333ea", "icon": "🏛️", "is_curated": true, "desc": "Famous state line running right down the yellow centerline: Virginia on left, Tennessee on right!", "octane": "N/A", "url": "https://discoverbristol.org/", "cost": "Free", "phone": ""}, {"name": "The Martha Washington Inn & Spa", "category": "Primary Hotel", "day": "Day 5", "lat": 36.7119, "lon": -81.9744, "type": "hotel-primary", "color": "#2563eb", "icon": "🏨", "is_curated": false, "desc": "Historic 1832 grand resort inn in Abingdon with rocking chair porches, gardens, and spa.", "octane": "N/A", "url": "https://www.themartha.com/", "cost": "$210 USD/night", "phone": "+1 276-628-3161"}, {"name": "The Bristol Hotel", "category": "Secondary Hotel", "day": "Day 5", "lat": 36.5961, "lon": -82.1831, "type": "hotel-secondary", "color": "#f59e0b", "icon": "🏨", "is_curated": false, "desc": "Boutique historic hotel in downtown Bristol with rooftop lounge overlooking the Appalachian foothills.", "octane": "N/A", "url": "https://www.thebristolhotel.com/", "cost": "$165 USD/night", "phone": "+1 276-696-3737"}, {"name": "BP / Shell Marion Gateway (I-81 / US-11)", "category": "Gas Station", "day": "Day 6", "lat": 36.8344, "lon": -81.5147, "type": "fuel", "color": "#ef4444", "icon": "⛽", "is_curated": false, "desc": "Southern staging fuel station for Back of the Dragon. 87 Regular available. Fill all tanks.", "octane": "Available", "url": "", "cost": "", "phone": "+1 276-783-2000"}, {"name": "Hungry Mother State Park (VA-16)", "category": "Attraction", "day": "Day 6", "lat": 36.8833, "lon": -81.5278, "type": "attraction", "color": "#9333ea", "icon": "🏛️", "is_curated": true, "desc": "Scenic mountain lake park nestled along Route 16 with CCC-built stone structures.", "octane": "N/A", "url": "https://www.dcr.virginia.gov/state-parks/hungry-mother", "cost": "Free", "phone": "+1 276-781-7400"}, {"name": "Back of the Dragon (VA Route 16)", "category": "Attraction", "day": "Day 6", "lat": 36.95, "lon": -81.515, "type": "attraction", "color": "#9333ea", "icon": "🏛️", "is_curated": true, "desc": "VIRGINIA'S PREMIER DRIVING ROAD: 32 miles, 300+ curves, 3 mountain passes (Walker, Brushy, Clinch)!", "octane": "N/A", "url": "https://www.backofthedragon.com/", "cost": "Free", "phone": "+1 276-988-2722"}, {"name": "Clinch Mountain Summit Overlook (VA-16)", "category": "Scenic Sight", "day": "Day 6", "lat": 37.0378, "lon": -81.5075, "type": "sight", "color": "#f97316", "icon": "🌄", "is_curated": false, "desc": "Elevation 3,800 ft. Spectacular hairpin cliff overlook midway across Back of the Dragon.", "octane": "N/A", "url": "", "cost": "", "phone": ""}, {"name": "Back of the Dragon Welcome Center & Brewery", "category": "Attraction", "day": "Day 6", "lat": 37.1264, "lon": -81.5161, "type": "attraction", "color": "#9333ea", "icon": "🏛️", "is_curated": true, "desc": "Northern terminus in Tazewell! Full motorcycle showroom, espresso bar, draft craft beer, and merchandise.", "octane": "N/A", "url": "https://www.backofthedragon.com/", "cost": "Free", "phone": "+1 276-988-2722"}, {"name": "Exxon Tazewell (US-19 / US-460)", "category": "Gas Station", "day": "Day 6", "lat": 37.1289, "lon": -81.5189, "type": "fuel", "color": "#ef4444", "icon": "⛽", "is_curated": false, "desc": "Fuel station immediately adjacent to Back of the Dragon center. 87 Regular available.", "octane": "Available", "url": "", "cost": "", "phone": "+1 276-988-3000"}, {"name": "Burke's Garden 'God's Thumbprint' Spur", "category": "Scenic Sight", "day": "Day 6", "lat": 37.0989, "lon": -81.3389, "type": "sight", "color": "#f97316", "icon": "🌄", "is_curated": false, "desc": "Virginia's highest and largest natural mountain bowl valley surrounded completely by Clinch Mountain.", "octane": "N/A", "url": "", "cost": "", "phone": ""}, {"name": "Shell Rich Creek / Pearisburg (US-460)", "category": "Gas Station", "day": "Day 6", "lat": 37.3789, "lon": -80.8242, "type": "fuel", "color": "#ef4444", "icon": "⛽", "is_curated": false, "desc": "Scenic New River valley fuel stop. 87 Regular available. Rebel 1100 fuel check at 50 miles.", "octane": "Available", "url": "", "cost": "", "phone": "+1 540-726-2000"}, {"name": "New River Water Gap Overlook", "category": "Scenic Sight", "day": "Day 6", "lat": 37.3856, "lon": -80.7956, "type": "sight", "color": "#f97316", "icon": "🌄", "is_curated": false, "desc": "Massive geological water gap carved through Peters Mountain by the prehistoric New River.", "octane": "N/A", "url": "", "cost": "", "phone": ""}, {"name": "Exxon / Sheetz Clifton Forge (I-64 / US-220)", "category": "Gas Station", "day": "Day 6", "lat": 37.8189, "lon": -79.8242, "type": "fuel", "color": "#ef4444", "icon": "⛽", "is_curated": false, "desc": "George Washington National Forest gateway fuel stop. 87 Regular available.", "octane": "Available", "url": "", "cost": "", "phone": "+1 540-862-1200"}, {"name": "Historic Jefferson Bathhouses (Warm Springs Pools)", "category": "Attraction", "day": "Day 6", "lat": 38.0494, "lon": -79.7911, "type": "attraction", "color": "#9333ea", "icon": "🏛️", "is_curated": true, "desc": "Historic 1761 mineral spring pools enjoyed by Thomas Jefferson. Crystal-clear 98°F warm springs.", "octane": "N/A", "url": "https://www.omnihotels.com/resorts/homestead-virginia/wellness/warm-springs-pools", "cost": "$30/soak", "phone": "+1 540-839-1766"}, {"name": "The Inn at Gristmill Square", "category": "Primary Hotel", "day": "Day 6", "lat": 38.0511, "lon": -79.7889, "type": "hotel-primary", "color": "#2563eb", "icon": "🏨", "is_curated": false, "desc": "Historic boutique mill inn in Warm Springs with fine dining at The Waterwheel Restaurant.", "octane": "N/A", "url": "https://www.gristmillsquare.com/", "cost": "$185 USD/night", "phone": "+1 540-839-2231"}, {"name": "The Warm Springs Inn", "category": "Secondary Hotel", "day": "Day 6", "lat": 38.0494, "lon": -79.7911, "type": "hotel-secondary", "color": "#f59e0b", "icon": "🏨", "is_curated": false, "desc": "Quaint 1800s country inn across the lawn from the historic warm mineral springs.", "octane": "N/A", "url": "https://warmspringsinnva.com/", "cost": "$135 USD/night", "phone": "+1 540-839-5351"}, {"name": "Highland County 'Virginia's Switzerland' (US-220)", "category": "Scenic Sight", "day": "Day 7", "lat": 38.2567, "lon": -79.6842, "type": "sight", "color": "#f97316", "icon": "🌄", "is_curated": false, "desc": "Scenic high-elevation pastoral valley of maple groves, sheep pastures, and limestone cliffs.", "octane": "N/A", "url": "", "cost": "", "phone": ""}, {"name": "Highland County Courthouse & Monterey (US-250)", "category": "Attraction", "day": "Day 7", "lat": 38.4117, "lon": -79.5811, "type": "attraction", "color": "#9333ea", "icon": "🏛️", "is_curated": true, "desc": "Historic mountain town famous for the annual Highland County Maple Festival. Elevation 3,008 ft.", "octane": "N/A", "url": "https://www.highlandcounty.org/", "cost": "Free", "phone": "+1 540-468-2550"}, {"name": "Highland Mart / Exxon Monterey (US-250)", "category": "Gas Station", "day": "Day 7", "lat": 38.4122, "lon": -79.5798, "type": "fuel", "color": "#ef4444", "icon": "⛽", "is_curated": false, "desc": "Highland County fuel stop. 87 Regular available. Rebel 1100 fuel check at 31 miles.", "octane": "Available", "url": "", "cost": "", "phone": "+1 540-468-2200"}, {"name": "Shenandoah Mountain Summit (US-250)", "category": "Scenic Sight", "day": "Day 7", "lat": 38.3183, "lon": -79.2247, "type": "sight", "color": "#f97316", "icon": "🌄", "is_curated": false, "desc": "Elevation 3,440 ft. Historic Confederate Breastworks earthworks and sweeping ridge-top view.", "octane": "N/A", "url": "", "cost": "", "phone": ""}, {"name": "North River Valley Sweepers (VA-42)", "category": "Scenic Sight", "day": "Day 7", "lat": 38.3842, "lon": -78.9772, "type": "sight", "color": "#f97316", "icon": "🌄", "is_curated": false, "desc": "Winding two-lane asphalt through Mennonite farmlands and covered bridge country.", "octane": "N/A", "url": "", "cost": "", "phone": ""}, {"name": "Sheetz / Exxon Harrisonburg (VA-42 / US-11)", "category": "Gas Station", "day": "Day 7", "lat": 38.4495, "lon": -78.8689, "type": "fuel", "color": "#ef4444", "icon": "⛽", "is_curated": false, "desc": "Shenandoah Valley major fuel stop. 87 Regular available. Rebel 1100 top-up at 75 miles.", "octane": "Available", "url": "", "cost": "", "phone": "+1 540-434-1200"}, {"name": "New Market Battlefield State Historical Park", "category": "Attraction", "day": "Day 7", "lat": 38.6475, "lon": -78.6722, "type": "attraction", "color": "#9333ea", "icon": "🏛️", "is_curated": true, "desc": "Historic 1864 Civil War battlefield park overlooking the North Fork of the Shenandoah River.", "octane": "N/A", "url": "https://www.vmi.edu/museums-and-archives/virginia-museum-of-the-civil-war/", "cost": "$10/person", "phone": "+1 866-515-1864"}, {"name": "Strasburg & Riverton Shenandoah Confluence", "category": "Scenic Sight", "day": "Day 7", "lat": 38.9889, "lon": -78.3611, "type": "sight", "color": "#f97316", "icon": "🌄", "is_curated": false, "desc": "Where the North and South Forks of the Shenandoah River meet before Front Royal.", "octane": "N/A", "url": "", "cost": "", "phone": ""}, {"name": "Eagle's Nest RV, Boat & Vehicle Storage (FINISH)", "category": "Basecamp", "day": "Day 7", "lat": 38.9612, "lon": -78.2045, "type": "basecamp", "color": "#10b981", "icon": "🏕️", "is_curated": true, "desc": "MOTORCYCLE LOOP COMPLETE! Return to staged 2025 RAM 2500 and 16ft cargo trailer. Load bikes & secure tie-downs.", "octane": "N/A", "url": "https://frontroyalvehiclestorage.com/", "cost": "Staged Rig", "phone": "+1 540-636-6161"}, {"name": "Pilot Travel Center Winchester North (I-81 Exit 323)", "category": "Gas Station", "day": "Stage 8 (Transit Return)", "lat": 39.2456, "lon": -78.1342, "type": "fuel", "color": "#ef4444", "icon": "⛽", "is_curated": false, "desc": "Outbound diesel top-up before heading north on I-81 / I-68. High-flow diesel and DEF.", "octane": "ULSD Diesel + DEF", "url": "", "cost": "", "phone": "+1 540-667-1234"}, {"name": "Pilot Travel Center Milesburg (I-99 / I-80 Exit 158)", "category": "Gas Station", "day": "Stage 8 (Transit Return)", "lat": 40.9456, "lon": -77.7789, "type": "fuel", "color": "#ef4444", "icon": "⛽", "is_curated": false, "desc": "Midway Pennsylvania diesel and rest stop. Full pull-through lanes for 40-ft rig.", "octane": "ULSD Diesel + DEF", "url": "", "cost": "", "phone": "+1 814-355-1234"}, {"name": "Queenston-Lewiston Bridge (Canada Border Services Agency)", "category": "Border Crossing", "day": "Stage 8 (Transit Return)", "lat": 43.1542, "lon": -79.0456, "type": "border", "color": "#06b6d4", "icon": "🛂", "is_curated": true, "desc": "CBSA Canada entry inspection booths. Present Canadian passports, RAM 2500 ownership, trailer green slip, and 4 motorcycle ownerships. Declare any US purchases.", "octane": "N/A", "url": "https://www.cbsa-asfc.gc.ca/", "cost": "$5.00 USD Toll", "phone": "+1 800-461-9999"}, {"name": "ONroute Innisfil (Hwy 400 Northbound)", "category": "Gas Station", "day": "Stage 8 (Transit Return)", "lat": 44.3142, "lon": -79.6756, "type": "fuel", "color": "#ef4444", "icon": "⛽", "is_curated": false, "desc": "Final Canadian highway rest stop. Tim Hortons, diesel fuel, and stretch before northern Hwy 69 run.", "octane": "ULSD Diesel", "url": "https://www.onroute.ca/", "cost": "", "phone": "+1 705-436-1200"}, {"name": "Hanmer Home Base (Expedition Complete!)", "category": "Home Base", "day": "Stage 8 (Transit Return)", "lat": 46.6473, "lon": -80.9754, "type": "home", "color": "#3b82f6", "icon": "🏠", "is_curated": true, "desc": "WELCOME HOME! Unload 4 Honda motorcycles, unhitch 16ft trailer, unpack riding gear. Grand loop complete: 2,786 miles!", "octane": "N/A", "url": "", "cost": "Home", "phone": ""}];
         const stageColors = ["#64748b", "#3b82f6", "#06b6d4", "#10b981", "#f59e0b", "#ef4444", "#8b5cf6", "#ec4899", "#94a3b8"];
 
-        // Initialize Map centered on Blue Ridge region
+        // Initialize Map
         const map = L.map('map', {
             center: [36.85, -81.20],
             zoom: 8,
@@ -1819,7 +1923,6 @@
             }
         });
 
-        // Fit map initially to the Motorcycle Loop
         if (motoBounds.isValid()) {
             map.fitBounds(motoBounds, { padding: [40, 40] });
         }
@@ -1932,6 +2035,127 @@
                 showingGrandLoop = false;
             }
         }
+
+        // ========================================================
+        // INTERACTIVE MAP / FEED SPLIT RESIZER & PRESETS
+        // ========================================================
+        const resizer = document.getElementById('resizer-gutter');
+        const mainContainer = document.getElementById('main-container');
+        const dataPane = document.getElementById('data-pane');
+        let isDragging = false;
+
+        // Restore saved width from localStorage if exists
+        const savedWidth = localStorage.getItem('brp_feed_pane_width');
+        if (savedWidth) {
+            const parsed = parseInt(savedWidth, 10);
+            if (!isNaN(parsed) && parsed >= 320 && parsed <= (window.innerWidth - 300)) {
+                dataPane.style.width = parsed + 'px';
+            }
+        }
+
+        function onPointerDown(e) {
+            isDragging = true;
+            document.body.classList.add('is-resizing');
+            resizer.classList.add('dragging');
+            if (resizer.setPointerCapture) {
+                resizer.setPointerCapture(e.pointerId);
+            }
+            e.preventDefault();
+        }
+
+        function onPointerMove(e) {
+            if (!isDragging) return;
+            const containerRect = mainContainer.getBoundingClientRect();
+            // Data pane is on the right side
+            let newWidth = containerRect.right - e.clientX;
+            const minWidth = 320;
+            const maxWidth = containerRect.width - 320;
+
+            if (newWidth < minWidth) newWidth = minWidth;
+            if (newWidth > maxWidth) newWidth = maxWidth;
+
+            dataPane.style.width = newWidth + 'px';
+            dataPane.style.flex = 'none';
+            map.invalidateSize();
+        }
+
+        function onPointerUp(e) {
+            if (!isDragging) return;
+            isDragging = false;
+            document.body.classList.remove('is-resizing');
+            resizer.classList.remove('dragging');
+            if (resizer.releasePointerCapture) {
+                resizer.releasePointerCapture(e.pointerId);
+            }
+            map.invalidateSize();
+            localStorage.setItem('brp_feed_pane_width', parseInt(dataPane.style.width, 10));
+            updateActivePresetButton();
+        }
+
+        resizer.addEventListener('pointerdown', onPointerDown);
+        window.addEventListener('pointermove', onPointerMove);
+        window.addEventListener('pointerup', onPointerUp);
+        window.addEventListener('pointercancel', onPointerUp);
+
+        // Double-click resizer to reset to 50/50
+        resizer.addEventListener('dblclick', () => {
+            setSplitRatio('50-50');
+        });
+
+        // Preset Ratio Buttons
+        function setSplitRatio(preset) {
+            const containerWidth = mainContainer.clientWidth;
+            let targetWidth;
+
+            if (preset === 'map-wide') {
+                targetWidth = Math.round(containerWidth * 0.35); // 35% feed, 65% map
+            } else if (preset === '50-50') {
+                targetWidth = Math.round(containerWidth * 0.50); // 50% feed, 50% map
+            } else if (preset === 'feed-wide') {
+                targetWidth = Math.round(containerWidth * 0.65); // 65% feed, 35% map
+            }
+
+            const minWidth = 320;
+            const maxWidth = containerWidth - 320;
+            if (targetWidth < minWidth) targetWidth = minWidth;
+            if (targetWidth > maxWidth) targetWidth = maxWidth;
+
+            dataPane.style.width = targetWidth + 'px';
+            dataPane.style.flex = 'none';
+            localStorage.setItem('brp_feed_pane_width', targetWidth);
+
+            document.querySelectorAll('.split-btn').forEach(b => b.classList.remove('active'));
+            const btn = document.getElementById('btn-split-' + preset);
+            if (btn) btn.classList.add('active');
+
+            setTimeout(() => {
+                map.invalidateSize();
+            }, 50);
+        }
+
+        function updateActivePresetButton() {
+            const containerWidth = mainContainer.clientWidth;
+            const currentWidth = dataPane.clientWidth;
+            const ratio = currentWidth / containerWidth;
+
+            document.querySelectorAll('.split-btn').forEach(b => b.classList.remove('active'));
+            if (Math.abs(ratio - 0.35) < 0.08) {
+                const b = document.getElementById('btn-split-map-wide');
+                if (b) b.classList.add('active');
+            } else if (Math.abs(ratio - 0.50) < 0.08) {
+                const b = document.getElementById('btn-split-50-50');
+                if (b) b.classList.add('active');
+            } else if (Math.abs(ratio - 0.65) < 0.08) {
+                const b = document.getElementById('btn-split-feed-wide');
+                if (b) b.classList.add('active');
+            }
+        }
+
+        window.addEventListener('resize', () => {
+            map.invalidateSize();
+            updateActivePresetButton();
+        });
+        updateActivePresetButton();
     </script>
 </body>
 </html>
