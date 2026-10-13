@@ -9,9 +9,15 @@ When trailering motorcycles to the northern terminus of the Blue Ridge / Skyline
 
 **Eagle's Nest RV, Boat & Vehicle Storage** is specifically engineered for full-size pickup trucks, commercial trailers, and enclosed toy haulers, eliminating the tight turning radii and residential restrictions of standard mini-storage units.
 
+> [!WARNING]
+> **Reservation Status: NOT YET BOOKED — Action Required**
+> Staging for the 2025 RAM 2500 and 16-ft cargo trailer is **not yet reserved**.
+> Call Eagle's Nest at **+1 540-636-6161** or visit [frontroyalvehiclestorage.com](https://frontroyalvehiclestorage.com/) to reserve your 40-ft pull-through staging spot for the 7-day tour, verify hours, and obtain your electronic gate keypad code.
+
 | Facility Attribute | Details & Specifications |
 | :--- | :--- |
 | **Official Name** | **Eagle's Nest RV, Boat & Vehicle Storage** |
+| **Booking Status** | **⚠️ NOT YET BOOKED — Call to Reserve (+1 540-636-6161)** |
 | **Physical Address** | 3434 Guard Hill Road, Front Royal, VA 22630 |
 | **GPS Coordinates** | `38.9612° N, 78.2045° W` (38.96120, -78.20497) |
 | **Telephone** | **+1 540-636-6161** |

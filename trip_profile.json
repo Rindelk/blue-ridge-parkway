@@ -25,11 +25,12 @@
     "address": "3434 Guard Hill Rd, Front Royal, VA 22630",
     "phone": "+1 540-636-6161",
     "website": "https://frontroyalvehiclestorage.com/",
+    "booking_status": "NOT BOOKED - Action Required",
     "coordinates": [
       38.9612,
       -78.2045
     ],
-    "notes": "Electronic keypad security gate, wide-aisle enclosed trailer access, 24/7 digital surveillance. 4.5 mi (8 mins) to Skyline Drive North Entrance."
+    "notes": "Electronic keypad security gate, wide-aisle enclosed trailer access, 24/7 digital surveillance. 4.5 mi (8 mins) to Skyline Drive North Entrance. Staging spot not yet reserved: Call +1 540-636-6161 to book."
   },
   "fleet": [
     {
