@@ -1,0 +1,136 @@
+Day / Stage,Category,Name,Latitude,Longitude,Description,Octane_91,Hotel_URL,Cost,Phone
+Stage 0 (Transit Out),Home Base,Hanmer Home Base (Expedition Origin & Return),46.6473,-80.9754,"Expedition home base in Hanmer, Ontario. Stage 2025 RAM 2500 Cummins and hitch 16ft enclosed cargo trailer with 4 Hondas.",N/A,,Home,
+Stage 0 (Transit Out),Gas Station,ONroute Innisfil (Hwy 400 Southbound),44.3125,-79.6739,"Ontario 400-series travel plaza. Ultra-Low Sulfur Diesel, DEF jugs, Tim Hortons, and dedicated trailer pull-through parking.",ULSD Diesel,https://www.onroute.ca/,,+1 705-436-1200
+Stage 0 (Transit Out),Border Crossing,Queenston-Lewiston Bridge (US Customs & Border Protection),43.1558,-79.0439,"International border crossing into Lewiston, NY. Wide commercial truck/trailer inspection booths. Present passports, vehicle/trailer green slips, and motorcycle ownerships.",N/A,https://www.niagarafallsbridges.com/,$5.00 USD Toll,+1 716-285-6332
+Stage 0 (Transit Out),Gas Station,Sunoco / Kwik Fill Springville (US-219),42.5056,-78.6789,Easy high-clearance diesel fuel stop along US-219 expressway south of Buffalo. ULSD diesel & snacks.,ULSD Diesel,,,+1 716-592-2000
+Stage 0 (Transit Out),Gas Station,Pilot Travel Center Milesburg (I-80 / I-99 Exit 158),40.9456,-77.7789,"Major commercial truck stop midway across Pennsylvania. High-flow satellite diesel pumps, bulk DEF at the pump, clean restrooms, and truck/trailer parking.",ULSD Diesel + DEF,https://pilotflyingj.com/,,+1 814-355-1234
+Stage 0 (Transit Out),Gas Station,Pilot Travel Center Cumberland (I-68 Exit 44),39.6789,-78.7056,Maryland I-68 mountain corridor diesel fueling with wide turning apron for 40-ft truck/trailer rig.,ULSD Diesel + DEF,,,+1 301-729-1200
+Stage 0 (Transit Out),Gas Station,Pilot Travel Center Winchester (I-81 Exit 323),39.2456,-78.1342,"Final diesel top-up before arriving in Front Royal. Bulk DEF, truck wash, and staging plaza.",ULSD Diesel + DEF,,,+1 540-667-1234
+Day 1,Basecamp,"Eagle's Nest RV, Boat & Vehicle Storage",38.9612,-78.2045,"Basecamp tow vehicle & cargo trailer storage. Gated keypad access, 24/7 video recording, wide pull-through lanes.",N/A,https://frontroyalvehiclestorage.com/,Staged Rig,+1 540-636-6161
+Day 1,Attraction,Front Royal North Entrance Station,38.9056,-78.1989,Mile 0.0 northern terminus of Skyline Drive in Shenandoah National Park.,N/A,https://www.nps.gov/shen,$30/bike pass,+1 540-999-3500
+Day 1,Scenic Sight,Shenandoah Valley Overlook (MP 2.8),38.8778,-78.2056,Sweeping panoramic vista across the Shenandoah Valley and Massanutten Mountain.,N/A,,,
+Day 1,Scenic Sight,Dickey Ridge Visitor Center (MP 4.6),38.8592,-78.2025,"First visitor center on Skyline Drive with park exhibits, maps, and restrooms.",N/A,https://www.nps.gov/shen,Free,+1 540-999-3500
+Day 1,Scenic Sight,Hogback Overlook (MP 21.0),38.7561,-78.2758,Longest continuous overlook on Skyline Drive with views of 11 bends of Shenandoah River.,N/A,,,
+Day 1,Tunnel,Mary's Rock Tunnel (Skyline MP 32.2),38.6575,-78.3182,Historic 670-ft granite tunnel bored through solid rock in 1932. Clearance: 12 ft 8 in.,N/A,,,
+Day 1,Attraction,Skyland Resort (MP 41.7),38.5919,-78.3814,Historic high-elevation resort built in 1888 with dining room and blackberry ice cream pie.,N/A,https://www.goshenandoah.com/lodging/skyland,,+1 877-847-1919
+Day 1,Attraction,Big Meadows Wayside & Center (MP 51.0),38.5192,-78.4352,"Natural high-elevation meadow with gas station, camp store, and Byrd Visitor Center.",87 Regular,https://www.goshenandoah.com/,,+1 540-999-3286
+Day 1,Gas Station,Big Meadows Wayside Gas (MP 51.0),38.5178,-78.4361,Mid-Skyline Drive fuel stop. 87 Regular available. Rebel 1100 safety top-up at 53 miles.,Available,,,+1 540-999-3286
+Day 1,Short Hike,Dark Hollow Falls Trailhead (MP 50.7),38.5195,-78.4289,Popular 1.4-mile roundtrip hike descending 440 ft to a cascading 70-foot waterfall.,N/A,,,
+Day 1,Scenic Sight,South River Overlook (MP 62.8),38.3842,-78.5369,Scenic gap overlook with views deep into the South River gorge.,N/A,,,
+Day 1,Scenic Sight,Loft Mountain Wayside (MP 79.5),38.2435,-78.6657,Southern district hub on Skyline Drive with wayside dining and gift shop.,N/A,,,
+Day 1,Attraction,Rockfish Gap Information Station (MP 105),38.0315,-78.8576,Skyline Drive Mile 105 southern terminus seamlessly connecting into Blue Ridge Parkway MP 0.0.,N/A,,,
+Day 1,Gas Station,Exxon / Sheetz Waynesboro (I-64 / US-250),38.0461,-78.8892,Gap exit fuel hub at Rockfish Gap base. Full 87 Regular pumps and food mart.,Available,,,+1 540-942-1200
+Day 1,Primary Hotel,The Blackburn Inn & Conference Center,38.1456,-79.0689,"Historic boutique hotel with upscale rooms, spa, and secure courtyard bike parking.",N/A,https://www.blackburn-inn.com/,$165 USD/night,+1 540-712-0501
+Day 1,Secondary Hotel,Hampton Inn Waynesboro-Stuarts Draft,38.0583,-78.9347,Modern hotel located 5 minutes from Rockfish Gap with hot breakfast and pool.,N/A,https://www.hilton.com/en/hotels/shdwdhx-hampton-waynesboro-stuarts-draft/,$140 USD/night,+1 540-213-9500
+Day 2,Attraction,Blue Ridge Parkway Milepost 0.0,38.0315,-78.8576,Northern terminus of the Blue Ridge Parkway at Rockfish Gap / Afton Mountain.,N/A,https://www.nps.gov/blri,Free,+1 828-298-0398
+Day 2,Short Hike,Humpback Rocks Visitor Center (MP 5.8),37.9691,-78.9026,Outdoor mountain farm museum and trailhead to the dramatic Humpback Rocks jagged outcrop.,N/A,,,+1 540-943-4716
+Day 2,Scenic Sight,Ravens Roost Overlook (MP 10.7),37.9308,-78.9508,Iconic cliffside overlook offering sunset views over Torry Ridge and Shenandoah Valley.,N/A,,,
+Day 2,Scenic Sight,Twenty-Minute Cliff Overlook (MP 19.0),37.8931,-79.0308,Legendary cliff where locals told time by the shadow creeping across the face.,N/A,,,
+Day 2,Scenic Sight,Yankee Horse Ridge & Railroad (MP 34.4),37.7656,-79.1869,Reconstructed logging railroad spur and scenic waterfall footbridge.,N/A,,,
+Day 2,Tunnel,Bluff Mountain Tunnel (BRP MP 53.1),37.6681,-79.3242,"Historic 630-ft tunnel. The ONLY tunnel on the entire Virginia section of the Parkway! Clearance: 13'7"".",N/A,,,
+Day 2,Scenic Sight,Otter Creek Overlook & Restaurant (MP 60.8),37.5819,-79.3561,Tranquil creek valley with historic wayside dining and easy walking trails.,N/A,,,
+Day 2,Attraction,James River Visitor Center (MP 63.7),37.5627,-79.3789,Lowest elevation on the entire 469-mile Blue Ridge Parkway at 649 ft (198 m). Footbridge over lock canal.,N/A,,Free,+1 434-299-5496
+Day 2,Scenic Sight,Thunder Ridge Overlook (MP 74.7),37.5258,-79.5019,Short loop trail to stone observation deck overlooking Arnold's Valley.,N/A,,,
+Day 2,Attraction,Peaks of Otter & Abbott Lake (MP 86.0),37.4452,-79.6083,Famous mountain lake nestled between Sharp Top and Flat Top peaks.,N/A,https://www.peaksofotter.com/,,+1 866-387-9905
+Day 2,Primary Hotel,Peaks of Otter Lodge (MP 86.0),37.4452,-79.6083,Iconic lodge situated directly on Abbott Lake with lakefront dining and Sharp Top shuttle.,N/A,https://www.peaksofotter.com/,$195 USD/night,+1 866-387-9905
+Day 2,Gas Station,BP / Exxon Buchanan Gap (MP 90 / VA-43),37.5231,-79.6789,Safe gap exit fuel stop (4 mi north on VA-43). 87 Regular available. Rebel 1100 fuel check.,Available,,,+1 540-254-2000
+Day 2,Scenic Sight,Great Valley Overlook (MP 99.6),37.3889,-79.7911,Spectacular vista of the Roanoke Valley and Blue Ridge foothills.,N/A,,,
+Day 2,Attraction,Roanoke Mountain Spur (MP 120.3),37.2415,-79.9324,Paved one-way loop ascending to Roanoke Mountain summit with sweeping city views.,N/A,,,
+Day 2,Attraction,Mill Mountain Star & Overlook,37.2514,-79.9333,The world's largest man-made illuminated star (88.5 ft tall) overlooking Roanoke skyline.,N/A,,Free,
+Day 2,Gas Station,Sheetz / Sunoco Roanoke Gap (MP 121 / US-220),37.2289,-79.9575,"Major service hub at US-220 gap exit. 87 Regular pumps, 24/7 food, and convenience store.",Available,,,+1 540-774-1234
+Day 2,Secondary Hotel,The Hotel Roanoke & Conference Center,37.2742,-79.9408,Historic 1882 Tudor-style luxury hotel in downtown Roanoke with covered motorcycle parking.,N/A,https://www.hotelroanoke.com/,$175 USD/night,+1 540-985-5900
+Day 3,Scenic Sight,Slacks Overlook (MP 140.0),37.1356,-80.0522,Peaceful roadside pull-off viewing the forested Virginia Piedmont ridges.,N/A,,,
+Day 3,Scenic Sight,Smart View Recreation Area (MP 154.5),36.9208,-80.2589,Historic 1890 Trail Cabin and famous dogwood-lined meadow overlook.,N/A,,,
+Day 3,Attraction,Mabry Mill & Gristmill (MP 176.1),36.7501,-80.4042,"The most photographed historic site on the Parkway! Working gristmill, blacksmith shop, and pancake restaurant.",N/A,https://www.mabrymillrestaurant.com/,Free,+1 276-952-2947
+Day 3,Gas Station,Exxon Meadows of Dan (MP 177.7 / US-58),36.7356,-80.4128,"Convenient fuel stop 0.5 miles from Mabry Mill. 87 Regular, country deli, and cider.",Available,,,+1 276-952-2250
+Day 3,Scenic Sight,Groundhog Mountain Overlook (MP 188.8),36.6346,-80.5369,Rustic wooden observation tower with split-rail snake fences and 360-degree vistas.,N/A,,,
+Day 3,Attraction,Puckett Cabin (MP 189.9),36.6278,-80.5475,"Historic cabin of Orlean Hawks Puckett, famous Appalachian midwife who delivered over 1,000 babies.",N/A,,Free,
+Day 3,Gas Station,Pilot / Shell Fancy Gap (MP 215 / US-52 / I-77),36.6667,-80.6978,"Major highway junction fuel stop. 87 Regular, restaurants, and tire pressure station.",Available,,,+1 276-728-2000
+Day 3,Attraction,Blue Ridge Music Center (MP 213.0),36.5647,-80.8522,Celebrates traditional old-time Appalachian fiddle and banjo music with live mid-day performances.,N/A,https://www.blueridgemusiccenter.org/,Free,+1 276-236-5309
+Day 3,Scenic Sight,Cumberland Knob (MP 217.5),36.5389,-80.9083,Where construction of the Blue Ridge Parkway officially began in 1935!,N/A,,Free,
+Day 3,Scenic Sight,Fox Hunters Paradise Overlook (MP 218.6),36.5308,-80.9167,High bluffs where mountain hunters gathered to listen to hounds run foxes in the gorge.,N/A,,,
+Day 3,Attraction,Doughton Park & The Bluffs (MP 241.0),36.4172,-81.1691,Largest parkway recreation area with historic Bluffs Restaurant and rolling alpine meadows.,N/A,https://www.bluffsrestaurant.org/,,+1 336-372-8888
+Day 3,Gas Station,Exxon Glendale Springs (MP 261 / NC-16),36.3456,-81.3889,Fuel top-up at NC-16 gap exit. 87 Regular available. Rebel 1100 safety margin.,Available,,,+1 336-982-2000
+Day 3,Attraction,Moses H. Cone Memorial Park (MP 294.0),36.1492,-81.6888,"Magnificent 3,500-acre estate with 1901 Flat Top Manor, craft center, and bass lake.",N/A,https://www.nps.gov/blri,Free,+1 828-295-7938
+Day 3,Gas Station,Exxon / Speedway Blowing Rock (MP 291.8 / US-321),36.1342,-81.6778,Blowing Rock gap exit fuel station. 87 Regular available.,Available,,,+1 828-295-3100
+Day 3,Primary Hotel,Meadowbrook Inn,36.1325,-81.6756,Charming mountain resort hotel in heart of Blowing Rock village with indoor pool and terrace.,N/A,https://www.meadowbrook-inn.com/,$180 USD/night,+1 828-295-4300
+Day 3,Secondary Hotel,The Green Park Hotel,36.1219,-81.6667,Historic 1891 Victorian hotel operating continuously for over 130 years on the Eastern Continental Divide.,N/A,https://greenparkinn.net/,$165 USD/night,+1 828-414-9230
+Day 4,Scenic Sight,Julian Price Memorial Park (MP 297.0),36.1389,-81.7389,Scenic mountain lake surrounded by dense rhododendron and canoe launch.,N/A,,,
+Day 4,Attraction,Linn Cove Viaduct (MP 304.4),36.0967,-81.8269,World-famous $10M S-curve bridge hugging Grandfather Mountain. Marvel of civil engineering.,N/A,https://www.nps.gov/blri,Free,+1 828-298-0398
+Day 4,Short Hike,Linville Falls & Gorge (MP 316.4),35.9547,-81.9325,Deepest gorge in the eastern US (the 'Grand Canyon of the Blue Ridge') and cascading waterfall.,N/A,https://www.nps.gov/blri,Free,+1 828-765-1045
+Day 4,Tunnel,Little Switzerland Tunnel (BRP MP 333.4),35.8508,-82.0903,"Historic 547-ft tunnel immediately preceding the Switzerland Inn. Clearance: 13'8"".",N/A,,,
+Day 4,Attraction,Little Switzerland & The Diamondback (MP 334.0),35.8504,-82.0911,"Famous motorcycle alpine village! Switzerland Cafe, chalets, and access to NC-226A Diamondback twisties.",N/A,https://switzerlandinn.com/,,+1 828-765-2153
+Day 4,Gas Station,BP Little Switzerland (MP 334 / NC-226A),35.8456,-82.0975,Gas stop at Little Switzerland gap exit. 87 Regular available. Rebel 1100 fuel check at 42 miles.,Available,,,+1 828-765-4000
+Day 4,Tunnel,Wildacres Tunnel (BRP MP 336.4),35.8398,-82.1287,"Historic 249-ft curved stone tunnel. Clearance: 13'7"".",N/A,,,
+Day 4,Tunnel,Twin Tunnels #1 & #2 (BRP MP 344.5 & 344.7),35.8116,-82.1706,Unique dual tunnels carved through mountain spur. Lengths: 230 ft & 401 ft.,N/A,,,
+Day 4,Tunnel,Rough Ridge Tunnel (BRP MP 349.0),35.7892,-82.2031,150-ft stone-faced parkway tunnel.,N/A,,,
+Day 4,Tunnel,Buck Creek Gap Tunnel (BRP MP 350.0),35.7661,-82.2356,170-ft curved rock tunnel at NC-80 crossing.,N/A,,,
+Day 4,Tunnel,Black Mountain Tunnel (BRP MP 351.0),35.762,-82.242,230-ft mountain tunnel near Deep Gap.,N/A,,,
+Day 4,Attraction,Mount Mitchell State Park Summit (MP 355.4),35.7649,-82.2652,"Highest peak east of the Mississippi River at 6,684 ft (2,037 m)! Observation deck and weather station.",N/A,https://www.ncparks.gov/state-parks/mount-mitchell-state-park,Free,+1 828-675-4611
+Day 4,Tunnel,Craggy Pinnacle Tunnel (BRP MP 364.4),35.7011,-82.3789,"245-ft mountain tunnel approaching Craggy Gardens. Clearance: 13'8"".",N/A,,,
+Day 4,Tunnel,Craggy Flats Tunnel (BRP MP 365.5),35.6989,-82.3856,335-ft rock tunnel through rhododendron balds.,N/A,,,
+Day 4,Attraction,Craggy Gardens Visitor Center (MP 364.1),35.7011,-82.3789,Cool high-elevation alpine heath balds with sweeping panoramic overlook.,N/A,https://www.nps.gov/blri,Free,+1 828-298-0398
+Day 4,Tunnel,Tanbark Ridge Tunnel (BRP MP 374.4),35.6542,-82.4419,"Longest single tunnel in this section at 730 ft (223 m). Clearance: 13'10"".",N/A,,,
+Day 4,Attraction,Folk Art Center (MP 382.0),35.5989,-82.4931,Premier center for Southern Appalachian craft and guild heritage in Asheville.,N/A,https://www.southernhighlandguild.org/,Free,+1 828-298-7928
+Day 4,Gas Station,Ingles / BP Asheville East (MP 382 / US-70),35.5892,-82.4856,Major Asheville gap exit fuel stop. 87 Regular available. Rebel 1100 fuel top-up at 48 miles.,Available,,,+1 828-298-5000
+Day 4,Tunnel,"Ferrin Knob Tunnels #1, #2, #3 (MP 400.9 - 401.5)",35.4528,-82.6892,"Triple succession of mountain tunnels carved through the Pisgah ridge. Lengths: 180 ft, 250 ft, 210 ft.",N/A,,,
+Day 4,Tunnel,Young Pisgah Ridge Tunnel (BRP MP 403.0),35.4389,-82.7056,"400-ft mountain tunnel. Clearance: 13'9"".",N/A,,,
+Day 4,Tunnel,Fork Mountain Tunnel (BRP MP 407.3),35.4256,-82.7411,350-ft stone tunnel approaching Mount Pisgah.,N/A,,,
+Day 4,Attraction,Pisgah Inn & Overlook (MP 408.6),35.4194,-82.7561,"The 'Peak of the Parkway' at 5,000 ft elevation. World-famous clifftop dining room.",N/A,https://www.pisgahinn.com/,,+1 828-235-8228
+Day 4,Scenic Sight,Looking Glass Rock Overlook (MP 417.0),35.3956,-82.8089,Dramatic view of massive granite pluton monolith shining like a mirror when wet.,N/A,,,
+Day 4,Short Hike,Graveyard Fields Waterfall (MP 418.8),35.3789,-82.8475,High-altitude heath bald with wooden boardwalk loop to Second Falls waterfall.,N/A,,Free,
+Day 4,Tunnel,Devil's Courthouse Tunnel (BRP MP 422.1),35.3589,-82.8856,650-ft curved rock tunnel beneath the sheer stone face of Devil's Courthouse.,N/A,,,
+Day 4,Attraction,Richland Balsam Overlook (MP 431.4),35.3675,-82.9936,"HIGHEST POINT ON THE ENTIRE BLUE RIDGE PARKWAY MOTOR ROAD! Elevation 6,053 ft (1,845 m).",N/A,,Free,
+Day 4,Gas Station,Enmarket / Shell Balsam Gap (MP 443 / US-23 / US-74),35.4128,-83.0875,Balsam Gap exit fuel hub. 87 Regular available. Rebel 1100 safety margin check at 61 miles.,Available,,,+1 828-456-2000
+Day 4,Attraction,Waterrock Knob Visitor Center (MP 451.2),35.4628,-83.1386,"Elevation 5,820 ft. Panoramic 360-degree vista over the Great Smokies and Plott Balsams.",N/A,https://www.nps.gov/blri,Free,+1 828-298-0398
+Day 4,Tunnel,Red Creek & Lickstone Tunnels (MP 458.8 & 459.3),35.4856,-83.2189,Twin mountain tunnels through the Cherokee ridge. Lengths: 180 ft & 220 ft.,N/A,,,
+Day 4,Tunnel,Bunches Bald & Big Witch Tunnels (MP 459.9 & 461.2),35.4956,-83.2389,Two stone-lined tunnels near the Soco Gap crossing. Lengths: 250 ft & 300 ft.,N/A,,,
+Day 4,Tunnel,Rattlesnake Mountain Tunnel (MP 465.6),35.5089,-83.2842,Historic 410-ft rock tunnel descending into Cherokee valley.,N/A,,,
+Day 4,Tunnel,Sherrill Cove Tunnel (MP 466.3),35.5111,-83.2925,"Final tunnel on the Blue Ridge Parkway! Length: 550 ft. Clearance: 13'7"".",N/A,,,
+Day 4,Attraction,Blue Ridge Parkway Southern Terminus (MP 469.0),35.5133,-83.3056,Southern terminus marker at the boundary of Great Smoky Mountains National Park.,N/A,https://www.nps.gov/grsm,Free,+1 828-497-1900
+Day 4,Attraction,Oconaluftee Visitor Center & Elk Farm (MP 469.0),35.5133,-83.3056,Watch herds of wild reintroduced Appalachian elk grazing in the river meadows at dusk!,N/A,https://www.nps.gov/grsm,Free,+1 828-497-1900
+Day 4,Gas Station,Cherokee Exxon / Harrah's Fuel (US-441),35.4789,-83.3156,Full service fueling in Cherokee. 87 Regular available.,Available,,,+1 828-497-3000
+Day 4,Primary Hotel,Harrah's Cherokee Casino Resort,35.4756,-83.3111,"Luxury mountain casino resort with multiple restaurants, covered motorcycle parking, and pools.",N/A,https://www.caesars.com/harrahs-cherokee,$189 USD/night,+1 828-497-7777
+Day 4,Secondary Hotel,Great Smokies Inn - Cherokee,35.4912,-83.3089,Motorcycle-friendly mountain lodge near the Oconaluftee river with porch rocking chairs.,N/A,https://greatsmokiesinn.com/,$125 USD/night,+1 828-497-2020
+Day 5,Scenic Sight,Moonshiner 28 Highway (NC-28),35.4497,-83.8052,Legendary motorcycle route winding along Cheoah Lake past Fontana Dam.,N/A,,,
+Day 5,Attraction,Fontana Dam (NC-28),35.4528,-83.8047,Tallest concrete dam in the eastern US at 480 ft (146 m). Spectacular lake gorge overlook.,N/A,https://www.tva.com/energy/our-power-system/hydroelectric/fontana-dam,Free,+1 865-632-2101
+Day 5,Attraction,Deals Gap Motorcycle Resort & Tree of Shame,35.4678,-83.9203,"World epicenter of motorcycle twisties! Souvenir shop, burger bar, and Tree of Shame with crash parts.",N/A,https://tailofthedragon.com/,,+1 800-889-5550
+Day 5,Attraction,Tail of the Dragon (US-129),35.4856,-83.9356,THE LEGEND: 318 curves in 11 miles of unbroken asphalt switchbacks with no intersections or driveways!,N/A,https://tailofthedragon.com/,Free,
+Day 5,Gas Station,Exxon / Shell Robbinsville (US-129),35.3236,-83.8075,Fuel stop at base of Cherohala Skyway. 87 Regular available. Rebel 1100 fuel top-up.,Available,,,+1 828-479-3000
+Day 5,Attraction,Cherohala Skyway NC Entrance (NC-143),35.3456,-83.8567,Mile-high national scenic byway crossing the Unicoi Crest between North Carolina and Tennessee.,N/A,https://cherohala.org/,Free,
+Day 5,Scenic Sight,Santeetlah Gap & Overlook,35.3639,-84.0267,"Elevation 5,390 ft. Highest point on the Cherohala Skyway with sweeping mountain vistas.",N/A,,,
+Day 5,Scenic Sight,Huckleberry Knob Trailhead (Cherohala),35.3528,-84.0042,"Trailhead to 5,560 ft bald with panoramic 360-degree views across Cherokee National Forest.",N/A,,,
+Day 5,Gas Station,Shell Tellico Plains (TN-165),35.3636,-84.3047,Western gateway fuel station on Cherohala Skyway. 87 Regular available. Rebel 1100 top-up at 56 miles.,Available,,,+1 423-253-2000
+Day 5,Attraction,Cherohala Skyway Visitor Center,35.3636,-84.3047,"Interactive visitor center with regional maps, motorcycle guides, and picnic tables.",N/A,https://cherohala.org/,Free,+1 423-253-8010
+Day 5,Gas Station,Pilot / Marathon Sweetwater (I-75 / US-11),35.6028,-84.4628,Highway hub fuel stop. 87 Regular available. Fast transition onto northbound valley corridor.,Available,,,+1 423-337-1234
+Day 5,Gas Station,Exxon / Sheetz Greeneville (US-11E),36.1628,-82.8311,Midway fuel stop between Knoxville and Bristol. 87 Regular available.,Available,,,+1 423-638-1200
+Day 5,Attraction,Historic Downtown Bristol State Street,36.5956,-82.1811,"Famous state line running right down the yellow centerline: Virginia on left, Tennessee on right!",N/A,https://discoverbristol.org/,Free,
+Day 5,Primary Hotel,The Martha Washington Inn & Spa,36.7119,-81.9744,"Historic 1832 grand resort inn in Abingdon with rocking chair porches, gardens, and spa.",N/A,https://www.themartha.com/,$210 USD/night,+1 276-628-3161
+Day 5,Secondary Hotel,The Bristol Hotel,36.5961,-82.1831,Boutique historic hotel in downtown Bristol with rooftop lounge overlooking the Appalachian foothills.,N/A,https://www.thebristolhotel.com/,$165 USD/night,+1 276-696-3737
+Day 6,Gas Station,BP / Shell Marion Gateway (I-81 / US-11),36.8344,-81.5147,Southern staging fuel station for Back of the Dragon. 87 Regular available. Fill all tanks.,Available,,,+1 276-783-2000
+Day 6,Attraction,Hungry Mother State Park (VA-16),36.8833,-81.5278,Scenic mountain lake park nestled along Route 16 with CCC-built stone structures.,N/A,https://www.dcr.virginia.gov/state-parks/hungry-mother,Free,+1 276-781-7400
+Day 6,Attraction,Back of the Dragon (VA Route 16),36.95,-81.515,"VIRGINIA'S PREMIER DRIVING ROAD: 32 miles, 300+ curves, 3 mountain passes (Walker, Brushy, Clinch)!",N/A,https://www.backofthedragon.com/,Free,+1 276-988-2722
+Day 6,Scenic Sight,Clinch Mountain Summit Overlook (VA-16),37.0378,-81.5075,"Elevation 3,800 ft. Spectacular hairpin cliff overlook midway across Back of the Dragon.",N/A,,,
+Day 6,Attraction,Back of the Dragon Welcome Center & Brewery,37.1264,-81.5161,"Northern terminus in Tazewell! Full motorcycle showroom, espresso bar, draft craft beer, and merchandise.",N/A,https://www.backofthedragon.com/,Free,+1 276-988-2722
+Day 6,Gas Station,Exxon Tazewell (US-19 / US-460),37.1289,-81.5189,Fuel station immediately adjacent to Back of the Dragon center. 87 Regular available.,Available,,,+1 276-988-3000
+Day 6,Scenic Sight,Burke's Garden 'God's Thumbprint' Spur,37.0989,-81.3389,Virginia's highest and largest natural mountain bowl valley surrounded completely by Clinch Mountain.,N/A,,,
+Day 6,Gas Station,Shell Rich Creek / Pearisburg (US-460),37.3789,-80.8242,Scenic New River valley fuel stop. 87 Regular available. Rebel 1100 fuel check at 50 miles.,Available,,,+1 540-726-2000
+Day 6,Scenic Sight,New River Water Gap Overlook,37.3856,-80.7956,Massive geological water gap carved through Peters Mountain by the prehistoric New River.,N/A,,,
+Day 6,Gas Station,Exxon / Sheetz Clifton Forge (I-64 / US-220),37.8189,-79.8242,George Washington National Forest gateway fuel stop. 87 Regular available.,Available,,,+1 540-862-1200
+Day 6,Attraction,Historic Jefferson Bathhouses (Warm Springs Pools),38.0494,-79.7911,Historic 1761 mineral spring pools enjoyed by Thomas Jefferson. Crystal-clear 98°F warm springs.,N/A,https://www.omnihotels.com/resorts/homestead-virginia/wellness/warm-springs-pools,$30/soak,+1 540-839-1766
+Day 6,Primary Hotel,The Inn at Gristmill Square,38.0511,-79.7889,Historic boutique mill inn in Warm Springs with fine dining at The Waterwheel Restaurant.,N/A,https://www.gristmillsquare.com/,$185 USD/night,+1 540-839-2231
+Day 6,Secondary Hotel,The Warm Springs Inn,38.0494,-79.7911,Quaint 1800s country inn across the lawn from the historic warm mineral springs.,N/A,https://warmspringsinnva.com/,$135 USD/night,+1 540-839-5351
+Day 7,Scenic Sight,Highland County 'Virginia's Switzerland' (US-220),38.2567,-79.6842,"Scenic high-elevation pastoral valley of maple groves, sheep pastures, and limestone cliffs.",N/A,,,
+Day 7,Attraction,Highland County Courthouse & Monterey (US-250),38.4117,-79.5811,"Historic mountain town famous for the annual Highland County Maple Festival. Elevation 3,008 ft.",N/A,https://www.highlandcounty.org/,Free,+1 540-468-2550
+Day 7,Gas Station,Highland Mart / Exxon Monterey (US-250),38.4122,-79.5798,Highland County fuel stop. 87 Regular available. Rebel 1100 fuel check at 31 miles.,Available,,,+1 540-468-2200
+Day 7,Scenic Sight,Shenandoah Mountain Summit (US-250),38.3183,-79.2247,"Elevation 3,440 ft. Historic Confederate Breastworks earthworks and sweeping ridge-top view.",N/A,,,
+Day 7,Scenic Sight,North River Valley Sweepers (VA-42),38.3842,-78.9772,Winding two-lane asphalt through Mennonite farmlands and covered bridge country.,N/A,,,
+Day 7,Gas Station,Sheetz / Exxon Harrisonburg (VA-42 / US-11),38.4495,-78.8689,Shenandoah Valley major fuel stop. 87 Regular available. Rebel 1100 top-up at 75 miles.,Available,,,+1 540-434-1200
+Day 7,Attraction,New Market Battlefield State Historical Park,38.6475,-78.6722,Historic 1864 Civil War battlefield park overlooking the North Fork of the Shenandoah River.,N/A,https://www.vmi.edu/museums-and-archives/virginia-museum-of-the-civil-war/,$10/person,+1 866-515-1864
+Day 7,Scenic Sight,Strasburg & Riverton Shenandoah Confluence,38.9889,-78.3611,Where the North and South Forks of the Shenandoah River meet before Front Royal.,N/A,,,
+Day 7,Basecamp,"Eagle's Nest RV, Boat & Vehicle Storage (FINISH)",38.9612,-78.2045,MOTORCYCLE LOOP COMPLETE! Return to staged 2025 RAM 2500 and 16ft cargo trailer. Load bikes & secure tie-downs.,N/A,https://frontroyalvehiclestorage.com/,Staged Rig,+1 540-636-6161
+Stage 8 (Transit Return),Gas Station,Pilot Travel Center Winchester North (I-81 Exit 323),39.2456,-78.1342,Outbound diesel top-up before heading north on I-81 / I-68. High-flow diesel and DEF.,ULSD Diesel + DEF,,,+1 540-667-1234
+Stage 8 (Transit Return),Gas Station,Pilot Travel Center Milesburg (I-99 / I-80 Exit 158),40.9456,-77.7789,Midway Pennsylvania diesel and rest stop. Full pull-through lanes for 40-ft rig.,ULSD Diesel + DEF,,,+1 814-355-1234
+Stage 8 (Transit Return),Border Crossing,Queenston-Lewiston Bridge (Canada Border Services Agency),43.1542,-79.0456,"CBSA Canada entry inspection booths. Present Canadian passports, RAM 2500 ownership, trailer green slip, and 4 motorcycle ownerships. Declare any US purchases.",N/A,https://www.cbsa-asfc.gc.ca/,$5.00 USD Toll,+1 800-461-9999
+Stage 8 (Transit Return),Gas Station,ONroute Innisfil (Hwy 400 Northbound),44.3142,-79.6756,"Final Canadian highway rest stop. Tim Hortons, diesel fuel, and stretch before northern Hwy 69 run.",ULSD Diesel,https://www.onroute.ca/,,+1 705-436-1200
+Stage 8 (Transit Return),Home Base,Hanmer Home Base (Expedition Complete!),46.6473,-80.9754,"WELCOME HOME! Unload 4 Honda motorcycles, unhitch 16ft trailer, unpack riding gear. Grand loop complete: 2,786 miles!",N/A,,Home,
