@@ -24,6 +24,7 @@
       "fuel_capacity_gallons": 6.55,
       "min_octane_aki": 87,
       "safe_range_miles": 275,
+      "safe_range_km": 443,
       "role": "Expedition Flagship / Lead Tanker"
     },
     {
@@ -35,6 +36,7 @@
       "fuel_capacity_gallons": 4.97,
       "min_octane_aki": 87,
       "safe_range_miles": 220,
+      "safe_range_km": 354,
       "role": "ADV Scout"
     },
     {
@@ -46,6 +48,7 @@
       "fuel_capacity_gallons": 4.97,
       "min_octane_aki": 87,
       "safe_range_miles": 220,
+      "safe_range_km": 354,
       "role": "ADV Wingman"
     },
     {
@@ -57,7 +60,8 @@
       "fuel_capacity_gallons": 3.6,
       "min_octane_aki": 87,
       "safe_range_miles": 125,
-      "role": "Cruiser / Fuel Range Governor (Max 100-110 mi legs)"
+      "safe_range_km": 201,
+      "role": "Cruiser / Fuel Range Governor (Max 100 mi / 161 km legs)"
     }
   ],
   "stages": [
