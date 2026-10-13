@@ -691,9 +691,17 @@
                 max-width: 100% !important;
                 flex: 1 1 auto !important;
                 min-height: 0 !important;
-                padding: 0 12px 24px 12px !important;
+                padding: 0 0 24px 0 !important;
                 overflow-y: auto !important;
                 -webkit-overflow-scrolling: touch !important;
+            }
+
+            /* Clean side margins for content cards inside data-pane on mobile */
+            body.tab-feed #data-pane > *:not(.mobile-day-jumper),
+            body.tab-timeline #data-pane > *,
+            body.tab-budget #data-pane > * {
+                margin-left: 12px !important;
+                margin-right: 12px !important;
             }
 
             /* Tab Feed rules */
@@ -705,8 +713,8 @@
 
             /* Tab Timeline rules */
             body.tab-timeline .mobile-day-jumper,
-            body.tab-timeline .mobile-stats-card,
             body.tab-timeline .downloads-bar,
+            body.tab-timeline .mobile-logistics-drawer,
             body.tab-timeline .towrig-box,
             body.tab-timeline .basecamp-box,
             body.tab-timeline .section-title-fleet,
@@ -727,7 +735,8 @@
 
             /* Tab Budget rules */
             body.tab-budget .mobile-day-jumper,
-            body.tab-budget .mobile-stats-card,
+            body.tab-budget .downloads-bar,
+            body.tab-budget .mobile-logistics-drawer,
             body.tab-budget .towrig-box,
             body.tab-budget .basecamp-box,
             body.tab-budget .section-title-fleet,
@@ -781,22 +790,23 @@
                 left: 8px !important;
             }
 
-            /* Sticky Quick-Day Jumper */
+            /* Sticky Quick-Day Jumper - 100% Solid Opaque, Edge-to-Edge */
             .mobile-day-jumper {
                 display: flex !important;
                 position: sticky !important;
                 top: 0 !important;
                 z-index: 100 !important;
-                background: rgba(15, 23, 42, 0.97) !important;
-                backdrop-filter: blur(12px) !important;
-                -webkit-backdrop-filter: blur(12px) !important;
-                border-bottom: 1px solid var(--border) !important;
-                padding: 8px 10px !important;
+                background: #0f172a !important;
+                border-bottom: 1px solid #334155 !important;
+                padding: 8px 12px !important;
                 gap: 6px !important;
                 overflow-x: auto !important;
                 -webkit-overflow-scrolling: touch !important;
                 scrollbar-width: none !important;
-                margin: 0 -12px 14px -12px !important;
+                margin: 0 0 10px 0 !important;
+                width: 100% !important;
+                box-sizing: border-box !important;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5) !important;
                 touch-action: pan-x !important;
             }
             .mobile-day-jumper::-webkit-scrollbar {
@@ -824,46 +834,70 @@
                 border-color: #38bdf8 !important;
             }
 
-            /* Mobile Stats Summary Card in Itinerary */
-            .mobile-stats-card {
+            /* Horizontal Swipeable Tray for Navigation Download Buttons */
+            .downloads-bar {
                 display: flex !important;
+                flex-wrap: nowrap !important;
+                overflow-x: auto !important;
+                -webkit-overflow-scrolling: touch !important;
+                scrollbar-width: none !important;
+                gap: 6px !important;
+                margin-bottom: 10px !important;
+                padding-bottom: 2px !important;
+            }
+            .downloads-bar::-webkit-scrollbar {
+                display: none !important;
+            }
+            .dl-btn {
+                flex-shrink: 0 !important;
+                justify-content: center !important;
+                padding: 6px 10px !important;
+                font-size: 11px !important;
+                white-space: nowrap !important;
+            }
+
+            /* Collapsible Logistics & Fleet Drawer on Mobile */
+            .mobile-logistics-drawer {
                 background: #111827;
                 border: 1px solid var(--border);
                 border-radius: 8px;
-                padding: 8px 12px;
-                margin-bottom: 14px;
-                gap: 8px;
-                overflow-x: auto;
-                -webkit-overflow-scrolling: touch;
-                scrollbar-width: none;
+                margin-bottom: 12px !important;
+                overflow: hidden;
             }
-            .mobile-stats-card::-webkit-scrollbar {
+            .mobile-logistics-drawer > summary {
+                padding: 10px 14px;
+                font-size: 12px;
+                font-weight: 700;
+                color: #38bdf8;
+                cursor: pointer;
+                background: #1e293b;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                list-style: none;
+                user-select: none;
+                -webkit-tap-highlight-color: transparent;
+            }
+            .mobile-logistics-drawer > summary::-webkit-details-marker {
                 display: none;
             }
-            .mobile-stats-card .stat-item {
-                flex-shrink: 0;
+            .mobile-logistics-drawer .summary-hint {
+                font-size: 10px;
+                color: #94a3b8;
+                font-weight: 600;
             }
-
-            /* Responsive 2x2 Grid for Navigation Download Buttons */
-            .downloads-bar {
-                display: grid !important;
-                grid-template-columns: 1fr 1fr !important;
-                gap: 8px !important;
-                margin-bottom: 16px !important;
+            .mobile-logistics-drawer[open] > summary {
+                border-bottom: 1px solid var(--border);
             }
-            .dl-btn {
-                justify-content: center !important;
-                padding: 8px 10px !important;
-                font-size: 11px !important;
-                white-space: nowrap !important;
-                text-overflow: ellipsis !important;
-                overflow: hidden !important;
+            .mobile-logistics-drawer .drawer-content {
+                padding: 10px 8px 4px 8px;
             }
 
             /* Day Cards & Scroll Margin */
             .day-card {
-                scroll-margin-top: 56px !important;
+                scroll-margin-top: 54px !important;
                 padding: 14px 12px !important;
+                margin-bottom: 12px !important;
             }
 
             .btn-zoom {
@@ -979,10 +1013,18 @@
         @media (min-width: 851px) {
             #mobile-bottom-nav,
             .mobile-day-jumper,
-            .mobile-stats-card,
             .mobile-header-badge,
             #map-focus-toast {
                 display: none !important;
+            }
+            .mobile-logistics-drawer {
+                display: contents !important;
+            }
+            .mobile-logistics-drawer > summary {
+                display: none !important;
+            }
+            .mobile-logistics-drawer .drawer-content {
+                display: contents !important;
             }
         }
     </style>
@@ -1055,111 +1097,92 @@
                 <button type="button" class="day-jump-btn" id="jump-btn-8" onclick="jumpToDay(8)">8 (Return)</button>
             </div>
 
-            <!-- Mobile Quick Stats Bar -->
-            <div class="mobile-stats-card">
-                <div class="stat-item">
-                    <span class="stat-val">2,790.3 mi</span>
-                    <span class="stat-lbl">Total Dist</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-val">1,349.7 mi</span>
-                    <span class="stat-lbl">Moto Loop</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-val">7 Days</span>
-                    <span class="stat-lbl">Saddle</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-val">27</span>
-                    <span class="stat-lbl">Tunnels</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-val">137</span>
-                    <span class="stat-lbl">POIs</span>
-                </div>
-            </div>
-
             <!-- Navigation Downloads -->
             <div class="downloads-bar">
-                <a href="blue_ridge_parkway_loop.gpx" download class="dl-btn">📥 Full GPX 1.1 (9 Tracks)</a>
-                <a href="blue_ridge_parkway_loop.kml" download class="dl-btn">🗺️ Google Earth KML</a>
-                <a href="blue_ridge_pois.csv" download class="dl-btn">📊 POIs CSV (137)</a>
-                <a href="expedition_cost_breakdown_per_person.md" target="_blank" class="dl-btn" style="border-color: #10b981; color: #34d399;">💰 Cost Breakdown Dossier ↗</a>
+                <a href="blue_ridge_parkway_loop.gpx" download class="dl-btn">📥 Full GPX 1.1</a>
+                <a href="blue_ridge_parkway_loop.kml" download class="dl-btn">🗺️ Earth KML</a>
+                <a href="blue_ridge_pois.csv" download class="dl-btn">📊 POIs CSV</a>
+                <a href="expedition_cost_breakdown_per_person.md" target="_blank" class="dl-btn" style="border-color: #10b981; color: #34d399;">💰 Cost Dossier ↗</a>
             </div>
 
-            <!-- Tow Rig Profile -->
-            <div class="towrig-box">
-                <div class="towrig-title">🚛 Expedition Tow Rig &amp; Trailer Architecture</div>
-                <div class="towrig-desc">
-                    <strong>Tow Vehicle:</strong> 2025 RAM 2500 Crew Cab • 6.7L Cummins Turbo Diesel (420 hp / 1,075 lb-ft)<br>
-                    <strong>Trailer:</strong> 16-Foot Tandem-Axle Enclosed Cargo Trailer (~40 ft combined rig)<br>
-                    <strong>Payload:</strong> 4 Honda Motorcycles + Gear • 60/40 Front Weight Bias (~600 lb tongue weight)<br>
-                    <strong>Fuel Range:</strong> 31-Gal ULSD Tank (~350 mi [563 km] safe range at 12.5 mpg) • 5.7-Gal DEF Tank<br>
-                    <strong>Transit Corridor:</strong> Hanmer, ON ➔ Hwy 69 ➔ Hwy 400 ➔ Queenston-Lewiston Bridge ➔ US-219 ➔ I-99 ➔ Front Royal, VA (720.3 mi [1,159.2 km] each way).
-                </div>
-                <div class="btn-group">
-                    <a href="hanmer_to_front_royal_transit_logistics.md" target="_blank" class="btn-book">Transit Logistics Dossier ↗</a>
-                </div>
-            </div>
+            <!-- Expedition Logistics & Fleet Drawer -->
+            <details class="mobile-logistics-drawer" open>
+                <summary class="logistics-summary"><span>🚛 Expedition Tow Rig, Staging &amp; Fleet Specs</span> <span class="summary-hint">(Tap to View)</span></summary>
+                <div class="drawer-content">
+                    <!-- Tow Rig Profile -->
+                    <div class="towrig-box">
+                        <div class="towrig-title">🚛 Expedition Tow Rig &amp; Trailer Architecture</div>
+                        <div class="towrig-desc">
+                            <strong>Tow Vehicle:</strong> 2025 RAM 2500 Crew Cab • 6.7L Cummins Turbo Diesel (420 hp / 1,075 lb-ft)<br>
+                            <strong>Trailer:</strong> 16-Foot Tandem-Axle Enclosed Cargo Trailer (~40 ft combined rig)<br>
+                            <strong>Payload:</strong> 4 Honda Motorcycles + Gear • 60/40 Front Weight Bias (~600 lb tongue weight)<br>
+                            <strong>Fuel Range:</strong> 31-Gal ULSD Tank (~350 mi [563 km] safe range at 12.5 mpg) • 5.7-Gal DEF Tank<br>
+                            <strong>Transit Corridor:</strong> Hanmer, ON ➔ Hwy 69 ➔ Hwy 400 ➔ Queenston-Lewiston Bridge ➔ US-219 ➔ I-99 ➔ Front Royal, VA (720.3 mi [1,159.2 km] each way).
+                        </div>
+                        <div class="btn-group">
+                            <a href="hanmer_to_front_royal_transit_logistics.md" target="_blank" class="btn-book">Transit Logistics Dossier ↗</a>
+                        </div>
+                    </div>
 
-            <!-- Basecamp Rig Storage -->
-            <div class="basecamp-box">
-                <div class="basecamp-title">🏕️ Basecamp: Eagle's Nest RV, Boat &amp; Vehicle Storage</div>
-                <div class="basecamp-desc">
-                    <strong>Address:</strong> 3434 Guard Hill Rd, Front Royal, VA 22630<br>
-                    <strong>Rig Staging:</strong> Secure perimeter fence, electronic keypad gate, 24/7 digital surveillance, extra-wide pull-through crushed gravel lanes for RAM 2500 + 16ft trailer.<br>
-                    <strong>Proximity:</strong> 4.5 mi (7.2 km) (8 mins) to Skyline Drive Northern Entrance Station (Mile 0.0).
-                </div>
-                <div class="btn-group">
-                    <a href="https://frontroyalvehiclestorage.com/" target="_blank" rel="noopener noreferrer" class="btn-book">Facility Website ↗</a>
-                    <a href="tel:+15406366161" class="btn-call">📞 +1 540-636-6161</a>
-                </div>
-            </div>
+                    <!-- Basecamp Rig Storage -->
+                    <div class="basecamp-box">
+                        <div class="basecamp-title">🏕️ Basecamp: Eagle's Nest RV, Boat &amp; Vehicle Storage</div>
+                        <div class="basecamp-desc">
+                            <strong>Address:</strong> 3434 Guard Hill Rd, Front Royal, VA 22630<br>
+                            <strong>Rig Staging:</strong> Secure perimeter fence, electronic keypad gate, 24/7 digital surveillance, extra-wide pull-through crushed gravel lanes for RAM 2500 + 16ft trailer.<br>
+                            <strong>Proximity:</strong> 4.5 mi (7.2 km) (8 mins) to Skyline Drive Northern Entrance Station (Mile 0.0).
+                        </div>
+                        <div class="btn-group">
+                            <a href="https://frontroyalvehiclestorage.com/" target="_blank" rel="noopener noreferrer" class="btn-book">Facility Website ↗</a>
+                            <a href="tel:+15406366161" class="btn-call">📞 +1 540-636-6161</a>
+                        </div>
+                    </div>
 
-
-            <!-- Fleet Specifications -->
-            <div class="section-title section-title-fleet">
-                <span>🏍️ Motorcycle Fleet Specifications (4 Hondas)</span>
-                <span style="font-size: 11px; color: var(--accent-green); font-weight: 700;">87 AKI Regular Compatible</span>
-            </div>
-            <div class="fleet-grid">
-                <div class="bike-card">
-                    <div class="bike-name">2025 Africa Twin ES DCT</div>
-                    <div class="bike-role">Expedition Flagship / Lead Tanker</div>
-                    <div class="bike-spec">
-                        Tank: <strong>24.8 L (6.55 gal)</strong><br>
-                        Range: <strong>~275 mi (443 km)</strong><br>
-                        Octane: <strong>87 Regular (10.5:1)</strong>
+                    <!-- Fleet Specifications -->
+                    <div class="section-title section-title-fleet">
+                        <span>🏍️ Motorcycle Fleet Specifications (4 Hondas)</span>
+                        <span style="font-size: 11px; color: var(--accent-green); font-weight: 700;">87 AKI Regular Compatible</span>
+                    </div>
+                    <div class="fleet-grid">
+                        <div class="bike-card">
+                            <div class="bike-name">2025 Africa Twin ES DCT</div>
+                            <div class="bike-role">Expedition Flagship / Lead Tanker</div>
+                            <div class="bike-spec">
+                                Tank: <strong>24.8 L (6.55 gal)</strong><br>
+                                Range: <strong>~275 mi (443 km)</strong><br>
+                                Octane: <strong>87 Regular (10.5:1)</strong>
+                            </div>
+                        </div>
+                        <div class="bike-card">
+                            <div class="bike-name">2018 Africa Twin CRF1000L #1</div>
+                            <div class="bike-role">ADV Scout</div>
+                            <div class="bike-spec">
+                                Tank: <strong>18.8 L (4.97 gal)</strong><br>
+                                Range: <strong>~220 mi (354 km)</strong><br>
+                                Octane: <strong>87 Regular (10.0:1)</strong>
+                            </div>
+                        </div>
+                        <div class="bike-card">
+                            <div class="bike-name">2018 Africa Twin CRF1000L #2</div>
+                            <div class="bike-role">ADV Wingman</div>
+                            <div class="bike-spec">
+                                Tank: <strong>18.8 L (4.97 gal)</strong><br>
+                                Range: <strong>~220 mi (354 km)</strong><br>
+                                Octane: <strong>87 Regular (10.0:1)</strong>
+                            </div>
+                        </div>
+                        <div class="bike-card" style="border-color: var(--accent-amber);">
+                            <div class="bike-name">Honda Rebel 1100 (CMX1100)</div>
+                            <div class="bike-role" style="color: var(--accent-amber);">Fuel Range Governor</div>
+                            <div class="bike-spec">
+                                Tank: <strong>13.6 L (3.60 gal)</strong><br>
+                                Safe Range: <strong>~125 mi (201 km)</strong><br>
+                                Cadence: <strong>≤100 mi (161 km) Stops</strong>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="bike-card">
-                    <div class="bike-name">2018 Africa Twin CRF1000L #1</div>
-                    <div class="bike-role">ADV Scout</div>
-                    <div class="bike-spec">
-                        Tank: <strong>18.8 L (4.97 gal)</strong><br>
-                        Range: <strong>~220 mi (354 km)</strong><br>
-                        Octane: <strong>87 Regular (10.0:1)</strong>
-                    </div>
-                </div>
-                <div class="bike-card">
-                    <div class="bike-name">2018 Africa Twin CRF1000L #2</div>
-                    <div class="bike-role">ADV Wingman</div>
-                    <div class="bike-spec">
-                        Tank: <strong>18.8 L (4.97 gal)</strong><br>
-                        Range: <strong>~220 mi (354 km)</strong><br>
-                        Octane: <strong>87 Regular (10.0:1)</strong>
-                    </div>
-                </div>
-                <div class="bike-card" style="border-color: var(--accent-amber);">
-                    <div class="bike-name">Honda Rebel 1100 (CMX1100)</div>
-                    <div class="bike-role" style="color: var(--accent-amber);">Fuel Range Governor</div>
-                    <div class="bike-spec">
-                        Tank: <strong>13.6 L (3.60 gal)</strong><br>
-                        Safe Range: <strong>~125 mi (201 km)</strong><br>
-                        Cadence: <strong>≤100 mi (161 km) Stops</strong>
-                    </div>
-                </div>
-            </div>
+            </details>
 
             <!-- Master Stages List -->
             <div class="section-title section-title-itinerary">
@@ -2731,8 +2754,29 @@
             focusStage(idx);
         }
 
+        // Manage Mobile Logistics Drawer (collapsed on mobile by default to keep itinerary immediately visible)
+        function checkMobileDrawer() {
+            const drawer = document.querySelector('.mobile-logistics-drawer');
+            if (drawer) {
+                if (window.innerWidth <= 850) {
+                    drawer.removeAttribute('open');
+                } else {
+                    drawer.setAttribute('open', '');
+                }
+            }
+        }
+        checkMobileDrawer();
+        window.addEventListener('resize', checkMobileDrawer);
+
         // Switch Mobile App Tab
+        let lastFeedScroll = 0;
         function switchMobileTab(tab) {
+            const pane = document.getElementById('data-pane');
+            const wasFeed = document.body.classList.contains('tab-feed');
+            if (wasFeed && pane) {
+                lastFeedScroll = pane.scrollTop;
+            }
+
             document.body.classList.remove('tab-map', 'tab-feed', 'tab-timeline', 'tab-budget');
             document.querySelectorAll('.mobile-nav-btn').forEach(b => b.classList.remove('active'));
             
@@ -2740,11 +2784,14 @@
             const btn = document.getElementById('btn-tab-' + tab);
             if (btn) btn.classList.add('active');
             
-            const pane = document.getElementById('data-pane');
             if (tab === 'map') {
                 setTimeout(() => { map.invalidateSize(); }, 80);
-            } else if (pane && (tab === 'timeline' || tab === 'budget')) {
-                pane.scrollTop = 0;
+            } else if (pane) {
+                if (tab === 'timeline' || tab === 'budget') {
+                    pane.scrollTop = 0;
+                } else if (tab === 'feed') {
+                    pane.scrollTop = wasFeed ? 0 : lastFeedScroll;
+                }
             }
         }
 
