@@ -1135,9 +1135,16 @@
       </Placemark>
       <Placemark>
         <name>Hanmer Home Base (Expedition Complete!)</name>
-        <description>WELCOME HOME! Unload 4 Honda motorcycles, unhitch 16ft trailer, unpack riding gear. Grand loop complete: 2,786 miles!</description>
+        <description>WELCOME HOME! Unload 4 Honda motorcycles, unhitch 16ft trailer, unpack riding gear. Grand loop complete: 2,789.6 mi (4,489.4 km)!</description>
         <Point>
           <coordinates>-80.975400,46.647300,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Bass Pro Shops (Frogg Toggs Rain Gear Outfitter)</name>
+        <description>Premier 100,000+ sq ft regional outfitter stocking complete inventories of waterproof, breathable Frogg Toggs rain gear (Ultra-Lite2 suits, Pro Action jackets, Toadz bibs, waterproof boot &amp; glove covers). Crucial mountain rainstorm gear stop situated directly off I-81 Exit 74B at The Pinnacle, right next to Bristol KOA Basecamp.</description>
+        <Point>
+          <coordinates>-82.251300,36.594300,0</coordinates>
         </Point>
       </Placemark>
     </Folder>

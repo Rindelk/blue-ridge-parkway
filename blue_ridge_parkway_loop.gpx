@@ -683,8 +683,13 @@
   </wpt>
   <wpt lat="46.647300" lon="-80.975400">
     <name>Hanmer Home Base (Expedition Complete!)</name>
-    <desc>WELCOME HOME! Unload 4 Honda motorcycles, unhitch 16ft trailer, unpack riding gear. Grand loop complete: 2,786 miles!</desc>
+    <desc>WELCOME HOME! Unload 4 Honda motorcycles, unhitch 16ft trailer, unpack riding gear. Grand loop complete: 2,789.6 mi (4,489.4 km)!</desc>
     <sym>Residence</sym>
+  </wpt>
+  <wpt lat="36.594300" lon="-82.251300">
+    <name>Bass Pro Shops (Frogg Toggs Rain Gear Outfitter)</name>
+    <desc>Premier 100,000+ sq ft regional outfitter stocking complete inventories of waterproof, breathable Frogg Toggs rain gear (Ultra-Lite2 suits, Pro Action jackets, Toadz bibs, waterproof boot &amp; glove covers). Crucial mountain rainstorm gear stop situated directly off I-81 Exit 74B at The Pinnacle, right next to Bristol KOA Basecamp.</desc>
+    <sym>Shopping Center</sym>
   </wpt>
   <trk>
     <name>Outbound Transit: Hanmer, ON to Front Royal, VA</name>
