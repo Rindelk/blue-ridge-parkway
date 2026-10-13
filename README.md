@@ -57,16 +57,16 @@ All 4 motorcycles operate on **87 AKI Regular Unleaded** (10.0:1 to 10.5:1 compr
 
 | Stage | Date | Stage Description | Distance | Transit / Saddle Time | Mode | Primary Focus / Sights | Staging / Lodging Target |
 | :---: | :---: | :--- | :---: | :---: | :---: | :--- | :--- |
-| **0** | Pre-Rollout | Hanmer, ON to Front Royal, VA | 720.3 mi (1,159.2 km) | ~12h 00m | 🚛 RAM 2500 Haul | Queenston-Lewiston Bridge (CBP), US-219, I-99 | Eagle's Nest RV Storage / Hampton Inn |
-| **1** | Day 1 | Front Royal to Waynesboro | 112.8 mi (181.5 km) | 3h 45m | 🏍️ 4 Hondas | Skyline Drive MP 0–105, Mary's Rock Tunnel, Big Meadows | The Blackburn Inn / Hampton Inn |
-| **2** | Day 2 | Waynesboro to Roanoke | 136.2 mi (219.2 km) | 3h 30m | 🏍️ 4 Hondas | BRP MP 0–120, Humpback Rocks, James River (649 ft), Peaks of Otter | Peaks of Otter Lodge / Hotel Roanoke |
-| **3** | Day 3 | Roanoke to Blowing Rock, NC | 178.1 mi (286.6 km) | 4h 30m | 🏍️ 4 Hondas | BRP MP 120–294, Mabry Mill pancakes, Groundhog Mountain, Music Center | Meadowbrook Inn / Green Park Hotel |
-| **4** | Day 4 | Blowing Rock to Cherokee, NC | 187.6 mi (301.9 km) | 4h 45m | 🏍️ 4 Hondas | BRP MP 294–469, Linn Cove Viaduct, Mt Mitchell (6,684 ft), Pisgah Inn, Elk | Harrah's Cherokee Resort / Great Smokies |
-| **5** | Day 5 | Cherokee to Dragon & Bristol | 319.3 mi (513.8 km) | 7h 30m | 🏍️ 4 Hondas | Fontana Dam, Deals Gap / Tail of the Dragon (318 curves), Cherohala Skyway | The Martha Washington Inn (Abingdon) |
-| **6** | Day 6 | Bristol to Back of Dragon & Warm Springs | 229.7 mi (369.7 km) | 5h 45m | 🏍️ 4 Hondas | Back of the Dragon (VA-16: 32 mi / 300+ curves), Tazewell, George Washington Forest | The Inn at Gristmill Square / Warm Springs |
+| **0** | Pre-Rollout | Hanmer, ON to Front Royal, VA | 720.3 mi (1,159.2 km) | ~12h 00m | 🚛 RAM 2500 Haul | Queenston-Lewiston Bridge (CBP), US-219, I-99 | Eagle's Nest Storage / Mountain View RV (KOA Dr) |
+| **1** | Day 1 | Front Royal to Waynesboro | 112.8 mi (181.5 km) | 3h 45m | 🏍️ 4 Hondas | Skyline Drive MP 0–105, Mary's Rock Tunnel, Big Meadows | **Charlottesville KOA Holiday** (The Blackburn Inn) |
+| **2** | Day 2 | Waynesboro to Roanoke | 136.2 mi (219.2 km) | 3h 30m | 🏍️ 4 Hondas | BRP MP 0–120, Humpback Rocks, James River (649 ft), Peaks of Otter | **Lynchburg / BRP KOA Holiday** (Peaks of Otter Lodge) |
+| **3** | Day 3 | Roanoke to Blowing Rock, NC | 178.1 mi (286.6 km) | 4h 30m | 🏍️ 4 Hondas | BRP MP 120–294, Mabry Mill pancakes, Groundhog Mountain, Music Center | **Boone KOA Holiday** (Meadowbrook Inn) |
+| **4** | Day 4 | Blowing Rock to Cherokee, NC | 187.6 mi (301.9 km) | 4h 45m | 🏍️ 4 Hondas | BRP MP 294–469, Linn Cove Viaduct, Mt Mitchell (6,684 ft), Pisgah Inn, Elk | **Cherokee / Great Smokies KOA Holiday** (Harrah's) |
+| **5** | Day 5 | Cherokee to Dragon & Bristol | 319.3 mi (513.8 km) | 7h 30m | 🏍️ 4 Hondas | Fontana Dam, Deals Gap / Tail of the Dragon (318 curves), Cherohala Skyway | **Bristol / Kingsport KOA Holiday** (The Martha) |
+| **6** | Day 6 | Bristol to Back of Dragon & Warm Springs | 229.7 mi (369.7 km) | 5h 45m | 🏍️ 4 Hondas | Back of the Dragon (VA-16: 32 mi / 300+ curves), Tazewell, George Washington Forest | **Natural Bridge / Lexington KOA** (Inn at Gristmill Sq) |
 | **7** | Day 7 | Warm Springs to Front Royal Basecamp | 182.1 mi (293.0 km) | 3h 45m | 🏍️ 4 Hondas | Monterey ("Virginia's Switzerland"), Shenandoah Mountain, Shenandoah Valley | **Eagle's Nest RV Storage** (Retrieve Rig!) |
 | **8** | Post-Tour | Front Royal, VA to Hanmer, ON | 723.5 mi (1,164.3 km) | ~12h 00m | 🚛 RAM 2500 Haul | I-81, I-99, Queenston-Lewiston Bridge (CBSA), Hwy 400 | **Hanmer Home Base** (Expedition Complete!) |
-| **TOTAL** | **Full Circuit** | **Grand Expedition Loop** | **2,786.6 mi (4,484.2 km)** | **~57h 45m** | **Truck + Bikes** | **93,386 Snapped GPS Points • 100% Zero-Gap Loop Closure** | **135 Curated POIs • 27 Tunnels** |
+| **TOTAL** | **Full Circuit** | **Grand Expedition Loop** | **2,786.6 mi (4,484.2 km)** | **~57h 45m** | **Truck + Bikes** | **93,386 Snapped GPS Points • 100% Zero-Gap Loop Closure** | **136 Curated POIs • 6 KOAs • 27 Tunnels** |
 
 ---
 

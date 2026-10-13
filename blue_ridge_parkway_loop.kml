@@ -336,17 +336,17 @@
         </Point>
       </Placemark>
       <Placemark>
+        <name>Charlottesville KOA Holiday</name>
+        <description>Wooded foothills KOA near Rockfish Gap. Deluxe Cabins with full private baths, camping cabins, pool, and motorcycle parking.</description>
+        <Point>
+          <coordinates>-78.618900,37.948600,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
         <name>The Blackburn Inn &amp; Conference Center</name>
         <description>Historic boutique hotel with upscale rooms, spa, and secure courtyard bike parking.</description>
         <Point>
           <coordinates>-79.068900,38.145600,0</coordinates>
-        </Point>
-      </Placemark>
-      <Placemark>
-        <name>Hampton Inn Waynesboro-Stuarts Draft</name>
-        <description>Modern hotel located 5 minutes from Rockfish Gap with hot breakfast and pool.</description>
-        <Point>
-          <coordinates>-78.934700,38.058300,0</coordinates>
         </Point>
       </Placemark>
       <Placemark>
@@ -420,6 +420,13 @@
         </Point>
       </Placemark>
       <Placemark>
+        <name>Lynchburg / Blue Ridge Parkway KOA Holiday</name>
+        <description>Nestled in mountain woods only 1.0 mile off BRP MP 61.4 (Otter Creek). Deluxe Cabins with full baths, camping cabins, pool, and fire rings.</description>
+        <Point>
+          <coordinates>-79.241200,37.545600,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
         <name>Peaks of Otter Lodge (MP 86.0)</name>
         <description>Iconic lodge situated directly on Abbott Lake with lakefront dining and Sharp Top shuttle.</description>
         <Point>
@@ -459,13 +466,6 @@
         <description>Major service hub at US-220 gap exit. 87 Regular pumps, 24/7 food, and convenience store.</description>
         <Point>
           <coordinates>-79.957500,37.228900,0</coordinates>
-        </Point>
-      </Placemark>
-      <Placemark>
-        <name>The Hotel Roanoke &amp; Conference Center</name>
-        <description>Historic 1882 Tudor-style luxury hotel in downtown Roanoke with covered motorcycle parking.</description>
-        <Point>
-          <coordinates>-79.940800,37.274200,0</coordinates>
         </Point>
       </Placemark>
       <Placemark>
@@ -567,17 +567,17 @@
         </Point>
       </Placemark>
       <Placemark>
+        <name>Boone KOA Holiday</name>
+        <description>High country KOA at 4,000 ft elevation, 8 mi to Blowing Rock (BRP MP 291). Deluxe Cabins with full baths, camping cabins, heated pool, and farm animals.</description>
+        <Point>
+          <coordinates>-81.611100,36.216700,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
         <name>Meadowbrook Inn</name>
         <description>Charming mountain resort hotel in heart of Blowing Rock village with indoor pool and terrace.</description>
         <Point>
           <coordinates>-81.675600,36.132500,0</coordinates>
-        </Point>
-      </Placemark>
-      <Placemark>
-        <name>The Green Park Hotel</name>
-        <description>Historic 1891 Victorian hotel operating continuously for over 130 years on the Eastern Continental Divide.</description>
-        <Point>
-          <coordinates>-81.666700,36.121900,0</coordinates>
         </Point>
       </Placemark>
       <Placemark>
@@ -826,17 +826,17 @@
         </Point>
       </Placemark>
       <Placemark>
+        <name>Cherokee / Great Smokies KOA Holiday</name>
+        <description>Riverfront KOA Holiday right at Blue Ridge Parkway MP 469 southern terminus! Riverfront Deluxe Cabins, camping cabins, indoor/outdoor pools, hot tubs.</description>
+        <Point>
+          <coordinates>-83.284200,35.495000,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
         <name>Harrah's Cherokee Casino Resort</name>
         <description>Luxury mountain casino resort with multiple restaurants, covered motorcycle parking, and pools.</description>
         <Point>
           <coordinates>-83.311100,35.475600,0</coordinates>
-        </Point>
-      </Placemark>
-      <Placemark>
-        <name>Great Smokies Inn - Cherokee</name>
-        <description>Motorcycle-friendly mountain lodge near the Oconaluftee river with porch rocking chairs.</description>
-        <Point>
-          <coordinates>-83.308900,35.491200,0</coordinates>
         </Point>
       </Placemark>
       <Placemark>
@@ -931,17 +931,17 @@
         </Point>
       </Placemark>
       <Placemark>
+        <name>Bristol / Kingsport KOA Holiday</name>
+        <description>Quiet wooded KOA off I-81 between Bristol and Kingsport. Deluxe Cabins with full baths, pizza/wings delivery to cabin from KOA Cafe, and pool.</description>
+        <Point>
+          <coordinates>-82.411200,36.485600,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
         <name>The Martha Washington Inn &amp; Spa</name>
         <description>Historic 1832 grand resort inn in Abingdon with rocking chair porches, gardens, and spa.</description>
         <Point>
           <coordinates>-81.974400,36.711900,0</coordinates>
-        </Point>
-      </Placemark>
-      <Placemark>
-        <name>The Bristol Hotel</name>
-        <description>Boutique historic hotel in downtown Bristol with rooftop lounge overlooking the Appalachian foothills.</description>
-        <Point>
-          <coordinates>-82.183100,36.596100,0</coordinates>
         </Point>
       </Placemark>
       <Placemark>
@@ -1019,6 +1019,13 @@
         <description>Historic 1761 mineral spring pools enjoyed by Thomas Jefferson. Crystal-clear 98°F warm springs.</description>
         <Point>
           <coordinates>-79.791100,38.049400,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Natural Bridge / Lexington KOA Holiday</name>
+        <description>Scenic Shenandoah Valley KOA near historic Lexington and Natural Bridge. Deluxe Cabins with full baths, camping cabins, pool, and game room.</description>
+        <Point>
+          <coordinates>-79.531200,37.628900,0</coordinates>
         </Point>
       </Placemark>
       <Placemark>

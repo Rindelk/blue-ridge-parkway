@@ -111,14 +111,14 @@
     <desc>Gap exit fuel hub at Rockfish Gap base. Full 87 Regular pumps and food mart.</desc>
     <sym>Gas Station</sym>
   </wpt>
+  <wpt lat="37.948600" lon="-78.618900">
+    <name>Charlottesville KOA Holiday</name>
+    <desc>Wooded foothills KOA near Rockfish Gap. Deluxe Cabins with full private baths, camping cabins, pool, and motorcycle parking.</desc>
+    <sym>Lodging</sym>
+  </wpt>
   <wpt lat="38.145600" lon="-79.068900">
     <name>The Blackburn Inn &amp; Conference Center</name>
     <desc>Historic boutique hotel with upscale rooms, spa, and secure courtyard bike parking.</desc>
-    <sym>Lodging</sym>
-  </wpt>
-  <wpt lat="38.058300" lon="-78.934700">
-    <name>Hampton Inn Waynesboro-Stuarts Draft</name>
-    <desc>Modern hotel located 5 minutes from Rockfish Gap with hot breakfast and pool.</desc>
     <sym>Lodging</sym>
   </wpt>
   <wpt lat="38.031500" lon="-78.857600">
@@ -171,6 +171,11 @@
     <desc>Famous mountain lake nestled between Sharp Top and Flat Top peaks.</desc>
     <sym>Museum</sym>
   </wpt>
+  <wpt lat="37.545600" lon="-79.241200">
+    <name>Lynchburg / Blue Ridge Parkway KOA Holiday</name>
+    <desc>Nestled in mountain woods only 1.0 mile off BRP MP 61.4 (Otter Creek). Deluxe Cabins with full baths, camping cabins, pool, and fire rings.</desc>
+    <sym>Lodging</sym>
+  </wpt>
   <wpt lat="37.445200" lon="-79.608300">
     <name>Peaks of Otter Lodge (MP 86.0)</name>
     <desc>Iconic lodge situated directly on Abbott Lake with lakefront dining and Sharp Top shuttle.</desc>
@@ -200,11 +205,6 @@
     <name>Sheetz / Sunoco Roanoke Gap (MP 121 / US-220)</name>
     <desc>Major service hub at US-220 gap exit. 87 Regular pumps, 24/7 food, and convenience store.</desc>
     <sym>Gas Station</sym>
-  </wpt>
-  <wpt lat="37.274200" lon="-79.940800">
-    <name>The Hotel Roanoke &amp; Conference Center</name>
-    <desc>Historic 1882 Tudor-style luxury hotel in downtown Roanoke with covered motorcycle parking.</desc>
-    <sym>Lodging</sym>
   </wpt>
   <wpt lat="37.135600" lon="-80.052200">
     <name>Slacks Overlook (MP 140.0)</name>
@@ -276,14 +276,14 @@
     <desc>Blowing Rock gap exit fuel station. 87 Regular available.</desc>
     <sym>Gas Station</sym>
   </wpt>
+  <wpt lat="36.216700" lon="-81.611100">
+    <name>Boone KOA Holiday</name>
+    <desc>High country KOA at 4,000 ft elevation, 8 mi to Blowing Rock (BRP MP 291). Deluxe Cabins with full baths, camping cabins, heated pool, and farm animals.</desc>
+    <sym>Lodging</sym>
+  </wpt>
   <wpt lat="36.132500" lon="-81.675600">
     <name>Meadowbrook Inn</name>
     <desc>Charming mountain resort hotel in heart of Blowing Rock village with indoor pool and terrace.</desc>
-    <sym>Lodging</sym>
-  </wpt>
-  <wpt lat="36.121900" lon="-81.666700">
-    <name>The Green Park Hotel</name>
-    <desc>Historic 1891 Victorian hotel operating continuously for over 130 years on the Eastern Continental Divide.</desc>
     <sym>Lodging</sym>
   </wpt>
   <wpt lat="36.138900" lon="-81.738900">
@@ -461,14 +461,14 @@
     <desc>Full service fueling in Cherokee. 87 Regular available.</desc>
     <sym>Gas Station</sym>
   </wpt>
+  <wpt lat="35.495000" lon="-83.284200">
+    <name>Cherokee / Great Smokies KOA Holiday</name>
+    <desc>Riverfront KOA Holiday right at Blue Ridge Parkway MP 469 southern terminus! Riverfront Deluxe Cabins, camping cabins, indoor/outdoor pools, hot tubs.</desc>
+    <sym>Lodging</sym>
+  </wpt>
   <wpt lat="35.475600" lon="-83.311100">
     <name>Harrah's Cherokee Casino Resort</name>
     <desc>Luxury mountain casino resort with multiple restaurants, covered motorcycle parking, and pools.</desc>
-    <sym>Lodging</sym>
-  </wpt>
-  <wpt lat="35.491200" lon="-83.308900">
-    <name>Great Smokies Inn - Cherokee</name>
-    <desc>Motorcycle-friendly mountain lodge near the Oconaluftee river with porch rocking chairs.</desc>
     <sym>Lodging</sym>
   </wpt>
   <wpt lat="35.449700" lon="-83.805200">
@@ -536,14 +536,14 @@
     <desc>Famous state line running right down the yellow centerline: Virginia on left, Tennessee on right!</desc>
     <sym>Museum</sym>
   </wpt>
+  <wpt lat="36.485600" lon="-82.411200">
+    <name>Bristol / Kingsport KOA Holiday</name>
+    <desc>Quiet wooded KOA off I-81 between Bristol and Kingsport. Deluxe Cabins with full baths, pizza/wings delivery to cabin from KOA Cafe, and pool.</desc>
+    <sym>Lodging</sym>
+  </wpt>
   <wpt lat="36.711900" lon="-81.974400">
     <name>The Martha Washington Inn &amp; Spa</name>
     <desc>Historic 1832 grand resort inn in Abingdon with rocking chair porches, gardens, and spa.</desc>
-    <sym>Lodging</sym>
-  </wpt>
-  <wpt lat="36.596100" lon="-82.183100">
-    <name>The Bristol Hotel</name>
-    <desc>Boutique historic hotel in downtown Bristol with rooftop lounge overlooking the Appalachian foothills.</desc>
     <sym>Lodging</sym>
   </wpt>
   <wpt lat="36.834400" lon="-81.514700">
@@ -600,6 +600,11 @@
     <name>Historic Jefferson Bathhouses (Warm Springs Pools)</name>
     <desc>Historic 1761 mineral spring pools enjoyed by Thomas Jefferson. Crystal-clear 98°F warm springs.</desc>
     <sym>Museum</sym>
+  </wpt>
+  <wpt lat="37.628900" lon="-79.531200">
+    <name>Natural Bridge / Lexington KOA Holiday</name>
+    <desc>Scenic Shenandoah Valley KOA near historic Lexington and Natural Bridge. Deluxe Cabins with full baths, camping cabins, pool, and game room.</desc>
+    <sym>Lodging</sym>
   </wpt>
   <wpt lat="38.051100" lon="-79.788900">
     <name>The Inn at Gristmill Square</name>

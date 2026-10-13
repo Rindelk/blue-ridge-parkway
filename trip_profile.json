@@ -97,18 +97,18 @@
         ]
       ],
       "primary_hotel": {
+        "name": "Charlottesville KOA Holiday",
+        "location": "3825 Red Hill Rd, Charlottesville, VA (Near Rockfish Gap)",
+        "cost": "$95 - $165 USD/night (Cabin)",
+        "phone": "+1 434-296-9881",
+        "url": "https://koa.com/campgrounds/charlottesville/"
+      },
+      "secondary_hotel": {
         "name": "The Blackburn Inn & Conference Center",
         "location": "Staunton / Waynesboro, VA",
         "cost": "$165 USD/night",
         "phone": "+1 540-712-0501",
         "url": "https://www.blackburn-inn.com/"
-      },
-      "secondary_hotel": {
-        "name": "Hampton Inn Waynesboro-Stuarts Draft",
-        "location": "Waynesboro, VA",
-        "cost": "$140 USD/night",
-        "phone": "+1 540-213-9500",
-        "url": "https://www.hilton.com/en/hotels/shdwdhx-hampton-waynesboro-stuarts-draft/"
       }
     },
     {
@@ -143,18 +143,18 @@
         ]
       ],
       "primary_hotel": {
+        "name": "Lynchburg / Blue Ridge Parkway KOA Holiday",
+        "location": "6252 Elon Rd, Monroe, VA (1.0 mi off BRP MP 61.4)",
+        "cost": "$85 - $155 USD/night (Cabin)",
+        "phone": "+1 434-384-3323",
+        "url": "https://koa.com/campgrounds/lynchburg/"
+      },
+      "secondary_hotel": {
         "name": "Peaks of Otter Lodge",
         "location": "Bedford / BRP MP 86, VA",
         "cost": "$195 USD/night",
         "phone": "+1 866-387-9905",
         "url": "https://www.peaksofotter.com/"
-      },
-      "secondary_hotel": {
-        "name": "The Hotel Roanoke & Conference Center, Curio Collection",
-        "location": "Roanoke, VA",
-        "cost": "$175 USD/night",
-        "phone": "+1 540-985-5900",
-        "url": "https://www.hotelroanoke.com/"
       }
     },
     {
@@ -193,18 +193,18 @@
         ]
       ],
       "primary_hotel": {
+        "name": "Boone KOA Holiday",
+        "location": "123 Harmony Mountain Ln, Boone, NC (8 mi to Blowing Rock)",
+        "cost": "$95 - $175 USD/night (Cabin)",
+        "phone": "+1 828-264-7250",
+        "url": "https://koa.com/campgrounds/boone/"
+      },
+      "secondary_hotel": {
         "name": "Meadowbrook Inn",
         "location": "Blowing Rock, NC",
         "cost": "$180 USD/night",
         "phone": "+1 828-295-4300",
         "url": "https://www.meadowbrook-inn.com/"
-      },
-      "secondary_hotel": {
-        "name": "The Green Park Hotel",
-        "location": "Blowing Rock, NC",
-        "cost": "$165 USD/night",
-        "phone": "+1 828-414-9230",
-        "url": "https://greenparkinn.net/"
       }
     },
     {
@@ -259,18 +259,18 @@
         ]
       ],
       "primary_hotel": {
+        "name": "Cherokee / Great Smokies KOA Holiday",
+        "location": "92 KOA Campground Rd, Cherokee, NC (BRP MP 469 Southern Terminus)",
+        "cost": "$110 - $195 USD/night (Cabin)",
+        "phone": "+1 828-497-9711",
+        "url": "https://koa.com/campgrounds/cherokee/"
+      },
+      "secondary_hotel": {
         "name": "Harrah's Cherokee Casino Resort",
         "location": "Cherokee, NC",
         "cost": "$189 USD/night",
         "phone": "+1 828-497-7777",
         "url": "https://www.caesars.com/harrahs-cherokee"
-      },
-      "secondary_hotel": {
-        "name": "Great Smokies Inn - Cherokee",
-        "location": "Cherokee, NC",
-        "cost": "$125 USD/night",
-        "phone": "+1 828-497-2020",
-        "url": "https://greatsmokiesinn.com/"
       }
     },
     {
@@ -317,18 +317,18 @@
         ]
       ],
       "primary_hotel": {
+        "name": "Bristol / Kingsport KOA Holiday",
+        "location": "425 Locust Grove Rd, Blountville, TN (I-81 Tri-Cities)",
+        "cost": "$85 - $155 USD/night (Cabin)",
+        "phone": "+1 423-323-7790",
+        "url": "https://koa.com/campgrounds/bristol/"
+      },
+      "secondary_hotel": {
         "name": "The Martha Washington Inn & Spa",
         "location": "Abingdon / Bristol, VA",
         "cost": "$210 USD/night",
         "phone": "+1 276-628-3161",
         "url": "https://www.themartha.com/"
-      },
-      "secondary_hotel": {
-        "name": "The Bristol Hotel",
-        "location": "Bristol, VA",
-        "cost": "$165 USD/night",
-        "phone": "+1 276-696-3737",
-        "url": "https://www.thebristolhotel.com/"
       }
     },
     {
@@ -375,18 +375,18 @@
         ]
       ],
       "primary_hotel": {
+        "name": "Natural Bridge / Lexington KOA Holiday",
+        "location": "214 Killdeer Ln, Natural Bridge, VA (Shenandoah Valley)",
+        "cost": "$85 - $160 USD/night (Cabin)",
+        "phone": "+1 540-291-2770",
+        "url": "https://koa.com/campgrounds/natural-bridge/"
+      },
+      "secondary_hotel": {
         "name": "The Inn at Gristmill Square",
         "location": "Warm Springs, VA",
         "cost": "$185 USD/night",
         "phone": "+1 540-839-2231",
         "url": "https://www.gristmillsquare.com/"
-      },
-      "secondary_hotel": {
-        "name": "The Warm Springs Inn",
-        "location": "Warm Springs, VA",
-        "cost": "$135 USD/night",
-        "phone": "+1 540-839-5351",
-        "url": "https://warmspringsinnva.com/"
       }
     },
     {
